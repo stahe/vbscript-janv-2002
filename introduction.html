@@ -65,14 +65,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
     var siteName = "Introduction au langage VBScript";
-
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
-    console.log("[GA Debug] page_title forced to: " + siteName);
   </script>
 
     
@@ -495,11 +491,11 @@
 <h1 id="1-introduction">1. Introduction</h1>
 <p>Ce document a pour but de fournir les bases du langage vbscript ainsi que des exemples d&#x27;utilisation dans différents domaines. VBScript est un langage de script sous Windows. Il peut fonctionner dans différents conteneurs tels</p>
 <ul>
-<li>Windows Scripting Host pour une utilisation directe sous Windows notamment pour écrire des scripts d&#x27;administration système</li>
-<li>Internet Explorer. Il est alors utilisé au sein de pages HTML auxquelles il amène une certaine interactivité impossible à atteindre avec le seul langage HTML.</li>
-<li>Internet Information Server (IIS) le serveur Web de Microsoft sur NT/2000 et son équivalent Personal Web Server (PWS) sur Win9x. Dans ce cas, vbscript est utilisé pour faire de la programmation côté serveur web, technologie appelée ASP (Active Server Pages) par Microsoft.
-Par ailleurs, VBSCRIPT étant un langage dérivé de Visual Basic pour Windows, il peut servir d&#x27;introduction à ce langage parmi les plus répandus dans le domaine Windows ainsi qu&#x27;à la version Application de VB, appelée <strong>VBA</strong> (Visual Basic pour Applications). VBA est utilisé par exemple dans tout la suite Office de Microsoft notamment dans Excel. Ainsi VBSCRIPT est une voie d&#x27;entrée au développement dans un vaste domaine d&#x27;applications windows.</li>
+<li><em>Windows Scripting Host</em> pour une utilisation directe sous Windows notamment pour écrire des scripts d&#x27;administration système</li>
+<li><em>Internet Explorer</em>. Il est alors utilisé au sein de pages HTML auxquelles il amène une certaine interactivité impossible à atteindre avec le seul langage HTML.</li>
+<li><em>Internet Information Server</em> (IIS) le serveur Web de Microsoft sur NT/2000 et son équivalent <em>Personal Web Server</em> (PWS) sur Win9x. Dans ce cas, vbscript est utilisé pour faire de la programmation côté serveur web, technologie appelée ASP (<em>Active Server Pages</em>) par Microsoft.</li>
 </ul>
+<p>Par ailleurs, VBSCRIPT étant un langage dérivé de Visual Basic pour Windows, il peut servir d&#x27;introduction à ce langage parmi les plus répandus dans le domaine Windows ainsi qu&#x27;à la version <em>Application</em> de VB, appelée <strong>VBA</strong> (Visual Basic pour Applications). VBA est utilisé par exemple dans tout la suite Office de Microsoft notamment dans Excel. Ainsi VBSCRIPT est une voie d&#x27;entrée au développement dans un vaste domaine d&#x27;applications windows.</p>
 <p>VBScript n&#x27;est pas un langage à objets même s&#x27;il en a une certaine coloration. La notion d&#x27;héritage, par exemple, n&#x27;existe pas. Il peut cependant utiliser les objets mis à sa disposition par le conteneur dans lequel il s&#x27;exécute ainsi que plus généralement les composants ActiveX disponibles sur la machine Windows. C&#x27;est cet aspect qui donne sa puissance à VBScript, langage qui intrinsèquement est assez pauvre mais qui grâce aux objets mis à sa disposition peut rivaliser avec des langages de script au départ plus riches tels Perl, Javascript, Python. C&#x27;est un langage simple à apprendre, à utiliser et qui ouvre la voie à l&#x27;utilisation de Visual Basic pour Windows dont il est directement dérivé.</p>
 <p><strong>Ce document n&#x27;est pas un cours d&#x27;algorithmique</strong>. L&#x27;art de la programmation est supposé acquis. Un travail de lecture actif est nécessaire. La meilleure façon d&#x27;utiliser ce document est probablement de tester sur sa propre machine les exemples qui y sont donnés. Le conteneur WSH est normalement livré en standard avec le système Windows. La version la plus récente est disponible gratuitement sur le site de Microsoft (http://www.microsoft.com). Pour trouver l&#x27;URL exacte permettant le téléchargement de WSH, on pourra chercher les mots clés &quot;Windows Scripting&quot; avec un moteur de recherche sur le Web. Parmi les réponses, on devrait trouver l&#x27;URL de téléchargement de WSH.</p>
 <p>Serge Tahé, janvier 2002</p>

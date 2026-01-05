@@ -65,14 +65,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
     var siteName = "Introduction au langage VBScript";
-
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
-    console.log("[GA Debug] page_title forced to: " + siteName);
   </script>
 
     
@@ -597,25 +593,25 @@
 
 <h1 id="2-les-contextes-dexecution-de-vbscript">2. Les contextes d&#x27;exécution de VBSCRIPT</h1>
 <h2 id="21-introduction">2.1. Introduction</h2>
-<p>Un programme vbscript ne s&#x27;exécute pas directement sous Windows mais dans un conteneur qui lui fournit un contexte d&#x27;exécution et un certain nombre d&#x27;objets qui lui sont propres. Par ailleurs, le programme vbscript peut utiliser des objets mis à sa disposition par le système Windows, objets appelés objets ActiveX.</p>
+<p>Un programme <em>vbscript</em> ne s&#x27;exécute pas directement sous Windows mais dans un conteneur qui lui fournit un contexte d&#x27;exécution et un certain nombre d&#x27;objets qui lui sont propres. Par ailleurs, le programme vbscript peut utiliser des objets mis à sa disposition par le système Windows, objets appelés objets ActiveX.</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000073E00000323F1B79BD8.png" style="display:inline-block; margin:4px;width:16.002cm;height:6.93cm;" /></td></tr></table>
 
-<p>Dans ce document, nous utiliserons deux conteneurs : Windows Scripting Host appelé couramment WSH et le navigateur Internet Explorer appelé parfois par la suite IE. Il en existe bien d&#x27;autres. Ainsi, les applications MS-Office sont des conteneurs pour un dérivé de VB appelé VBA (Visual Basic pour Applications). Il existe par ailleurs de nombreuses applications windows qui permettent à leurs utilisateurs de dépasser les limites de celle-ci en leur permettant de développer des programmes s&#x27;exécutant au sein de l&#x27;application et utilisant les objets propres à celle-ci.</p>
+<p>Dans ce document, nous utiliserons deux conteneurs : <em>Windows Scripting Host</em> appelé couramment WSH et le navigateur <em>Internet Explorer</em> appelé parfois par la suite IE. Il en existe bien d&#x27;autres. Ainsi, les applications MS-Office sont des conteneurs pour un dérivé de VB appelé VBA (Visual Basic pour Applications). Il existe par ailleurs de nombreuses applications windows qui permettent à leurs utilisateurs de dépasser les limites de celle-ci en leur permettant de développer des programmes s&#x27;exécutant au sein de l&#x27;application et utilisant les objets propres à celle-ci.</p>
 <p>Le conteneur dans lequel s&#x27;exécute le programme vbscript joue un rôle primordial :</p>
 <ul>
-<li>les objets mis à disposition du programme vbscript par le conteneur changent d&#x27;un conteneur à l&#x27;autre. Ainsi WSH met à disposition d&#x27;un programme vbs un objet appelé WScript qui donne accès, par exemple, aux partages et imprimantes réseau de la machine hôte. IE lui, met à disposition du programme vbs, un objet appelé document qui représente la totalité du document HTML visualisé. Le programme vbs va alors pouvoir agir sur ce document. Excel lui met à disposition d&#x27;un programme VBA des objets représentant des classeurs, des feuilles de classeurs, des graphiques, etc.... en fait tous les objets manipulés par Excel.</li>
-<li>si les objets d&#x27;un conteneur donnent toute sa puissance à un programme vbscript, il peut parfois en limiter certains domaines. Ainsi un programme vbscript exécuté dans le navigateur IE ne peut pas accéder au disque de la machine hôte, ceci pour des raisons de sécurité.
-Donc, lorsqu&#x27;on parle de programmation vbscript, il faut indiquer dans quel conteneur le programme est exécuté.</li>
+<li>les objets mis à disposition du programme vbscript par le conteneur changent d&#x27;un conteneur à l&#x27;autre. Ainsi WSH met à disposition d&#x27;un programme vbs un objet appelé <em>WScript</em> qui donne accès, par exemple, aux partages et imprimantes réseau de la machine hôte. IE lui, met à disposition du programme vbs, un objet appelé <em>document</em> qui représente la totalité du document HTML visualisé. Le programme vbs va alors pouvoir agir sur ce document. Excel lui met à disposition d&#x27;un programme VBA des objets représentant des classeurs, des feuilles de classeurs, des graphiques, etc.... en fait tous les objets manipulés par Excel.</li>
+<li>si les objets d&#x27;un conteneur donnent toute sa puissance à un programme vbscript, il peut parfois en limiter certains domaines. Ainsi un programme vbscript exécuté dans le navigateur IE ne peut pas accéder au disque de la machine hôte, ceci pour des raisons de sécurité.</li>
 </ul>
+<p>Donc, lorsqu&#x27;on parle de programmation vbscript, il faut indiquer dans quel conteneur le programme est exécuté.</p>
 <p>Sous windows, vbscript n&#x27;est pas le seul langage utilisable dans les conteneurs WSH ou IE. On peut par exemple utiliser JScript (=JavaScript), PerlScript (=Perl), Python, ... Nombre de ces langages semblent de prime abord supérieurs à vbscript. Mais ce dernier a cependant de sérieux atouts :</p>
 <ul>
 <li>VB et ses déclinaisons VBSCRIPT et VBA sont très répandues sur les machines windows. Connaître ce langage paraît indispensable.</li>
-<li>C&#x27;est davantage les objets utilisables par un programme que le langage utilisé par celui-ci qui font sa puissance. Or nombre de ces objets sont fournis par les conteneurs et non par les langages eux-mêmes.
-Un inconvénient de VBSCRIPT est qu&#x27;il n&#x27;est pas portable sur un système autre que Windows, par exemple Unix. Ses concurrents Javascript, Perl, Python eux le sont. Si on doit travailler sur des systèmes hétérogènes, il peut être intéressant voire indispensable d&#x27;utiliser le même langage sur les différents systèmes.</li>
+<li>C&#x27;est davantage les objets utilisables par un programme que le langage utilisé par celui-ci qui font sa puissance. Or nombre de ces objets sont fournis par les conteneurs et non par les langages eux-mêmes.</li>
 </ul>
+<p>Un inconvénient de VBSCRIPT est qu&#x27;il n&#x27;est pas portable sur un système autre que Windows, par exemple Unix. Ses concurrents Javascript, Perl, Python eux le sont. Si on doit travailler sur des systèmes hétérogènes, il peut être intéressant voire indispensable d&#x27;utiliser le même langage sur les différents systèmes.</p>
 <h2 id="22-le-conteneur-wsh">2.2. Le conteneur WSH</h2>
 <p>Le conteneur WSH (Windows Scripting Host) permet l&#x27;exécution, au sein de Windows, de programmes écrits en divers langages : vbscript, javascript, perlscript, python, ... Il existe une norme à respecter pour qu&#x27;un langage puisse être utilisé au sein de WSH. Tout langage respectant cette norme est candidat à l&#x27;exécution au sein de WSH. On peut imaginer que la liste précédente des langages s&#x27;exécutant dans WSH puisse s&#x27;allonger. Un conteneur met à la disposition des programmes qu&#x27;il exécute des objets qui leur donnent leur véritable puissance. Ceci tend à gommer les différences entre langages puiqu&#x27;ils utilisent alors tous le même ensemble d&#x27;objets. Utiliser un langage plutôt qu&#x27;un autre peut devenir alors une simple affaire de goût plutôt que de performances.</p>
-<p>L&#x27;exécution d&#x27;un programme dans WSH se fait à l&#x27;aide de deux exécutables : wscript.exe et cscript.exe. wscript.exe se trouve normalement dans le répertoire d&#x27;installation de windows appelé généralement %windir% :</p>
+<p>L&#x27;exécution d&#x27;un programme dans WSH se fait à l&#x27;aide de deux exécutables : <em>wscript.exe</em> et <em>cscript.exe</em>. <em>wscript.exe</em> se trouve normalement dans le répertoire d&#x27;installation de windows appelé généralement <em>%windir%</em> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
@@ -627,28 +623,28 @@ Un inconvénient de VBSCRIPT est qu&#x27;il n&#x27;est pas portable sur un syst�
 <span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-0-10">10</a></span>
 <span class="normal"><a href="#__codelineno-0-11">11</a></span>
-<span class="normal"><a href="#__codelineno-0-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">C</span><span class="p">:</span>\ <span class="o">&gt;</span><span class="n">echo</span> <span class="o">%</span><span class="n">windir</span><span class="o">%</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">C</span><span class="p">:</span>\<span class="n">WINDOWS</span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>C:\ &gt;echo %windir%
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>C:\WINDOWS
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span><span class="nb">dir</span> <span class="n">c</span><span class="p">:</span>\<span class="n">windows</span>\<span class="n">wscript</span><span class="o">.</span><span class="n">exe</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">WSCRIPT</span>  <span class="n">EXE</span>       <span class="mi">123</span> <span class="mi">280</span>  <span class="mi">19</span><span class="o">/</span><span class="mi">09</span><span class="o">/</span><span class="mi">01</span>  <span class="mi">11</span><span class="p">:</span><span class="mi">54</span> <span class="n">wscript</span><span class="o">.</span><span class="n">exe</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>C:\&gt;dir c:\windows\wscript.exe
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>WSCRIPT  EXE       123 280  19/09/01  11:54 wscript.exe
 <a id="__codelineno-0-6" name="__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">L</span><span class="s1">&#39;exécutable cscript.exe se trouve lui sous %windir%\command :</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>L&#39;exécutable cscript.exe se trouve lui sous %windir%\command :
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span><span class="nb">dir</span> <span class="n">c</span><span class="p">:</span>\<span class="n">windows</span>\<span class="n">cscript</span><span class="o">.*</span> <span class="o">/</span><span class="n">s</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>C:\&gt;dir c:\windows\cscript.* /s
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="n">Répertoire</span> <span class="n">de</span> <span class="n">C</span><span class="p">:</span>\<span class="n">WINDOWS</span>\<span class="n">COMMAND</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="n">CSCRIPT</span>  <span class="n">EXE</span>       <span class="mi">102</span> <span class="mi">450</span>  <span class="mi">26</span><span class="o">/</span><span class="mi">06</span><span class="o">/</span><span class="mi">01</span>  <span class="mi">17</span><span class="p">:</span><span class="mi">49</span> <span class="n">cscript</span><span class="o">.</span><span class="n">exe</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>Répertoire de C:\WINDOWS\COMMAND
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>CSCRIPT  EXE       102 450  26/06/01  17:49 cscript.exe
 </code></pre></div></td></tr></table></div>
-<p>Le w de wscript veut dire windows et le c de cscript veut dire console. Un script peut être exécuté indifféremment par wscript ou cscript. La différence réside dans le mode d&#x27;affichage de messages à l&#x27;écran :</p>
+<p>Le w de <em>wscript</em> veut dire <em>windows</em> et le c de <em>cscript</em> veut dire <em>console</em>. Un script peut être exécuté indifféremment par wscript ou cscript. La différence réside dans le mode d&#x27;affichage de messages à l&#x27;écran :</p>
 <ul>
 <li>wscript les affiche dans une fenêtre</li>
-<li>cscript les affiche à l&#x27;écran
-Voici un script coucou.vbs qui affiche coucou à l&#x27;écran :</li>
+<li>cscript les affiche à l&#x27;écran</li>
 </ul>
+<p>Voici un script <em>coucou.vbs</em> qui affiche <em>coucou</em> à l&#x27;écran :</p>
 <p><img src="images/10000000000000AD00000019ADCAAFD4.png" style="width:4.577cm;height:0.661cm;" alt="Image" /></p>
-<p>Ouvrons une fenêtre DOS et exécutons-le successivement avec wscript et cscript :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">DOS</span><span class="o">&gt;</span><span class="n">wscript</span> <span class="n">coucou</span><span class="o">.</span><span class="n">vbs</span>
+<p>Ouvrons une fenêtre DOS et exécutons-le successivement avec <em>wscript</em> et <em>cscript</em> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>DOS&gt;wscript coucou.vbs
 </code></pre></div></td></tr></table></div>
 <p><img src="images/100000000000009C000000638302BD50.png" style="width:4.128cm;height:2.619cm;" alt="Image" /></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
@@ -656,28 +652,26 @@ Voici un script coucou.vbs qui affiche coucou à l&#x27;écran :</li>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span>
 <span class="normal"><a href="#__codelineno-2-4">4</a></span>
 <span class="normal"><a href="#__codelineno-2-5">5</a></span>
-<span class="normal"><a href="#__codelineno-2-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">DOS</span><span class="o">&gt;</span><span class="n">cscript</span> <span class="n">coucou</span><span class="o">.</span><span class="n">vbs</span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>DOS&gt;cscript coucou.vbs
 <a id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">Microsoft</span> <span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="n">Windows</span> <span class="n">Script</span> <span class="n">Host</span> <span class="n">Version</span> <span class="mf">5.6</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="n">Microsoft</span> <span class="n">Corporation</span> <span class="mi">1996</span><span class="o">-</span><span class="mf">2001.</span> <span class="n">Tous</span> <span class="n">droits</span> <span class="n">réservés</span><span class="o">.</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>Microsoft (R) Windows Script Host Version 5.6
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>Copyright (C) Microsoft Corporation 1996-2001. Tous droits réservés.
 <a id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">coucou</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>coucou
 </code></pre></div></td></tr></table></div>
-<p>On voit ci-dessus clairement la différence entre les deux modes. Dans ce document, nous utiliserons quasi exclusivement le mode console cscript. C&#x27;est le mode qui convient aux applications dites &quot;batch&quot; c&#x27;est à dire des applications sans interaction avec un utilisateur au clavier. On notera deux points dans les résultats précédents :</p>
-<ul>
-<li>
-<p>On a supposé que les exécutables wscript.exe et cscript.exe étaient tous les deux dans le &quot;PATH&quot; de la machine, ce qui permet de les lancer en tapant simplement leurs noms. Si ce n&#x27;était pas le cas, il aurait fallu écrire ici :
+<p>On voit ci-dessus clairement la différence entre les deux modes. Dans ce document, nous utiliserons quasi exclusivement le mode console <em>cscript</em>. C&#x27;est le mode qui convient aux applications dites &quot;batch&quot; c&#x27;est à dire des applications sans interaction avec un utilisateur au clavier. On notera deux points dans les résultats précédents :</p>
+<ol>
+<li>On a supposé que les exécutables wscript.exe et cscript.exe étaient tous les deux dans le &quot;PATH&quot; de la machine, ce qui permet de les lancer en tapant simplement leurs noms. Si ce n&#x27;était pas le cas, il aurait fallu écrire ici :</li>
+</ol>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">DOS</span><span class="o">&gt;</span><span class="n">c</span><span class="p">:</span>\<span class="n">windows</span>\<span class="n">wscript</span> <span class="n">coucou</span><span class="o">.</span><span class="n">vbs</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">DOS</span><span class="o">&gt;</span><span class="n">c</span><span class="p">:</span>\<span class="n">windows</span>\<span class="n">command</span>\<span class="n">cscript</span> <span class="n">coucou</span><span class="o">.</span><span class="n">vbs</span>
-</code></pre></div></td></tr></table></div></p>
-</li>
-<li>
-<p>On notera que la version de wsh utilisée dans cet exemple et dans la suite du document est la version 5.6.</p>
-</li>
-<li>Le fichier source du script a le suffixe .vbs. C&#x27;est le suffixe désignant un script vbscript, un script javascript étant lui désigné par le suffixe .js.
-Le programme cscript a diverses options de lancement qu&#x27;on obtient en lançant cscript sans arguments :</li>
-</ul>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>DOS&gt;c:\windows\wscript coucou.vbs
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>DOS&gt;c:\windows\command\cscript coucou.vbs
+</code></pre></div></td></tr></table></div>
+<ol>
+<li>On notera que la version de wsh utilisée dans cet exemple et dans la suite du document est la version 5.6.</li>
+<li>Le fichier source du script a le suffixe <em>.vbs</em>. C&#x27;est le suffixe désignant un script <em>vbscript</em>, un script <em>javascript</em> étant lui désigné par le suffixe <em>.js</em>.</li>
+</ol>
+<p>Le programme <em>cscript</em> a diverses options de lancement qu&#x27;on obtient en lançant <em>cscript</em> sans arguments :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
@@ -718,20 +712,20 @@ Le programme cscript a diverses options de lancement qu&#x27;on obtient en lanç
 <a id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="o">//</span><span class="n">T</span><span class="p">:</span><span class="n">nn</span>      <span class="n">Durée</span> <span class="n">d</span><span class="s1">&#39;exécution en secondes :  Temps maximal autorisé pour l&#39;</span><span class="n">exécution</span> <span class="n">d</span><span class="s1">&#39;un script</span>
 <a id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="o">//</span><span class="n">X</span>         <span class="n">Exécuter</span> <span class="n">un</span> <span class="n">script</span> <span class="n">dans</span> <span class="n">le</span> <span class="n">débogueur</span>
 </code></pre></div></td></tr></table></div>
-<p>L&#x27;argument //nologo supprime l&#x27;affichage de la bannière de wsh :</p>
+<p>L&#x27;argument <em>//nologo</em> supprime l&#x27;affichage de la bannière de wsh :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span><span class="n">cscript</span> <span class="o">//</span><span class="n">nologo</span> <span class="n">coucou</span><span class="o">.</span><span class="n">vbs</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">coucou</span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>C:\&gt;cscript //nologo coucou.vbs
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>coucou
 </code></pre></div></td></tr></table></div>
 <h2 id="23-la-forme-dun-script-wsh">2.3. La forme d&#x27;un script WSH</h2>
-<p>Nous venons de voir un premier script : coucou.vbs</p>
+<p>Nous venons de voir un premier script : <em>coucou.vbs</em></p>
 <p><img src="images/10000000000000AD00000019ADCAAFD4.png" style="width:4.577cm;height:0.661cm;" alt="Image" /></p>
-<p>Nous avons indiqué que le suffixe .vbs du fichier désignait un script vbscript. Ce n&#x27;est pas une obligation. Nous aurions pu mettre le script dans un fichier de suffixe .wsf sous la forme suivante plus complexe :</p>
+<p>Nous avons indiqué que le suffixe <em>.vbs</em> du fichier désignait un script <em>vbscript</em>. Ce n&#x27;est pas une obligation. Nous aurions pu mettre le script dans un fichier de suffixe <em>.wsf</em> sous la forme suivante plus complexe :</p>
 <p><img src="images/10000000000000EC000000445ACF69C7.png" style="width:6.244cm;height:1.799cm;" alt="Image" /></p>
 <p>L&#x27;exécution de ce script donne la chose suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span><span class="n">cscript</span> <span class="o">//</span><span class="n">nologo</span> <span class="n">coucou2</span><span class="o">.</span><span class="n">wsf</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">coucou</span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>C:\&gt;cscript //nologo coucou2.wsf
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>coucou
 </code></pre></div></td></tr></table></div>
 <p>Un script WSH peut mélanger les langages :</p>
 <p><img src="images/1000000000000149000000C80D41B3C1.png" style="width:8.705cm;height:5.292cm;" alt="Image" /></p>
@@ -739,52 +733,52 @@ Le programme cscript a diverses options de lancement qu&#x27;on obtient en lanç
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span>
 <span class="normal"><a href="#__codelineno-7-3">3</a></span>
-<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span><span class="n">cscript</span> <span class="o">//</span><span class="n">nologo</span> <span class="n">coucou3</span><span class="o">.</span><span class="n">wsf</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">coucou</span> <span class="p">(</span><span class="n">vbscript</span><span class="p">)</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">coucou</span> <span class="p">(</span><span class="n">javascript</span><span class="p">)</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="n">coucou</span> <span class="p">(</span><span class="n">perlscript</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>C:\&gt;cscript //nologo coucou3.wsf
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>coucou (vbscript)
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>coucou (javascript)
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>coucou (perlscript)
 </code></pre></div></td></tr></table></div>
 <p>Nous retiendrons les points suivants :</p>
-<ul>
+<ol>
 <li>Le conteneur WSH n&#x27;est pas lié à un langage. Un script wsh peut mélanger les langages dans un fichier de suffixe .wsf</li>
 <li>Le script est alors encadré par des balises &lt;job id=&quot;...&quot;&gt; ... &lt;/job&gt;</li>
 <li>A l&#x27;intérieur de l&#x27;application (=job), les langages utilisés par les différentes portions de code sont balisées par &lt;script language=&quot;....&quot;&gt; .... &lt;/script&gt;</li>
-<li>Ce langage de balisages porte un nom : XML pour e<strong>X</strong>tended <strong>M</strong>arkup <strong>L</strong>anguage. XML ne définit aucune balise mais des règles d&#x27;agencement de balises. Ici on devrait donc dire que le langage de balisages utilisé dans un script wsh suit la norme XML.
-Par la suite, nous utiliserons exclusivement vbscript dans des fichiers .vbs.</li>
-</ul>
+<li>Ce langage de balisages porte un nom : XML pour e<strong>X</strong>tended <strong>M</strong>arkup <strong>L</strong>anguage. XML ne définit aucune balise mais des règles d&#x27;agencement de balises. Ici on devrait donc dire que le langage de balisages utilisé dans un script wsh suit la norme XML.</li>
+</ol>
+<p>Par la suite, nous utiliserons exclusivement vbscript dans des fichiers .vbs.</p>
 <h2 id="24-lobjet-wscript">2.4. L&#x27;objet WSCRIPT</h2>
-<p>Le conteneur WSH met à la disposition des scripts qu&#x27;il exécute un objet appelé wscript. Un objet a des <strong>propriétés</strong> et des <strong>méthodes</strong> :</p>
+<p>Le conteneur WSH met à la disposition des scripts qu&#x27;il exécute un objet appelé <em>wscript</em>. Un objet a des <strong>propriétés</strong> et des <strong>méthodes</strong> :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000252000000DFD101E0DF.png" style="display:inline-block; margin:4px;width:7.858cm;height:2.951cm;" /></td></tr></table>
 
-<p>Un objet Obj a des propriétés Pi qui fixent son état. Ainsi un objet thermomètre peut avoir une propriété température. Cette propriété est un des aspects de l&#x27;état du thermomètre. Une autre pourrait être la température maximale Tmax qu&#x27;il peut supporter.</p>
-<p>L&#x27;objet Obj peut avoir des méthodes Mj qui permettent à des agents extérieurs soit de :</p>
+<p>Un objet <em>Obj</em> a des propriétés <em>Pi</em> qui fixent son état. Ainsi un objet <em>thermomètre</em> peut avoir une propriété <em>température</em>. Cette propriété est un des aspects de l&#x27;état du thermomètre. Une autre pourrait être la température maximale <em>Tmax</em> qu&#x27;il peut supporter.</p>
+<p>L&#x27;objet <em>Obj</em> peut avoir des méthodes <em>Mj</em> qui permettent à des agents extérieurs soit de :</p>
 <ul>
 <li>connaître son état</li>
-<li>changer son état
-Ainsi notre thermomètre, s&#x27;il est électronique, pourrait avoir une méthode allumer qui le mettrait en marche, une autre éteindre qui l&#x27;éteindrait, une autre afficher qui afficherait la température d&#x27;équilibre une fois celle-ci atteinte. En termes de programmation, une méthode est une fonction qui peut admettre des arguments et rendre des résultats.</li>
+<li>changer son état</li>
 </ul>
-<p>En Vbscript, les propriétés Pi d&#x27;un objet Obj sont notées Obj.Pi et les méthodes Mj sont notées Obj.Mj. L&#x27;objet wscript de WSH est un objet important pour les méthodes qu&#x27;il met à disposition des scripts. Ainsi sa méthode echo permet d&#x27;afficher un message. La syntaxe de cette méthode est la suivante :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">wscript</span><span class="o">.</span><span class="n">echo</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">argn</span>
+<p>Ainsi notre thermomètre, s&#x27;il est électronique, pourrait avoir une méthode <em>allumer</em> qui le mettrait en marche, une autre <em>éteindre</em> qui l&#x27;éteindrait, une autre <em>afficher</em> qui afficherait la température d&#x27;équilibre une fois celle-ci atteinte. En termes de programmation, une méthode est une fonction qui peut admettre des arguments et rendre des résultats.</p>
+<p>En Vbscript, les propriétés Pi d&#x27;un objet Obj sont notées <em>Obj.Pi</em> et les méthodes Mj sont notées <em>Obj.Mj</em>. L&#x27;objet wscript de WSH est un objet important pour les méthodes qu&#x27;il met à disposition des scripts. Ainsi sa méthode <em>echo</em> permet d&#x27;afficher un message. La syntaxe de cette méthode est la suivante :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>wscript.echo arg1, arg2, ..., argn
 </code></pre></div></td></tr></table></div>
-<p>Les valeurs des arguments argi sont alors affichées dans une fenêtre (exécution par wscript) ou à l&#x27;écran (exécution par cscript sous DOS).</p>
+<p>Les valeurs des arguments <em>argi</em> sont alors affichées dans une fenêtre (exécution par wscript) ou à l&#x27;écran (exécution par cscript sous DOS).</p>
 <h2 id="25-le-conteneur-internet-explorer">2.5. Le conteneur Internet Explorer</h2>
-<p>Nous avons écrit plus haut que Internet Explorer pouvait être un conteneur pour un script vbscript. Montrons-le sur un exemple simple. Suit une page HTML (<strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage) appelée coucou2.htm ne contenant pas de script vbscript.</p>
+<p>Nous avons écrit plus haut que Internet Explorer pouvait être un conteneur pour un script vbscript. Montrons-le sur un exemple simple. Suit une page HTML (<strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage) appelée <em>coucou2.htm</em> ne contenant pas de script vbscript.</p>
 <p>21</p>
 <p><img src="images/100000000000014400000074F8C78C12.png" style="width:8.573cm;height:3.069cm;" alt="Image" /></p>
-<p>Son chargement direct par Internet Explorer (Fichier/Ouvrir) donne les résultats suivants :</p>
+<p>Son chargement direct par Internet Explorer (<em>Fichier/Ouvrir</em>) donne les résultats suivants :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000038F00000188C838B150.png" style="display:inline-block; margin:4px;width:12.053cm;height:5.186cm;" /></td></tr></table>
 
-<p>Le contenu du fichier coucou2.htm nous montre que HTML est un langage de balisage. Connaître le langage HTML c&#x27;est connaître ces balises. Celles-ci ont pour but principal d&#x27;indiquer au navigateur comment afficher un document. HTML ne suit pas exactement la norme XML mais en est proche.</p>
-<p>Dans coucou2.htm, il y a deux informations à représenter notées 1 et 2. Nous les avons représentées également dans l&#x27;affichage qui en a été fait. C&#x27;est la balise &lt;title&gt;...&lt;/title&gt; qui a fait que l&#x27;information 1 a été placée dans la barre de titre du navigateur et la balise &lt;body&gt;..&lt;/body&gt; qui a fait que l&#x27;information 2 a été placée dans la partie document du navigateur.</p>
-<p>Nous n&#x27;entrerons pas davantage dans l&#x27;étude du langage HTML. Modifions le fichier coucou2.htm en y introduisant un script vbscript et appelons-le maintenant coucou1.htm :</p>
+<p>Le contenu du fichier <em>coucou2.htm</em> nous montre que HTML est un langage de balisage. Connaître le langage HTML c&#x27;est connaître ces balises. Celles-ci ont pour but principal d&#x27;indiquer au navigateur comment afficher un document. HTML ne suit pas exactement la norme XML mais en est proche.</p>
+<p>Dans <em>coucou2.htm</em>, il y a deux informations à représenter notées 1 et 2. Nous les avons représentées également dans l&#x27;affichage qui en a été fait. C&#x27;est la balise <em>&lt;title&gt;...&lt;/title&gt;</em> qui a fait que l&#x27;information 1 a été placée dans la barre de titre du navigateur et la balise <em>&lt;body&gt;..&lt;/body&gt;</em> qui a fait que l&#x27;information 2 a été placée dans la partie document du navigateur.</p>
+<p>Nous n&#x27;entrerons pas davantage dans l&#x27;étude du langage HTML. Modifions le fichier <em>coucou2.htm</em> en y introduisant un script vbscript et appelons-le maintenant <em>coucou1.htm</em> :</p>
 <p><img src="images/1000000000000289000000920A3BF436.png" style="width:15.981cm;height:3.598cm;" alt="Image" /></p>
-<p>Le script vbscript a été placé dans la balise &lt;head&gt;...&lt;/head&gt;. Il aurait pu être placé ailleurs. Il affiche &quot;coucou&quot; au chargement initial de la page. Ici, le navigateur doit être Internet Explorer car seul ce navigateur est par défaut un conteneur pour des scripts vbscript. L&#x27;affichage obtenu est alors le suivant :</p>
+<p>Le script vbscript a été placé dans la balise <em>&lt;head&gt;...&lt;/head&gt;</em>. Il aurait pu être placé ailleurs. Il affiche &quot;coucou&quot; au chargement initial de la page. Ici, le navigateur doit être Internet Explorer car seul ce navigateur est par défaut un conteneur pour des scripts vbscript. L&#x27;affichage obtenu est alors le suivant :</p>
 <p><img src="images/10000000000000C2000000765F603384.png" style="width:5.133cm;height:3.122cm;" alt="Image" /></p>
 <p>suivi de l&#x27;affichage normal de la page :</p>
 <p><img src="images/10000000000001B80000009CC27983F3.png" style="width:11.642cm;height:4.128cm;" alt="Image" /></p>
 <p>Le script exécuté était le suivant :</p>
 <p><img src="images/10000000000000D70000002DC732857C.png" style="width:5.689cm;height:1.191cm;" alt="Image" /></p>
-<p>Alors que le conteneur WSH mettait à disposition du script un objet appelé wscript permettant de faire des affichages avec sa méthode echo, ici IE met à disposition du script un objet window permettant de faire des affichages avec la méthode alert. Ainsi pour afficher &quot;coucou&quot;, on écrit wscript.echo &quot;coucou&quot; dans WSH et window.alert &quot;coucou&quot; dans IE. On peut montrer ici aussi qu&#x27;en fait on peut utiliser plusieurs langages dans le conteneur IE. Nous reprenons l&#x27;exemple déjà présenté dans WSH au sein d&#x27;une page coucou3.htm :</p>
+<p>Alors que le conteneur WSH mettait à disposition du script un objet appelé <em>wscript</em> permettant de faire des affichages avec sa méthode <em>echo</em>, ici IE met à disposition du script un objet <em>window</em> permettant de faire des affichages avec la méthode <em>alert</em>. Ainsi pour afficher &quot;coucou&quot;, on écrit <em>wscript.echo &quot;coucou&quot;</em> dans WSH et <em>window.alert &quot;coucou&quot;</em> dans IE. On peut montrer ici aussi qu&#x27;en fait on peut utiliser plusieurs langages dans le conteneur IE. Nous reprenons l&#x27;exemple déjà présenté dans WSH au sein d&#x27;une page <em>coucou3.htm</em> :</p>
 <p><img src="images/10000000000002A40000011AA4BEDFB1.png" style="width:15.981cm;height:6.668cm;" alt="Image" /></p>
 <p>Le chargement de cette page par IE affiche tout d&#x27;abord trois fenêtres d&#x27;information :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000C200000077F09A77D4.png" style="display:inline-block; margin:4px;width:5.133cm;height:3.149cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000C100000076C652CBA1.png" style="display:inline-block; margin:4px;width:5.106cm;height:3.122cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000C100000075460B483D.png" style="display:inline-block; margin:4px;width:5.106cm;height:3.096cm;" /></td></tr></table>
@@ -797,12 +791,12 @@ Ainsi notre thermomètre, s&#x27;il est électronique, pourrait avoir une métho
 <p><img src="images/10000000000000F1000000B609492925.png" style="width:6.376cm;height:4.815cm;" alt="Image" /></p>
 <p>On y trouve l&#x27;aide du conteneur WSH mais également celle pour les langages vbscript et javascript. C&#x27;est un outil indispensable à la fois pour le débutant et le programmeur confirmé. Il y a plusieurs façons de travailler avec cette aide :</p>
 <ul>
-<li>on ne sait pas trop ce qu&#x27;on cherche. On veut simplement découvrir ce qui est proposé. L&#x27;onglet Sommaire ci-dessus peut être alors utilisé. On peut par exemple regarder ce qui est proposé pour vbscript :</li>
+<li>on ne sait pas trop ce qu&#x27;on cherche. On veut simplement découvrir ce qui est proposé. L&#x27;onglet <em>Sommaire</em> ci-dessus peut être alors utilisé. On peut par exemple regarder ce qui est proposé pour vbscript :</li>
 </ul>
 <p><img src="images/10000000000001DA0000020FBC4A7ED8.png" style="width:12.541cm;height:13.944cm;" alt="Image" /></p>
 <p>Vous découvrirez dans l&#x27;aide de VBscript de nombreuses informations qui ne sont pas dans ce document.</p>
 <ul>
-<li>vous pouvez chercher quelque chose de précis, par exemple la façon d&#x27;utiliser la fonction msgbox de VBscript. Utilisez alors l&#x27;onglet Rechercher :</li>
+<li>vous pouvez chercher quelque chose de précis, par exemple la façon d&#x27;utiliser la fonction <em>msgbox</em> de VBscript. Utilisez alors l&#x27;onglet <em>Rechercher</em> :</li>
 </ul>
 <p><img src="images/10000000000000EA00000156DCCA294C.png" style="width:6.191cm;height:9.049cm;" alt="Image" /></p>
 <p>L&#x27;aide ramène toutes les rubriques qui ont un rapport avec le mot recherché. En général, les premières rubriques proposées sont les plus pertinentes. C&#x27;est le cas ici où la première rubrique proposée est la bonne. Il suffit de double-cliquer dessus pour avoir l&#x27;information de cette rubrique :</p>

@@ -63,14 +63,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
     var siteName = "Introduction au langage VBScript";
-
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
-    console.log("[GA Debug] page_title forced to: " + siteName);
   </script>
 
     
@@ -573,48 +569,54 @@
 <span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
 <span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span><span class="n">cscript</span> <span class="n">fic1</span><span class="o">.</span><span class="n">vbs</span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>C:\&gt;cscript fic1.vbs
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span><span class="nb">dir</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>C:\&gt;dir
 <a id="__codelineno-0-4" name="__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a> <span class="n">FIC1</span>     <span class="n">VBS</span>           <span class="mi">352</span>  <span class="mi">07</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">02</span>   <span class="mi">7</span><span class="p">:</span><span class="mi">07</span> <span class="n">fic1</span><span class="o">.</span><span class="n">vbs</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">TESTFILE</span> <span class="n">TXT</span>            <span class="mi">25</span>  <span class="mi">07</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">02</span>   <span class="mi">7</span><span class="p">:</span><span class="mi">07</span> <span class="n">testfile</span><span class="o">.</span><span class="n">txt</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a> FIC1     VBS           352  07/01/02   7:07 fic1.vbs
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>TESTFILE TXT            25  07/01/02   7:07 testfile.txt
 <a id="__codelineno-0-7" name="__codelineno-0-7"></a>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span><span class="n">more</span> <span class="n">testfile</span><span class="o">.</span><span class="n">txt</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>C:\&gt;more testfile.txt
 <a id="__codelineno-0-9" name="__codelineno-0-9"></a>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">Ceci</span> <span class="n">est</span> <span class="n">un</span> <span class="n">autre</span> <span class="n">test</span><span class="o">.</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>Ceci est un autre test.
 </code></pre></div></td></tr></table></div>
 </div></td></tr></table>
 
 <p>Commentaires</p>
 <ul>
-<li>la ligne 7 crée un objet fichier de type &quot;Scripting.FileSystemObject&quot; par la fonction CreateObject(&quot;Scripting.FileSystemObject&quot;). Un tel objet permet l&#x27;accès à tout fichier du système pas simplement à des fichiers texte.</li>
-<li>la ligne 9 crée un objet &quot;TextStream&quot;. La création de cet objet est associée à la création du fichier testfile.txt. Ce fichier n&#x27;est pas désigné par un nom absolu du genre c:\dir1\dir2....\testfile.txt mais par un nom relatif testfile.txt. Il sera alors créé dans le répertoire d&#x27;où sera lancée la commande d&#x27;exécution du fichier.</li>
+<li>la ligne 7 crée un objet fichier de type &quot;<em>Scripting.FileSystemObject</em>&quot; par la fonction <em>CreateObject(&quot;Scripting.FileSystemObject&quot;)</em>. Un tel objet permet l&#x27;accès à tout fichier du système pas simplement à des fichiers texte.</li>
+<li>la ligne 9 crée un objet &quot;<em>TextStream</em>&quot;. La création de cet objet est associée à la création du fichier <em>testfile.txt</em>. Ce fichier n&#x27;est pas désigné par un nom absolu du genre <em>c:\dir1\dir2....\testfile.txt</em> mais par un nom relatif <em>testfile.txt</em>. Il sera alors créé dans le répertoire d&#x27;où sera lancée la commande d&#x27;exécution du fichier.</li>
 <li>le système de fichiers du système windows n&#x27;a pas connaissance de concepts tels que fichier texte ou fichier non texte. Il ne connaît que des fichiers. C&#x27;est donc au programme qui exploite ce fichier de savoir s&#x27;il va le traiter comme un fichier texte ou non.</li>
-<li>La ligne 9 crée un objet d&#x27;où la commande set utilisée pour l&#x27;affectation. La création d&#x27;un objet fichier texte passe par la création de 2 objets :</li>
-<li>la création d&#x27;un objet Scripting.FileSystemObject (ligne 7)</li>
-<li>puis par la création d&#x27;un objet &quot;TextStream&quot; (fichier texte) par la méthode OpenTextFile de l&#x27;objet Scripting.FileSystemObject qui admet plusieurs paramètres :</li>
+<li>La ligne 9 crée un objet d&#x27;où la commande <em>set</em> utilisée pour l&#x27;affectation. La création d&#x27;un objet fichier texte passe par la création de 2 objets :<ul>
+<li>la création d&#x27;un objet <em>Scripting.FileSystemObject</em> (ligne 7)</li>
+<li>puis par la création d&#x27;un objet &quot;<em>TextStream</em>&quot; (fichier texte) par la méthode <em>OpenTextFile</em> de l&#x27;objet <em>Scripting.FileSystemObject</em> qui admet plusieurs paramètres :<ul>
 <li>le nom du fichier à gérer (obligatoire)</li>
-<li>le mode d&#x27;utilisation du fichier. C&#x27;est un entier avec 3 valeurs possibles :</li>
+<li>le mode d&#x27;utilisation du fichier. C&#x27;est un entier avec 3 valeurs possibles :<ul>
 <li>1 : utilisation du fichier en lecture</li>
 <li>2 : utilisation du fichier en écriture. S&#x27;il n&#x27;existe pas déjà et si le 3ième paramètre est présent et a la valeur true, il est créé sinon il n&#x27;est pas. S&#x27;il existe déjà, il est écrasé.</li>
 <li>8 : utilisation du fichier en ajout, c.a.d. écriture en fin de fichier. Si le fichier n&#x27;existe pas déjà et si le 3ième paramètre est présent et a la valeur true, il est créé sinon il n&#x27;est pas.</li>
-<li>la ligne 11 écrit une ligne de texte avec la méthode WriteLine de l&#x27;objet TextStream créé.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>la ligne 11 écrit une ligne de texte avec la méthode <em>WriteLine</em> de l&#x27;objet TextStream créé.</li>
 <li>la ligne 13 &quot;ferme&quot; le fichier. On ne peut alors plus écrire ou lire dedans.</li>
-<li>la ligne 16 crée un nouvel objet &quot;TextStream&quot; pour exploiter le même fichier que précédemment mais cette fois-ci en mode &quot;ajout&quot;. Les lignes qui seront écrites le seront derrière les lignes existantes.</li>
+<li>la ligne 16 crée un nouvel objet &quot;<em>TextStream</em>&quot; pour exploiter le même fichier que précédemment mais cette fois-ci en mode &quot;ajout&quot;. Les lignes qui seront écrites le seront derrière les lignes existantes.</li>
 <li>la ligne 18 écrit deux nouvelles lignes sachant que la constante vbCRLF est la marque de fin de ligne des fichiers texte.</li>
 <li>la ligne 20 ferme de nouveau le fichier</li>
 <li>la ligne 23 le rouvre en mode &quot;lecture&quot; : on va lire le contenu du fichier. </li>
-<li>La ligne 27 lit une ligne de texte avec la méthode ReadLine de l&#x27;objet TextStream. Lorsque le fichier vient d&#x27;être &quot;ouvert&quot;, on est positionné sur la 1ère ligne de texte de celui-ci. Lorsque celle-ci a été lue par la méthode ReadLine, on est positionné sur la seconde ligne. Ainsi la méthode Readline non seulement lit la ligne courante mais &quot;avance&quot; ensuite automatiquement à la ligne suivante.</li>
-<li>Pour ligne toutes les lignes de texte, la méthode ReadLine doit être appliquée de façon répétée dans une boucle. Celle-ci (ligne 26) se termine lorsque l&#x27;attribut AtEndOfStream de l&#x27;objet TextStream a la valeur true. Cela signifie alors qu&#x27;il n&#x27;y a plus de lignes à lire dans le fichier.</li>
+<li>La ligne 27 lit une ligne de texte avec la méthode <em>ReadLine</em> de l&#x27;objet <em>TextStream</em>. Lorsque le fichier vient d&#x27;être &quot;ouvert&quot;, on est positionné sur la 1ère ligne de texte de celui-ci. Lorsque celle-ci a été lue par la méthode <em>ReadLine</em>, on est positionné sur la seconde ligne. Ainsi la méthode <em>Readline</em> non seulement lit la ligne courante mais &quot;avance&quot; ensuite automatiquement à la ligne suivante.</li>
+<li>Pour ligne toutes les lignes de texte, la méthode <em>ReadLine</em> doit être appliquée de façon répétée dans une boucle. Celle-ci (ligne 26) se termine lorsque l&#x27;attribut <em>AtEndOfStream</em> de l&#x27;objet <em>TextStream</em> a la valeur <em>true</em>. Cela signifie alors qu&#x27;il n&#x27;y a plus de lignes à lire dans le fichier.</li>
 </ul>
 <h2 id="62-les-cas-derreur">6.2. Les cas d&#x27;erreur</h2>
 <p>On rencontre deux cas d&#x27;erreur fréquents :</p>
 <ul>
 <li>ouverture en lecture d&#x27;un fichier qui n&#x27;existe pas</li>
-<li>ouverture en écriture ou ajout d&#x27;un fichier qui n&#x27;existe pas avec comme le troisième paramètre à false dans l&#x27;appel à la méthode OpenTextFile.
-Le programme suivant montre comment détecter ces erreurs :</li>
+<li>ouverture en écriture ou ajout d&#x27;un fichier qui n&#x27;existe pas avec comme le troisième paramètre à false dans l&#x27;appel à la méthode <em>OpenTextFile</em>.</li>
 </ul>
+<p>Le programme suivant montre comment détecter ces erreurs :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Programme</b></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
@@ -664,55 +666,55 @@ Le programme suivant montre comment détecter ces erreurs :</li>
 <span class="normal"><a href="#__codelineno-1-46">46</a></span>
 <span class="normal"><a href="#__codelineno-1-47">47</a></span>
 <span class="normal"><a href="#__codelineno-1-48">48</a></span>
-<span class="normal"><a href="#__codelineno-1-49">49</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="s1">&#39; création &amp; remplissage d&#39;</span><span class="n">un</span> <span class="n">fichier</span> <span class="n">texte</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">Option</span> <span class="n">Explicit</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="n">Dim</span> <span class="n">objFichier</span><span class="p">,</span><span class="n">MyFile</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">Const</span> <span class="n">ForReading</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ForWriting</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ForAppending</span> <span class="o">=</span> <span class="mi">8</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">Dim</span> <span class="n">codeErreur</span>
+<span class="normal"><a href="#__codelineno-1-49">49</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">&#39; création &amp; remplissage d&#39;un fichier texte</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="k">Option</span><span class="w"> </span><span class="k">Explicit</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">objFichier</span><span class="p">,</span><span class="nv">MyFile</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="kd">Const</span><span class="w"> </span><span class="no">ForReading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">ForWriting</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">ForAppending</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">codeErreur</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="s1">&#39; on crée un objet fichier</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="n">Set</span> <span class="n">objFichier</span><span class="o">=</span><span class="n">CreateObject</span><span class="p">(</span><span class="s2">&quot;Scripting.FileSystemObject&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1">&#39; on crée un objet fichier</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="k">Set</span><span class="w"> </span><span class="n">objFichier</span><span class="o">=</span><span class="nb">CreateObject</span><span class="p">(</span><span class="s2">&quot;Scripting.FileSystemObject&quot;</span><span class="p">)</span>
 <a id="__codelineno-1-9" name="__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="s1">&#39; on ouvre un fichier texte devant exister en lecture</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="n">On</span> <span class="n">Error</span> <span class="n">Resume</span> <span class="n">Next</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="n">Set</span> <span class="n">MyFile</span><span class="o">=</span> <span class="n">objFichier</span><span class="o">.</span><span class="n">OpenTextFile</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span> <span class="n">ForReading</span><span class="p">)</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">codeErreur</span><span class="o">=</span><span class="n">err</span><span class="o">.</span><span class="n">number</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="n">On</span> <span class="n">Error</span> <span class="n">GoTo</span> <span class="mi">0</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="n">If</span> <span class="n">codeErreur</span><span class="o">&lt;&gt;</span><span class="mi">0</span> <span class="n">Then</span>  
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a>  <span class="s1">&#39; le fichier n&#39;</span><span class="n">existe</span> <span class="n">pas</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17"></a>  <span class="n">wscript</span><span class="o">.</span><span class="n">echo</span> <span class="s2">&quot;Le fichier [abcd] n&#39;existe pas&quot;</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="n">Else</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19"></a>  <span class="s1">&#39; on ferme le fichier texte  </span>
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a>  <span class="n">MyFile</span><span class="o">.</span><span class="n">Close</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="n">End</span> <span class="n">If</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="c1">&#39; on ouvre un fichier texte devant exister en lecture</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">Resume</span><span class="w"> </span><span class="k">Next</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="k">Set</span><span class="w"> </span><span class="n">MyFile</span><span class="o">=</span><span class="w"> </span><span class="n">objFichier</span><span class="p">.</span><span class="n">OpenTextFile</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ForReading</span><span class="p">)</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">codeErreur</span><span class="o">=</span><span class="nb">err</span><span class="p">.</span><span class="n">number</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">GoTo</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="k">If</span><span class="w"> </span><span class="n">codeErreur</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span><span class="w">  </span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">  </span><span class="c1">&#39; le fichier n&#39;existe pas</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">  </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;Le fichier [abcd] n&#39;existe pas&quot;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="k">Else</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w">  </span><span class="c1">&#39; on ferme le fichier texte  </span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">  </span><span class="n">MyFile</span><span class="p">.</span><span class="n">Close</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="k">End</span><span class="w"> </span><span class="k">If</span>
 <a id="__codelineno-1-22" name="__codelineno-1-22"></a>
 <a id="__codelineno-1-23" name="__codelineno-1-23"></a>
-<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="s1">&#39; on ouvre un fichier texte devant exister en écriture</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="n">On</span> <span class="n">Error</span> <span class="n">Resume</span> <span class="n">Next</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="n">Set</span> <span class="n">MyFile</span><span class="o">=</span> <span class="n">objFichier</span><span class="o">.</span><span class="n">OpenTextFile</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span> <span class="n">ForWriting</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="n">codeErreur</span><span class="o">=</span><span class="n">err</span><span class="o">.</span><span class="n">number</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="n">On</span> <span class="n">Error</span> <span class="n">GoTo</span> <span class="mi">0</span>
-<a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="n">If</span> <span class="n">codeErreur</span><span class="o">&lt;&gt;</span><span class="mi">0</span> <span class="n">Then</span>  
-<a id="__codelineno-1-30" name="__codelineno-1-30"></a>  <span class="n">wscript</span><span class="o">.</span><span class="n">echo</span> <span class="s2">&quot;Le fichier [abcd] n&#39;existe pas&quot;</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="n">Else</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32"></a>  <span class="s1">&#39; on ferme le fichier texte</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33"></a>  <span class="n">MyFile</span><span class="o">.</span><span class="n">Close</span>
-<a id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="n">End</span> <span class="n">If</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="c1">&#39; on ouvre un fichier texte devant exister en écriture</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">Resume</span><span class="w"> </span><span class="k">Next</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="k">Set</span><span class="w"> </span><span class="n">MyFile</span><span class="o">=</span><span class="w"> </span><span class="n">objFichier</span><span class="p">.</span><span class="n">OpenTextFile</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ForWriting</span><span class="p">,</span><span class="w"> </span><span class="no">False</span><span class="p">)</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="n">codeErreur</span><span class="o">=</span><span class="nb">err</span><span class="p">.</span><span class="n">number</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">GoTo</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="k">If</span><span class="w"> </span><span class="n">codeErreur</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span><span class="w">  </span>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="w">  </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;Le fichier [abcd] n&#39;existe pas&quot;</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="k">Else</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="w">  </span><span class="c1">&#39; on ferme le fichier texte</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="w">  </span><span class="n">MyFile</span><span class="p">.</span><span class="n">Close</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="k">End</span><span class="w"> </span><span class="k">If</span>
 <a id="__codelineno-1-35" name="__codelineno-1-35"></a>
-<a id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="s1">&#39; on ouvre un fichier texte devant exister en ajout</span>
-<a id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="n">On</span> <span class="n">Error</span> <span class="n">Resume</span> <span class="n">Next</span>
-<a id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="n">Set</span> <span class="n">MyFile</span><span class="o">=</span> <span class="n">objFichier</span><span class="o">.</span><span class="n">OpenTextFile</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span> <span class="n">ForAppending</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="n">codeErreur</span><span class="o">=</span><span class="n">err</span><span class="o">.</span><span class="n">number</span>
-<a id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="n">On</span> <span class="n">Error</span> <span class="n">GoTo</span> <span class="mi">0</span>
-<a id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="n">If</span> <span class="n">codeErreur</span><span class="o">&lt;&gt;</span><span class="mi">0</span> <span class="n">Then</span>  
-<a id="__codelineno-1-42" name="__codelineno-1-42"></a>  <span class="n">wscript</span><span class="o">.</span><span class="n">echo</span> <span class="s2">&quot;Le fichier [abcd] n&#39;existe pas&quot;</span>
-<a id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="n">Else</span>
-<a id="__codelineno-1-44" name="__codelineno-1-44"></a>  <span class="s1">&#39; on ferme le fichier texte</span>
-<a id="__codelineno-1-45" name="__codelineno-1-45"></a>  <span class="n">MyFile</span><span class="o">.</span><span class="n">Close</span>
-<a id="__codelineno-1-46" name="__codelineno-1-46"></a><span class="n">End</span> <span class="n">If</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="c1">&#39; on ouvre un fichier texte devant exister en ajout</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">Resume</span><span class="w"> </span><span class="k">Next</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="k">Set</span><span class="w"> </span><span class="n">MyFile</span><span class="o">=</span><span class="w"> </span><span class="n">objFichier</span><span class="p">.</span><span class="n">OpenTextFile</span><span class="p">(</span><span class="s2">&quot;abcd&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ForAppending</span><span class="p">,</span><span class="w"> </span><span class="no">False</span><span class="p">)</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="n">codeErreur</span><span class="o">=</span><span class="nb">err</span><span class="p">.</span><span class="n">number</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">GoTo</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="k">If</span><span class="w"> </span><span class="n">codeErreur</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span><span class="w">  </span>
+<a id="__codelineno-1-42" name="__codelineno-1-42"></a><span class="w">  </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;Le fichier [abcd] n&#39;existe pas&quot;</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="k">Else</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44"></a><span class="w">  </span><span class="c1">&#39; on ferme le fichier texte</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45"></a><span class="w">  </span><span class="n">MyFile</span><span class="p">.</span><span class="n">Close</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46"></a><span class="k">End</span><span class="w"> </span><span class="k">If</span>
 <a id="__codelineno-1-47" name="__codelineno-1-47"></a>
-<a id="__codelineno-1-48" name="__codelineno-1-48"></a><span class="s1">&#39; fin</span>
-<a id="__codelineno-1-49" name="__codelineno-1-49"></a><span class="n">wscript</span><span class="o">.</span><span class="n">quit</span> <span class="mi">0</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48"></a><span class="c1">&#39; fin</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49"></a><span class="n">wscript</span><span class="p">.</span><span class="n">quit</span><span class="w"> </span><span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
 </div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Résultats</b></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
@@ -727,29 +729,29 @@ Le programme suivant montre comment détecter ces erreurs :</li>
 <span class="normal"><a href="#__codelineno-2-10">10</a></span>
 <span class="normal"><a href="#__codelineno-2-11">11</a></span>
 <span class="normal"><a href="#__codelineno-2-12">12</a></span>
-<span class="normal"><a href="#__codelineno-2-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span><span class="nb">dir</span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>C:\&gt;dir
 <a id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">FIC1</span>     <span class="n">VBS</span>           <span class="mi">964</span>  <span class="mi">07</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">02</span>   <span class="mi">7</span><span class="p">:</span><span class="mi">54</span> <span class="n">fic1</span><span class="o">.</span><span class="n">vbs</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">TESTFILE</span> <span class="n">TXT</span>             <span class="mi">0</span>  <span class="mi">07</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">02</span>   <span class="mi">8</span><span class="p">:</span><span class="mi">18</span> <span class="n">testfile</span><span class="o">.</span><span class="n">txt</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">FIC2</span>     <span class="n">VBS</span>         <span class="mi">1</span> <span class="mi">252</span>  <span class="mi">07</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="mi">02</span>   <span class="mi">8</span><span class="p">:</span><span class="mi">23</span> <span class="n">fic2</span><span class="o">.</span><span class="n">vbs</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a>         <span class="mi">3</span> <span class="n">fichier</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>              <span class="mi">2</span> <span class="mi">216</span> <span class="n">octets</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a>         <span class="mi">2</span> <span class="n">répertoire</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>        <span class="mi">4</span> <span class="mf">007.11</span> <span class="n">Mo</span> <span class="n">libre</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>FIC1     VBS           964  07/01/02   7:54 fic1.vbs
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>TESTFILE TXT             0  07/01/02   8:18 testfile.txt
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>FIC2     VBS         1 252  07/01/02   8:23 fic2.vbs
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>         3 fichier(s)              2 216 octets
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>         2 répertoire(s)        4 007.11 Mo libre
 <a id="__codelineno-2-8" name="__codelineno-2-8"></a>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span><span class="n">cscript</span> <span class="n">fic2</span><span class="o">.</span><span class="n">vbs</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>C:\&gt;cscript fic2.vbs
 <a id="__codelineno-2-10" name="__codelineno-2-10"></a>
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="n">Le</span> <span class="n">fichier</span> <span class="p">[</span><span class="n">abcd</span><span class="p">]</span> <span class="n">n</span><span class="s1">&#39;existe pas</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="n">Le</span> <span class="n">fichier</span> <span class="p">[</span><span class="n">abcd</span><span class="p">]</span> <span class="n">n</span><span class="s1">&#39;existe pas</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="n">Le</span> <span class="n">fichier</span> <span class="p">[</span><span class="n">abcd</span><span class="p">]</span> <span class="n">n</span><span class="s1">&#39;existe pas</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>Le fichier [abcd] n&#39;existe pas
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>Le fichier [abcd] n&#39;existe pas
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>Le fichier [abcd] n&#39;existe pas
 </code></pre></div></td></tr></table></div>
 </div></td></tr></table>
 
 <h2 id="63-lapplication-impots-avec-un-fichier-texte">6.3. L&#x27;application IMPOTS avec un fichier texte</h2>
-<p>Nous reprenons l&#x27;application de calcul de l&#x27;impôt en supposant que les données nécessaires au calcul de l&#x27;impôt sont dans un fichier texte appelé data.txt :</p>
+<p>Nous reprenons l&#x27;application de calcul de l&#x27;impôt en supposant que les données nécessaires au calcul de l&#x27;impôt sont dans un fichier texte appelé <em>data.txt</em> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
 <span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="mi">12620</span> <span class="mi">13190</span> <span class="mi">15640</span> <span class="mi">24740</span> <span class="mi">31810</span> <span class="mi">39970</span> <span class="mi">48360</span> <span class="mi">55790</span> <span class="mi">92970</span> <span class="mi">127860</span> <span class="mi">151250</span> <span class="mi">172040</span> <span class="mi">195000</span> <span class="mi">0</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="mi">0</span> <span class="mi">0</span><span class="p">,</span><span class="mi">05</span> <span class="mi">0</span><span class="p">,</span><span class="mi">1</span> <span class="mi">0</span><span class="p">,</span><span class="mi">15</span> <span class="mi">0</span><span class="p">,</span><span class="mi">2</span> <span class="mi">0</span><span class="p">,</span><span class="mi">25</span> <span class="mi">0</span><span class="p">,</span><span class="mi">3</span> <span class="mi">0</span><span class="p">,</span><span class="mi">35</span> <span class="mi">0</span><span class="p">,</span><span class="mi">4</span> <span class="mi">0</span><span class="p">,</span><span class="mi">45</span> <span class="mi">0</span><span class="p">,</span><span class="mi">5</span> <span class="mi">0</span><span class="p">,</span><span class="mi">55</span> <span class="mi">0</span><span class="p">,</span><span class="mi">6</span> <span class="mi">0</span><span class="p">,</span><span class="mi">65</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="mi">0</span> <span class="mi">631</span> <span class="mi">1290</span><span class="p">,</span><span class="mi">5</span> <span class="mi">2072</span><span class="p">,</span><span class="mi">5</span> <span class="mi">3309</span><span class="p">,</span><span class="mi">5</span> <span class="mi">4900</span> <span class="mi">6898</span><span class="p">,</span><span class="mi">5</span> <span class="mi">9316</span><span class="p">,</span><span class="mi">5</span> <span class="mi">12106</span> <span class="mi">16754</span><span class="p">,</span><span class="mi">5</span> <span class="mi">23147</span><span class="p">,</span><span class="mi">5</span> <span class="mi">30710</span> <span class="mi">39312</span> <span class="mi">49062</span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>12620 13190 15640 24740 31810 39970 48360 55790 92970 127860 151250 172040 195000 0
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>0 0,05 0,1 0,15 0,2 0,25 0,3 0,35 0,4 0,45 0,5 0,55 0,6 0,65
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>0 631 1290,5 2072,5 3309,5 4900 6898,5 9316,5 12106 16754,5 23147,5 30710 39312 49062
 </code></pre></div></td></tr></table></div>
 <p>Les trois lignes contiennent respectivement les données des tableaux limites, coeffR et coeffN de l&#x27;application. Grâce à la modularisation de notre application, les modifications interviennent essentiellement dans la procédure <strong>getData</strong> chargée de construire les trois tableaux. Le nouveau programme est le suivant :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Programme</b></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
@@ -965,219 +967,219 @@ Le programme suivant montre comment détecter ces erreurs :</li>
 <span class="normal"><a href="#__codelineno-4-210">210</a></span>
 <span class="normal"><a href="#__codelineno-4-211">211</a></span>
 <span class="normal"><a href="#__codelineno-4-212">212</a></span>
-<span class="normal"><a href="#__codelineno-4-213">213</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="s1">&#39; calcul de l&#39;</span><span class="n">impôt</span> <span class="n">d</span><span class="s1">&#39;un contribuable</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="s1">&#39; le programme doit être appelé avec trois paramètres : marié enfants salaire</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="s1">&#39; marié : caractère O si marié, N si non marié</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="s1">&#39; enfants : nombre d&#39;</span><span class="n">enfants</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="s1">&#39; salaire : salaire annuel sans les centimes</span>
+<span class="normal"><a href="#__codelineno-4-213">213</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1">&#39; calcul de l&#39;impôt d&#39;un contribuable</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="c1">&#39; le programme doit être appelé avec trois paramètres : marié enfants salaire</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1">&#39; marié : caractère O si marié, N si non marié</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1">&#39; enfants : nombre d&#39;enfants</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="c1">&#39; salaire : salaire annuel sans les centimes</span>
 <a id="__codelineno-4-6" name="__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="s1">&#39; déclaration obligatoire des variables</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8"></a>  <span class="n">Option</span> <span class="n">Explicit</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9"></a>  <span class="n">Dim</span> <span class="n">erreur</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="c1">&#39; déclaration obligatoire des variables</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="w">  </span><span class="k">Option</span><span class="w"> </span><span class="k">Explicit</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="w">  </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">erreur</span>
 <a id="__codelineno-4-10" name="__codelineno-4-10"></a>
-<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="s1">&#39; on récupère les arguments en vérifiant leur validité</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12"></a>  <span class="n">Dim</span> <span class="n">marie</span><span class="p">,</span> <span class="n">enfants</span><span class="p">,</span> <span class="n">salaire</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13"></a>  <span class="n">erreur</span><span class="o">=</span><span class="n">getArguments</span><span class="p">(</span><span class="n">marie</span><span class="p">,</span><span class="n">enfants</span><span class="p">,</span><span class="n">salaire</span><span class="p">)</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14"></a>  <span class="s1">&#39; erreur ?</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15"></a>  <span class="n">If</span> <span class="n">erreur</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">&lt;&gt;</span><span class="mi">0</span> <span class="n">Then</span> <span class="n">wscript</span><span class="o">.</span><span class="n">echo</span> <span class="n">erreur</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span> <span class="n">wscript</span><span class="o">.</span><span class="n">quit</span> <span class="n">erreur</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="c1">&#39; on récupère les arguments en vérifiant leur validité</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="w">  </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">marie</span><span class="p">,</span><span class="w"> </span><span class="nv">enfants</span><span class="p">,</span><span class="w"> </span><span class="nv">salaire</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="w">  </span><span class="n">erreur</span><span class="o">=</span><span class="n">getArguments</span><span class="p">(</span><span class="n">marie</span><span class="p">,</span><span class="n">enfants</span><span class="p">,</span><span class="n">salaire</span><span class="p">)</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="w">  </span><span class="c1">&#39; erreur ?</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="w">  </span><span class="k">If</span><span class="w"> </span><span class="n">erreur</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="n">erreur</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="n">quit</span><span class="w"> </span><span class="n">erreur</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <a id="__codelineno-4-16" name="__codelineno-4-16"></a>
-<a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="s1">&#39; on récupère les données nécessaires au calcul de l&#39;</span><span class="n">impôt</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18"></a>  <span class="n">Dim</span> <span class="n">limites</span><span class="p">,</span> <span class="n">coeffR</span><span class="p">,</span> <span class="n">coeffN</span>
-<a id="__codelineno-4-19" name="__codelineno-4-19"></a>  <span class="n">erreur</span><span class="o">=</span><span class="n">getData</span><span class="p">(</span><span class="n">limites</span><span class="p">,</span><span class="n">coeffR</span><span class="p">,</span><span class="n">coeffN</span><span class="p">)</span>
-<a id="__codelineno-4-20" name="__codelineno-4-20"></a>  <span class="s1">&#39; erreur ?</span>
-<a id="__codelineno-4-21" name="__codelineno-4-21"></a>  <span class="n">If</span> <span class="n">erreur</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">&lt;&gt;</span><span class="mi">0</span> <span class="n">Then</span> <span class="n">wscript</span><span class="o">.</span><span class="n">echo</span> <span class="n">erreur</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span> <span class="n">wscript</span><span class="o">.</span><span class="n">quit</span> <span class="mi">5</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="c1">&#39; on récupère les données nécessaires au calcul de l&#39;impôt</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="w">  </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">limites</span><span class="p">,</span><span class="w"> </span><span class="nv">coeffR</span><span class="p">,</span><span class="w"> </span><span class="nv">coeffN</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="w">  </span><span class="n">erreur</span><span class="o">=</span><span class="n">getData</span><span class="p">(</span><span class="n">limites</span><span class="p">,</span><span class="n">coeffR</span><span class="p">,</span><span class="n">coeffN</span><span class="p">)</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="w">  </span><span class="c1">&#39; erreur ?</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="w">  </span><span class="k">If</span><span class="w"> </span><span class="n">erreur</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="n">erreur</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="n">quit</span><span class="w"> </span><span class="mi">5</span>
 <a id="__codelineno-4-22" name="__codelineno-4-22"></a>
-<a id="__codelineno-4-23" name="__codelineno-4-23"></a>  <span class="s1">&#39; on affiche le résultat</span>
-<a id="__codelineno-4-24" name="__codelineno-4-24"></a>  <span class="n">wscript</span><span class="o">.</span><span class="n">echo</span> <span class="s2">&quot;impôt=&quot;</span> <span class="o">&amp;</span> <span class="n">calculerImpot</span><span class="p">(</span><span class="n">marie</span><span class="p">,</span><span class="n">enfants</span><span class="p">,</span><span class="n">salaire</span><span class="p">,</span><span class="n">limites</span><span class="p">,</span><span class="n">coeffR</span><span class="p">,</span><span class="n">coeffN</span><span class="p">)</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23"></a><span class="w">  </span><span class="c1">&#39; on affiche le résultat</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24"></a><span class="w">  </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="s2">&quot;impôt=&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">calculerImpot</span><span class="p">(</span><span class="n">marie</span><span class="p">,</span><span class="n">enfants</span><span class="p">,</span><span class="n">salaire</span><span class="p">,</span><span class="n">limites</span><span class="p">,</span><span class="n">coeffR</span><span class="p">,</span><span class="n">coeffN</span><span class="p">)</span>
 <a id="__codelineno-4-25" name="__codelineno-4-25"></a>
-<a id="__codelineno-4-26" name="__codelineno-4-26"></a>  <span class="s1">&#39; on quitte sans erreur</span>
-<a id="__codelineno-4-27" name="__codelineno-4-27"></a>  <span class="n">wscript</span><span class="o">.</span><span class="n">quit</span> <span class="mi">0</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26"></a><span class="w">  </span><span class="c1">&#39; on quitte sans erreur</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27"></a><span class="w">  </span><span class="n">wscript</span><span class="p">.</span><span class="n">quit</span><span class="w"> </span><span class="mi">0</span>
 <a id="__codelineno-4-28" name="__codelineno-4-28"></a>
-<a id="__codelineno-4-29" name="__codelineno-4-29"></a><span class="s1">&#39; ------------ fonctions et procédures</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29"></a><span class="c1">&#39; ------------ fonctions et procédures</span>
 <a id="__codelineno-4-30" name="__codelineno-4-30"></a>
-<a id="__codelineno-4-31" name="__codelineno-4-31"></a><span class="s1">&#39; ----------- getArguments</span>
-<a id="__codelineno-4-32" name="__codelineno-4-32"></a><span class="n">Function</span> <span class="n">getArguments</span><span class="p">(</span><span class="n">byref</span> <span class="n">marie</span><span class="p">,</span> <span class="n">ByRef</span> <span class="n">enfants</span><span class="p">,</span> <span class="n">ByRef</span> <span class="n">salaire</span><span class="p">)</span>
-<a id="__codelineno-4-33" name="__codelineno-4-33"></a>  <span class="s1">&#39; doit récupérer trois valeurs passées comme argument au programme principal</span>
-<a id="__codelineno-4-34" name="__codelineno-4-34"></a>  <span class="s1">&#39; un argument est transmis au programme sans espaces devant et derrière</span>
-<a id="__codelineno-4-35" name="__codelineno-4-35"></a>  <span class="s1">&#39; on utilisera des expression régulières pour vérifier la validité des données</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31"></a><span class="c1">&#39; ----------- getArguments</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32"></a><span class="kd">Function</span><span class="w"> </span><span class="nf">getArguments</span><span class="p">(</span><span class="k">byref</span><span class="w"> </span><span class="n">marie</span><span class="p">,</span><span class="w"> </span><span class="k">ByRef</span><span class="w"> </span><span class="n">enfants</span><span class="p">,</span><span class="w"> </span><span class="k">ByRef</span><span class="w"> </span><span class="n">salaire</span><span class="p">)</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33"></a><span class="w">  </span><span class="c1">&#39; doit récupérer trois valeurs passées comme argument au programme principal</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34"></a><span class="w">  </span><span class="c1">&#39; un argument est transmis au programme sans espaces devant et derrière</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35"></a><span class="w">  </span><span class="c1">&#39; on utilisera des expression régulières pour vérifier la validité des données</span>
 <a id="__codelineno-4-36" name="__codelineno-4-36"></a>
-<a id="__codelineno-4-37" name="__codelineno-4-37"></a>  <span class="s1">&#39; rend un variant tableau erreur à 2 valeurs</span>
-<a id="__codelineno-4-38" name="__codelineno-4-38"></a>  <span class="s1">&#39; erreur(0) : code d&#39;</span><span class="n">erreur</span><span class="p">,</span> <span class="mi">0</span> <span class="n">si</span> <span class="n">pas</span> <span class="n">d</span><span class="s1">&#39;erreur</span>
-<a id="__codelineno-4-39" name="__codelineno-4-39"></a>  <span class="s1">&#39; erreur(1) : message d&#39;</span><span class="n">erreur</span> <span class="n">si</span> <span class="n">erreur</span> <span class="n">sinon</span> <span class="n">la</span> <span class="n">chaîne</span> <span class="n">vide</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37"></a><span class="w">  </span><span class="c1">&#39; rend un variant tableau erreur à 2 valeurs</span>
+<a id="__codelineno-4-38" name="__codelineno-4-38"></a><span class="w">  </span><span class="c1">&#39; erreur(0) : code d&#39;erreur, 0 si pas d&#39;erreur</span>
+<a id="__codelineno-4-39" name="__codelineno-4-39"></a><span class="w">  </span><span class="c1">&#39; erreur(1) : message d&#39;erreur si erreur sinon la chaîne vide</span>
 <a id="__codelineno-4-40" name="__codelineno-4-40"></a>
-<a id="__codelineno-4-41" name="__codelineno-4-41"></a>  <span class="n">Dim</span> <span class="n">syntaxe</span>
-<a id="__codelineno-4-42" name="__codelineno-4-42"></a>  <span class="n">syntaxe</span><span class="o">=</span> <span class="n">_</span>
-<a id="__codelineno-4-43" name="__codelineno-4-43"></a>    <span class="s2">&quot;Syntaxe : pg marié enfants salaire&quot;</span> <span class="o">&amp;</span> <span class="n">vbCRLF</span> <span class="o">&amp;</span> <span class="n">_</span>
-<a id="__codelineno-4-44" name="__codelineno-4-44"></a>    <span class="s2">&quot;marié : caractère O si marié, N si non marié&quot;</span> <span class="o">&amp;</span> <span class="n">vbCRLF</span> <span class="o">&amp;</span> <span class="n">_</span>
-<a id="__codelineno-4-45" name="__codelineno-4-45"></a>    <span class="s2">&quot;enfants : nombre d&#39;enfants (entier &gt;=0)&quot;</span> <span class="o">&amp;</span> <span class="n">vbCRLF</span> <span class="o">&amp;</span> <span class="n">_</span>
-<a id="__codelineno-4-46" name="__codelineno-4-46"></a>    <span class="s2">&quot;salaire : salaire annuel sans les centimes (entier &gt;=0)&quot;</span>
+<a id="__codelineno-4-41" name="__codelineno-4-41"></a><span class="w">  </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">syntaxe</span>
+<a id="__codelineno-4-42" name="__codelineno-4-42"></a><span class="w">  </span><span class="n">syntaxe</span><span class="o">=</span><span class="w"> </span><span class="n">_</span>
+<a id="__codelineno-4-43" name="__codelineno-4-43"></a><span class="w">    </span><span class="s2">&quot;Syntaxe : pg marié enfants salaire&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">_</span>
+<a id="__codelineno-4-44" name="__codelineno-4-44"></a><span class="w">    </span><span class="s2">&quot;marié : caractère O si marié, N si non marié&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">_</span>
+<a id="__codelineno-4-45" name="__codelineno-4-45"></a><span class="w">    </span><span class="s2">&quot;enfants : nombre d&#39;enfants (entier &gt;=0)&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">_</span>
+<a id="__codelineno-4-46" name="__codelineno-4-46"></a><span class="w">    </span><span class="s2">&quot;salaire : salaire annuel sans les centimes (entier &gt;=0)&quot;</span>
 <a id="__codelineno-4-47" name="__codelineno-4-47"></a>
-<a id="__codelineno-4-48" name="__codelineno-4-48"></a><span class="s1">&#39; on vérifie qu&#39;</span><span class="n">il</span> <span class="n">y</span> <span class="n">a</span> <span class="mi">3</span> <span class="n">arguments</span>
-<a id="__codelineno-4-49" name="__codelineno-4-49"></a>  <span class="n">Dim</span> <span class="n">nbArguments</span>
-<a id="__codelineno-4-50" name="__codelineno-4-50"></a>  <span class="n">nbArguments</span><span class="o">=</span><span class="n">wscript</span><span class="o">.</span><span class="n">arguments</span><span class="o">.</span><span class="n">count</span>
-<a id="__codelineno-4-51" name="__codelineno-4-51"></a>  <span class="n">If</span> <span class="n">nbArguments</span><span class="o">&lt;&gt;</span><span class="mi">3</span> <span class="n">Then</span>
-<a id="__codelineno-4-52" name="__codelineno-4-52"></a>    <span class="s1">&#39; msg d&#39;</span><span class="n">erreur</span>
-<a id="__codelineno-4-53" name="__codelineno-4-53"></a>    <span class="n">getArguments</span><span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">syntaxe</span> <span class="o">&amp;</span> <span class="n">vbCRLF</span> <span class="o">&amp;</span> <span class="n">vbCRLF</span> <span class="o">&amp;</span> <span class="s2">&quot;erreur : nombre d&#39;arguments incorrect&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-54" name="__codelineno-4-54"></a>    <span class="s1">&#39; fin</span>
-<a id="__codelineno-4-55" name="__codelineno-4-55"></a>    <span class="n">Exit</span> <span class="n">Function</span>
-<a id="__codelineno-4-56" name="__codelineno-4-56"></a>  <span class="n">End</span> <span class="n">If</span>
+<a id="__codelineno-4-48" name="__codelineno-4-48"></a><span class="c1">&#39; on vérifie qu&#39;il y a 3 arguments</span>
+<a id="__codelineno-4-49" name="__codelineno-4-49"></a><span class="w">  </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">nbArguments</span>
+<a id="__codelineno-4-50" name="__codelineno-4-50"></a><span class="w">  </span><span class="n">nbArguments</span><span class="o">=</span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">.</span><span class="n">count</span>
+<a id="__codelineno-4-51" name="__codelineno-4-51"></a><span class="w">  </span><span class="k">If</span><span class="w"> </span><span class="n">nbArguments</span><span class="o">&lt;&gt;</span><span class="mi">3</span><span class="w"> </span><span class="k">Then</span>
+<a id="__codelineno-4-52" name="__codelineno-4-52"></a><span class="w">    </span><span class="c1">&#39; msg d&#39;erreur</span>
+<a id="__codelineno-4-53" name="__codelineno-4-53"></a><span class="w">    </span><span class="n">getArguments</span><span class="o">=</span><span class="w"> </span><span class="nb">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">syntaxe</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">&quot;erreur : nombre d&#39;arguments incorrect&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-54" name="__codelineno-4-54"></a><span class="w">    </span><span class="c1">&#39; fin</span>
+<a id="__codelineno-4-55" name="__codelineno-4-55"></a><span class="w">    </span><span class="k">Exit</span><span class="w"> </span><span class="kd">Function</span>
+<a id="__codelineno-4-56" name="__codelineno-4-56"></a><span class="w">  </span><span class="nf">End</span><span class="w"> </span><span class="k">If</span>
 <a id="__codelineno-4-57" name="__codelineno-4-57"></a>
-<a id="__codelineno-4-58" name="__codelineno-4-58"></a>  <span class="n">Dim</span> <span class="n">modele</span><span class="p">,</span> <span class="n">correspondances</span>
-<a id="__codelineno-4-59" name="__codelineno-4-59"></a>  <span class="n">Set</span> <span class="n">modele</span><span class="o">=</span><span class="n">new</span> <span class="n">regexp</span>
+<a id="__codelineno-4-58" name="__codelineno-4-58"></a><span class="w">  </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">modele</span><span class="p">,</span><span class="w"> </span><span class="nv">correspondances</span>
+<a id="__codelineno-4-59" name="__codelineno-4-59"></a><span class="w">  </span><span class="k">Set</span><span class="w"> </span><span class="n">modele</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="nb">regexp</span>
 <a id="__codelineno-4-60" name="__codelineno-4-60"></a>
-<a id="__codelineno-4-61" name="__codelineno-4-61"></a>  <span class="s1">&#39; le statut marital doit être parmi les caractères oOnN</span>
-<a id="__codelineno-4-62" name="__codelineno-4-62"></a>  <span class="n">modele</span><span class="o">.</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;^[oOnN]$&quot;</span>
-<a id="__codelineno-4-63" name="__codelineno-4-63"></a>  <span class="n">Set</span> <span class="n">correspondances</span><span class="o">=</span><span class="n">modele</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">wscript</span><span class="o">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
-<a id="__codelineno-4-64" name="__codelineno-4-64"></a>  <span class="n">If</span> <span class="n">correspondances</span><span class="o">.</span><span class="n">count</span><span class="o">=</span><span class="mi">0</span> <span class="n">Then</span>
-<a id="__codelineno-4-65" name="__codelineno-4-65"></a>    <span class="s1">&#39; msg d&#39;</span><span class="n">erreur</span>
-<a id="__codelineno-4-66" name="__codelineno-4-66"></a>    <span class="n">getArguments</span><span class="o">=</span><span class="n">array</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">syntaxe</span> <span class="o">&amp;</span> <span class="n">vbCRLF</span> <span class="o">&amp;</span> <span class="n">vbCRLF</span> <span class="o">&amp;</span> <span class="s2">&quot;erreur : argument marie incorrect&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-67" name="__codelineno-4-67"></a>    <span class="s1">&#39; on quitte</span>
-<a id="__codelineno-4-68" name="__codelineno-4-68"></a>    <span class="n">Exit</span> <span class="n">Function</span>
-<a id="__codelineno-4-69" name="__codelineno-4-69"></a>  <span class="n">End</span> <span class="n">If</span>
-<a id="__codelineno-4-70" name="__codelineno-4-70"></a>  <span class="s1">&#39; on récupère la valeur</span>
-<a id="__codelineno-4-71" name="__codelineno-4-71"></a>  <span class="n">If</span> <span class="n">lcase</span><span class="p">(</span><span class="n">wscript</span><span class="o">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="o">=</span> <span class="s2">&quot;o&quot;</span><span class="n">Then</span>
-<a id="__codelineno-4-72" name="__codelineno-4-72"></a>    <span class="n">marie</span><span class="o">=</span><span class="n">true</span>
-<a id="__codelineno-4-73" name="__codelineno-4-73"></a>  <span class="n">Else</span>
-<a id="__codelineno-4-74" name="__codelineno-4-74"></a>    <span class="n">marie</span><span class="o">=</span><span class="n">false</span>
-<a id="__codelineno-4-75" name="__codelineno-4-75"></a>  <span class="n">End</span> <span class="n">If</span>
+<a id="__codelineno-4-61" name="__codelineno-4-61"></a><span class="w">  </span><span class="c1">&#39; le statut marital doit être parmi les caractères oOnN</span>
+<a id="__codelineno-4-62" name="__codelineno-4-62"></a><span class="w">  </span><span class="n">modele</span><span class="p">.</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;^[oOnN]$&quot;</span>
+<a id="__codelineno-4-63" name="__codelineno-4-63"></a><span class="w">  </span><span class="k">Set</span><span class="w"> </span><span class="n">correspondances</span><span class="o">=</span><span class="n">modele</span><span class="p">.</span><span class="k">execute</span><span class="p">(</span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-4-64" name="__codelineno-4-64"></a><span class="w">  </span><span class="k">If</span><span class="w"> </span><span class="n">correspondances</span><span class="p">.</span><span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span>
+<a id="__codelineno-4-65" name="__codelineno-4-65"></a><span class="w">    </span><span class="c1">&#39; msg d&#39;erreur</span>
+<a id="__codelineno-4-66" name="__codelineno-4-66"></a><span class="w">    </span><span class="n">getArguments</span><span class="o">=</span><span class="nb">array</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">syntaxe</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">&quot;erreur : argument marie incorrect&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-67" name="__codelineno-4-67"></a><span class="w">    </span><span class="c1">&#39; on quitte</span>
+<a id="__codelineno-4-68" name="__codelineno-4-68"></a><span class="w">    </span><span class="k">Exit</span><span class="w"> </span><span class="kd">Function</span>
+<a id="__codelineno-4-69" name="__codelineno-4-69"></a><span class="w">  </span><span class="nf">End</span><span class="w"> </span><span class="k">If</span>
+<a id="__codelineno-4-70" name="__codelineno-4-70"></a><span class="w">  </span><span class="c1">&#39; on récupère la valeur</span>
+<a id="__codelineno-4-71" name="__codelineno-4-71"></a><span class="w">  </span><span class="k">If</span><span class="w"> </span><span class="nb">lcase</span><span class="p">(</span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;o&quot;</span><span class="k">Then</span>
+<a id="__codelineno-4-72" name="__codelineno-4-72"></a><span class="w">    </span><span class="n">marie</span><span class="o">=</span><span class="no">true</span>
+<a id="__codelineno-4-73" name="__codelineno-4-73"></a><span class="w">  </span><span class="k">Else</span>
+<a id="__codelineno-4-74" name="__codelineno-4-74"></a><span class="w">    </span><span class="n">marie</span><span class="o">=</span><span class="no">false</span>
+<a id="__codelineno-4-75" name="__codelineno-4-75"></a><span class="w">  </span><span class="k">End</span><span class="w"> </span><span class="k">If</span>
 <a id="__codelineno-4-76" name="__codelineno-4-76"></a>
-<a id="__codelineno-4-77" name="__codelineno-4-77"></a>  <span class="s1">&#39; enfants doit être un nombre entier &gt;=0</span>
-<a id="__codelineno-4-78" name="__codelineno-4-78"></a>  <span class="n">modele</span><span class="o">.</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;^\d{1,2}$&quot;</span>
-<a id="__codelineno-4-79" name="__codelineno-4-79"></a>  <span class="n">Set</span> <span class="n">correspondances</span><span class="o">=</span><span class="n">modele</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">wscript</span><span class="o">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-<a id="__codelineno-4-80" name="__codelineno-4-80"></a>  <span class="n">If</span> <span class="n">correspondances</span><span class="o">.</span><span class="n">count</span><span class="o">=</span><span class="mi">0</span> <span class="n">Then</span>
-<a id="__codelineno-4-81" name="__codelineno-4-81"></a>    <span class="s1">&#39; erreur</span>
-<a id="__codelineno-4-82" name="__codelineno-4-82"></a>    <span class="n">getArguments</span><span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">syntaxe</span> <span class="o">&amp;</span> <span class="n">vbCRLF</span> <span class="o">&amp;</span> <span class="n">vbCRLF</span> <span class="o">&amp;</span> <span class="s2">&quot;erreur : argument enfants incorrect&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-83" name="__codelineno-4-83"></a>    <span class="s1">&#39; on quitte</span>
-<a id="__codelineno-4-84" name="__codelineno-4-84"></a>    <span class="n">Exit</span> <span class="n">Function</span>
-<a id="__codelineno-4-85" name="__codelineno-4-85"></a>  <span class="n">End</span> <span class="n">If</span>
-<a id="__codelineno-4-86" name="__codelineno-4-86"></a>  <span class="s1">&#39; on récupère la valeur</span>
-<a id="__codelineno-4-87" name="__codelineno-4-87"></a>  <span class="n">enfants</span><span class="o">=</span><span class="n">cint</span><span class="p">(</span><span class="n">wscript</span><span class="o">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<a id="__codelineno-4-77" name="__codelineno-4-77"></a><span class="w">  </span><span class="c1">&#39; enfants doit être un nombre entier &gt;=0</span>
+<a id="__codelineno-4-78" name="__codelineno-4-78"></a><span class="w">  </span><span class="n">modele</span><span class="p">.</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;^\d{1,2}$&quot;</span>
+<a id="__codelineno-4-79" name="__codelineno-4-79"></a><span class="w">  </span><span class="k">Set</span><span class="w"> </span><span class="n">correspondances</span><span class="o">=</span><span class="n">modele</span><span class="p">.</span><span class="k">execute</span><span class="p">(</span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<a id="__codelineno-4-80" name="__codelineno-4-80"></a><span class="w">  </span><span class="k">If</span><span class="w"> </span><span class="n">correspondances</span><span class="p">.</span><span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span>
+<a id="__codelineno-4-81" name="__codelineno-4-81"></a><span class="w">    </span><span class="c1">&#39; erreur</span>
+<a id="__codelineno-4-82" name="__codelineno-4-82"></a><span class="w">    </span><span class="n">getArguments</span><span class="o">=</span><span class="w"> </span><span class="nb">array</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">syntaxe</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">&quot;erreur : argument enfants incorrect&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-83" name="__codelineno-4-83"></a><span class="w">    </span><span class="c1">&#39; on quitte</span>
+<a id="__codelineno-4-84" name="__codelineno-4-84"></a><span class="w">    </span><span class="k">Exit</span><span class="w"> </span><span class="kd">Function</span>
+<a id="__codelineno-4-85" name="__codelineno-4-85"></a><span class="w">  </span><span class="nf">End</span><span class="w"> </span><span class="k">If</span>
+<a id="__codelineno-4-86" name="__codelineno-4-86"></a><span class="w">  </span><span class="c1">&#39; on récupère la valeur</span>
+<a id="__codelineno-4-87" name="__codelineno-4-87"></a><span class="w">  </span><span class="n">enfants</span><span class="o">=</span><span class="nb">cint</span><span class="p">(</span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 <a id="__codelineno-4-88" name="__codelineno-4-88"></a>
-<a id="__codelineno-4-89" name="__codelineno-4-89"></a>  <span class="s1">&#39; salaire doit être un entier &gt;=0</span>
-<a id="__codelineno-4-90" name="__codelineno-4-90"></a>  <span class="n">modele</span><span class="o">.</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;^\d{1,9}$&quot;</span>
-<a id="__codelineno-4-91" name="__codelineno-4-91"></a>  <span class="n">Set</span> <span class="n">correspondances</span><span class="o">=</span><span class="n">modele</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">wscript</span><span class="o">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
-<a id="__codelineno-4-92" name="__codelineno-4-92"></a>  <span class="n">If</span> <span class="n">correspondances</span><span class="o">.</span><span class="n">count</span><span class="o">=</span><span class="mi">0</span> <span class="n">Then</span>
-<a id="__codelineno-4-93" name="__codelineno-4-93"></a>    <span class="s1">&#39; erreur</span>
-<a id="__codelineno-4-94" name="__codelineno-4-94"></a>    <span class="n">getArguments</span><span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">syntaxe</span> <span class="o">&amp;</span> <span class="n">vbCRLF</span> <span class="o">&amp;</span> <span class="n">vbCRLF</span> <span class="o">&amp;</span> <span class="s2">&quot;erreur : argument salaire incorrect&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-95" name="__codelineno-4-95"></a>    <span class="s1">&#39; on quitte</span>
-<a id="__codelineno-4-96" name="__codelineno-4-96"></a>    <span class="n">Exit</span> <span class="n">Function</span>
-<a id="__codelineno-4-97" name="__codelineno-4-97"></a>  <span class="n">End</span> <span class="n">If</span>
-<a id="__codelineno-4-98" name="__codelineno-4-98"></a>  <span class="s1">&#39; on récupère la valeur</span>
-<a id="__codelineno-4-99" name="__codelineno-4-99"></a>  <span class="n">salaire</span><span class="o">=</span><span class="n">clng</span><span class="p">(</span><span class="n">wscript</span><span class="o">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<a id="__codelineno-4-89" name="__codelineno-4-89"></a><span class="w">  </span><span class="c1">&#39; salaire doit être un entier &gt;=0</span>
+<a id="__codelineno-4-90" name="__codelineno-4-90"></a><span class="w">  </span><span class="n">modele</span><span class="p">.</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;^\d{1,9}$&quot;</span>
+<a id="__codelineno-4-91" name="__codelineno-4-91"></a><span class="w">  </span><span class="k">Set</span><span class="w"> </span><span class="n">correspondances</span><span class="o">=</span><span class="n">modele</span><span class="p">.</span><span class="k">execute</span><span class="p">(</span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<a id="__codelineno-4-92" name="__codelineno-4-92"></a><span class="w">  </span><span class="k">If</span><span class="w"> </span><span class="n">correspondances</span><span class="p">.</span><span class="n">count</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span>
+<a id="__codelineno-4-93" name="__codelineno-4-93"></a><span class="w">    </span><span class="c1">&#39; erreur</span>
+<a id="__codelineno-4-94" name="__codelineno-4-94"></a><span class="w">    </span><span class="n">getArguments</span><span class="o">=</span><span class="w"> </span><span class="nb">array</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">syntaxe</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="no">vbCRLF</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">&quot;erreur : argument salaire incorrect&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-95" name="__codelineno-4-95"></a><span class="w">    </span><span class="c1">&#39; on quitte</span>
+<a id="__codelineno-4-96" name="__codelineno-4-96"></a><span class="w">    </span><span class="k">Exit</span><span class="w"> </span><span class="kd">Function</span>
+<a id="__codelineno-4-97" name="__codelineno-4-97"></a><span class="w">  </span><span class="nf">End</span><span class="w"> </span><span class="k">If</span>
+<a id="__codelineno-4-98" name="__codelineno-4-98"></a><span class="w">  </span><span class="c1">&#39; on récupère la valeur</span>
+<a id="__codelineno-4-99" name="__codelineno-4-99"></a><span class="w">  </span><span class="n">salaire</span><span class="o">=</span><span class="nb">clng</span><span class="p">(</span><span class="n">wscript</span><span class="p">.</span><span class="n">arguments</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 <a id="__codelineno-4-100" name="__codelineno-4-100"></a>
-<a id="__codelineno-4-101" name="__codelineno-4-101"></a>  <span class="s1">&#39; c&#39;</span><span class="n">est</span> <span class="n">fini</span> <span class="n">sans</span> <span class="n">erreur</span>
-<a id="__codelineno-4-102" name="__codelineno-4-102"></a>  <span class="n">getArguments</span><span class="o">=</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-103" name="__codelineno-4-103"></a><span class="n">End</span> <span class="n">Function</span>
+<a id="__codelineno-4-101" name="__codelineno-4-101"></a><span class="w">  </span><span class="c1">&#39; c&#39;est fini sans erreur</span>
+<a id="__codelineno-4-102" name="__codelineno-4-102"></a><span class="w">  </span><span class="n">getArguments</span><span class="o">=</span><span class="nb">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-103" name="__codelineno-4-103"></a><span class="k">End</span><span class="w"> </span><span class="k">Function</span>
 <a id="__codelineno-4-104" name="__codelineno-4-104"></a>
-<a id="__codelineno-4-105" name="__codelineno-4-105"></a><span class="s1">&#39; ----------- getData</span>
-<a id="__codelineno-4-106" name="__codelineno-4-106"></a><span class="n">Function</span> <span class="n">getData</span><span class="p">(</span><span class="n">byref</span> <span class="n">limites</span><span class="p">,</span> <span class="n">ByRef</span> <span class="n">coeffR</span><span class="p">,</span> <span class="n">ByRef</span> <span class="n">coeffN</span><span class="p">)</span>
-<a id="__codelineno-4-107" name="__codelineno-4-107"></a>  <span class="s1">&#39; les données des trois tableaux limites, coeffR, coeffN sont dans un fichier texte</span>
-<a id="__codelineno-4-108" name="__codelineno-4-108"></a>  <span class="s1">&#39; appelé data.txt. Chaque tableau occupe une ligne sous la forme val1 val2 ... valn</span>
-<a id="__codelineno-4-109" name="__codelineno-4-109"></a>  <span class="s1">&#39; on trouve dans l&#39;</span><span class="n">ordre</span> <span class="n">limites</span><span class="p">,</span> <span class="n">coeffR</span><span class="p">,</span> <span class="n">coeffN</span>
+<a id="__codelineno-4-105" name="__codelineno-4-105"></a><span class="c1">&#39; ----------- getData</span>
+<a id="__codelineno-4-106" name="__codelineno-4-106"></a><span class="kd">Function</span><span class="w"> </span><span class="nf">getData</span><span class="p">(</span><span class="k">byref</span><span class="w"> </span><span class="n">limites</span><span class="p">,</span><span class="w"> </span><span class="k">ByRef</span><span class="w"> </span><span class="n">coeffR</span><span class="p">,</span><span class="w"> </span><span class="k">ByRef</span><span class="w"> </span><span class="n">coeffN</span><span class="p">)</span>
+<a id="__codelineno-4-107" name="__codelineno-4-107"></a><span class="w">  </span><span class="c1">&#39; les données des trois tableaux limites, coeffR, coeffN sont dans un fichier texte</span>
+<a id="__codelineno-4-108" name="__codelineno-4-108"></a><span class="w">  </span><span class="c1">&#39; appelé data.txt. Chaque tableau occupe une ligne sous la forme val1 val2 ... valn</span>
+<a id="__codelineno-4-109" name="__codelineno-4-109"></a><span class="w">  </span><span class="c1">&#39; on trouve dans l&#39;ordre limites, coeffR, coeffN</span>
 <a id="__codelineno-4-110" name="__codelineno-4-110"></a>
-<a id="__codelineno-4-111" name="__codelineno-4-111"></a>  <span class="s1">&#39; rend un variant erreur tableau à 2 éléments pour gérer l&#39;</span><span class="n">éventuelle</span> <span class="n">erreur</span>
-<a id="__codelineno-4-112" name="__codelineno-4-112"></a>  <span class="s1">&#39; erreur(0) : 0 si pas d&#39;</span><span class="n">erreur</span><span class="p">,</span> <span class="n">un</span> <span class="n">nombre</span> <span class="n">entier</span> <span class="o">&gt;</span><span class="mi">0</span> <span class="n">sinon</span>
-<a id="__codelineno-4-113" name="__codelineno-4-113"></a>  <span class="s1">&#39; erreur(1) : le message d&#39;</span><span class="n">erreur</span> <span class="n">si</span> <span class="n">erreur</span>
+<a id="__codelineno-4-111" name="__codelineno-4-111"></a><span class="w">  </span><span class="c1">&#39; rend un variant erreur tableau à 2 éléments pour gérer l&#39;éventuelle erreur</span>
+<a id="__codelineno-4-112" name="__codelineno-4-112"></a><span class="w">  </span><span class="c1">&#39; erreur(0) : 0 si pas d&#39;erreur, un nombre entier &gt;0 sinon</span>
+<a id="__codelineno-4-113" name="__codelineno-4-113"></a><span class="w">  </span><span class="c1">&#39; erreur(1) : le message d&#39;erreur si erreur</span>
 <a id="__codelineno-4-114" name="__codelineno-4-114"></a>
-<a id="__codelineno-4-115" name="__codelineno-4-115"></a>  <span class="n">Dim</span> <span class="n">objFichier</span><span class="p">,</span><span class="n">MyFile</span><span class="p">,</span><span class="n">codeErreur</span>
-<a id="__codelineno-4-116" name="__codelineno-4-116"></a>  <span class="n">Const</span> <span class="n">ForReading</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dataFileName</span><span class="o">=</span><span class="s2">&quot;data.txt&quot;</span>
+<a id="__codelineno-4-115" name="__codelineno-4-115"></a><span class="w">  </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">objFichier</span><span class="p">,</span><span class="nv">MyFile</span><span class="p">,</span><span class="nv">codeErreur</span>
+<a id="__codelineno-4-116" name="__codelineno-4-116"></a><span class="w">  </span><span class="kd">Const</span><span class="w"> </span><span class="no">ForReading</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dataFileName</span><span class="o">=</span><span class="s2">&quot;data.txt&quot;</span>
 <a id="__codelineno-4-117" name="__codelineno-4-117"></a>
-<a id="__codelineno-4-118" name="__codelineno-4-118"></a>  <span class="s1">&#39; on crée un objet fichier</span>
-<a id="__codelineno-4-119" name="__codelineno-4-119"></a>  <span class="n">Set</span> <span class="n">objFichier</span><span class="o">=</span><span class="n">CreateObject</span><span class="p">(</span><span class="s2">&quot;Scripting.FileSystemObject&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-120" name="__codelineno-4-120"></a>  <span class="s1">&#39; on ouvre le fichier data.txt en lecture</span>
-<a id="__codelineno-4-121" name="__codelineno-4-121"></a>  <span class="n">On</span> <span class="n">Error</span> <span class="n">Resume</span> <span class="n">Next</span>
-<a id="__codelineno-4-122" name="__codelineno-4-122"></a>  <span class="n">Set</span> <span class="n">MyFile</span><span class="o">=</span> <span class="n">objFichier</span><span class="o">.</span><span class="n">OpenTextFile</span><span class="p">(</span><span class="n">dataFileName</span><span class="p">,</span> <span class="n">ForReading</span><span class="p">)</span>
-<a id="__codelineno-4-123" name="__codelineno-4-123"></a>  <span class="s1">&#39; erreur ?</span>
-<a id="__codelineno-4-124" name="__codelineno-4-124"></a>  <span class="n">codeErreur</span><span class="o">=</span><span class="n">err</span><span class="o">.</span><span class="n">number</span>
-<a id="__codelineno-4-125" name="__codelineno-4-125"></a>  <span class="n">On</span> <span class="n">Error</span> <span class="n">GoTo</span> <span class="mi">0</span>
-<a id="__codelineno-4-126" name="__codelineno-4-126"></a>  <span class="n">If</span> <span class="n">codeErreur</span><span class="o">&lt;&gt;</span><span class="mi">0</span> <span class="n">Then</span>
-<a id="__codelineno-4-127" name="__codelineno-4-127"></a>    <span class="s1">&#39; il y a eu erreur - on la note</span>
-<a id="__codelineno-4-128" name="__codelineno-4-128"></a>    <span class="n">getData</span><span class="o">=</span><span class="n">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;Impossible d&#39;ouvrir le fichier des données [&quot;</span> <span class="o">&amp;</span> <span class="n">dataFileName</span> <span class="o">&amp;</span> <span class="s2">&quot;] en lecture&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-129" name="__codelineno-4-129"></a>    <span class="s1">&#39; on rentre</span>
-<a id="__codelineno-4-130" name="__codelineno-4-130"></a>    <span class="n">Exit</span> <span class="n">Function</span>
-<a id="__codelineno-4-131" name="__codelineno-4-131"></a>  <span class="n">End</span> <span class="n">If</span>
+<a id="__codelineno-4-118" name="__codelineno-4-118"></a><span class="w">  </span><span class="c1">&#39; on crée un objet fichier</span>
+<a id="__codelineno-4-119" name="__codelineno-4-119"></a><span class="w">  </span><span class="k">Set</span><span class="w"> </span><span class="n">objFichier</span><span class="o">=</span><span class="nb">CreateObject</span><span class="p">(</span><span class="s2">&quot;Scripting.FileSystemObject&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-120" name="__codelineno-4-120"></a><span class="w">  </span><span class="c1">&#39; on ouvre le fichier data.txt en lecture</span>
+<a id="__codelineno-4-121" name="__codelineno-4-121"></a><span class="w">  </span><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">Resume</span><span class="w"> </span><span class="k">Next</span>
+<a id="__codelineno-4-122" name="__codelineno-4-122"></a><span class="w">  </span><span class="k">Set</span><span class="w"> </span><span class="n">MyFile</span><span class="o">=</span><span class="w"> </span><span class="n">objFichier</span><span class="p">.</span><span class="n">OpenTextFile</span><span class="p">(</span><span class="n">dataFileName</span><span class="p">,</span><span class="w"> </span><span class="n">ForReading</span><span class="p">)</span>
+<a id="__codelineno-4-123" name="__codelineno-4-123"></a><span class="w">  </span><span class="c1">&#39; erreur ?</span>
+<a id="__codelineno-4-124" name="__codelineno-4-124"></a><span class="w">  </span><span class="n">codeErreur</span><span class="o">=</span><span class="nb">err</span><span class="p">.</span><span class="n">number</span>
+<a id="__codelineno-4-125" name="__codelineno-4-125"></a><span class="w">  </span><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">GoTo</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-4-126" name="__codelineno-4-126"></a><span class="w">  </span><span class="k">If</span><span class="w"> </span><span class="n">codeErreur</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="w"> </span><span class="k">Then</span>
+<a id="__codelineno-4-127" name="__codelineno-4-127"></a><span class="w">    </span><span class="c1">&#39; il y a eu erreur - on la note</span>
+<a id="__codelineno-4-128" name="__codelineno-4-128"></a><span class="w">    </span><span class="n">getData</span><span class="o">=</span><span class="nb">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;Impossible d&#39;ouvrir le fichier des données [&quot;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">dataFileName</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">&quot;] en lecture&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-129" name="__codelineno-4-129"></a><span class="w">    </span><span class="c1">&#39; on rentre</span>
+<a id="__codelineno-4-130" name="__codelineno-4-130"></a><span class="w">    </span><span class="k">Exit</span><span class="w"> </span><span class="kd">Function</span>
+<a id="__codelineno-4-131" name="__codelineno-4-131"></a><span class="w">  </span><span class="nf">End</span><span class="w"> </span><span class="k">If</span>
 <a id="__codelineno-4-132" name="__codelineno-4-132"></a>
-<a id="__codelineno-4-133" name="__codelineno-4-133"></a>  <span class="s1">&#39; on suppose maintenant que le contenu est correct et on ne fait aucune vérification</span>
-<a id="__codelineno-4-134" name="__codelineno-4-134"></a>  <span class="s1">&#39; on lit les 3 lignes</span>
+<a id="__codelineno-4-133" name="__codelineno-4-133"></a><span class="w">  </span><span class="c1">&#39; on suppose maintenant que le contenu est correct et on ne fait aucune vérification</span>
+<a id="__codelineno-4-134" name="__codelineno-4-134"></a><span class="w">  </span><span class="c1">&#39; on lit les 3 lignes</span>
 <a id="__codelineno-4-135" name="__codelineno-4-135"></a>
-<a id="__codelineno-4-136" name="__codelineno-4-136"></a>  <span class="s1">&#39; limites</span>
-<a id="__codelineno-4-137" name="__codelineno-4-137"></a>  <span class="n">Dim</span> <span class="n">ligne</span><span class="p">,</span> <span class="n">i</span>
-<a id="__codelineno-4-138" name="__codelineno-4-138"></a>  <span class="n">ligne</span><span class="o">=</span><span class="n">MyFile</span><span class="o">.</span><span class="n">ReadLine</span>
-<a id="__codelineno-4-139" name="__codelineno-4-139"></a>  <span class="n">getDataFromLine</span> <span class="n">ligne</span><span class="p">,</span><span class="n">limites</span>
+<a id="__codelineno-4-136" name="__codelineno-4-136"></a><span class="w">  </span><span class="c1">&#39; limites</span>
+<a id="__codelineno-4-137" name="__codelineno-4-137"></a><span class="w">  </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">ligne</span><span class="p">,</span><span class="w"> </span><span class="nv">i</span>
+<a id="__codelineno-4-138" name="__codelineno-4-138"></a><span class="w">  </span><span class="n">ligne</span><span class="o">=</span><span class="n">MyFile</span><span class="p">.</span><span class="n">ReadLine</span>
+<a id="__codelineno-4-139" name="__codelineno-4-139"></a><span class="w">  </span><span class="n">getDataFromLine</span><span class="w"> </span><span class="n">ligne</span><span class="p">,</span><span class="n">limites</span>
 <a id="__codelineno-4-140" name="__codelineno-4-140"></a>
-<a id="__codelineno-4-141" name="__codelineno-4-141"></a>  <span class="s1">&#39; coeffR</span>
-<a id="__codelineno-4-142" name="__codelineno-4-142"></a>  <span class="n">ligne</span><span class="o">=</span><span class="n">MyFile</span><span class="o">.</span><span class="n">ReadLine</span>
-<a id="__codelineno-4-143" name="__codelineno-4-143"></a>  <span class="n">getDataFromLine</span> <span class="n">ligne</span><span class="p">,</span><span class="n">coeffR</span>
+<a id="__codelineno-4-141" name="__codelineno-4-141"></a><span class="w">  </span><span class="c1">&#39; coeffR</span>
+<a id="__codelineno-4-142" name="__codelineno-4-142"></a><span class="w">  </span><span class="n">ligne</span><span class="o">=</span><span class="n">MyFile</span><span class="p">.</span><span class="n">ReadLine</span>
+<a id="__codelineno-4-143" name="__codelineno-4-143"></a><span class="w">  </span><span class="n">getDataFromLine</span><span class="w"> </span><span class="n">ligne</span><span class="p">,</span><span class="n">coeffR</span>
 <a id="__codelineno-4-144" name="__codelineno-4-144"></a>
 <a id="__codelineno-4-145" name="__codelineno-4-145"></a>
-<a id="__codelineno-4-146" name="__codelineno-4-146"></a>  <span class="s1">&#39; coeffN</span>
-<a id="__codelineno-4-147" name="__codelineno-4-147"></a>  <span class="n">ligne</span><span class="o">=</span><span class="n">MyFile</span><span class="o">.</span><span class="n">ReadLine</span>
-<a id="__codelineno-4-148" name="__codelineno-4-148"></a>  <span class="n">coeffN</span><span class="o">=</span><span class="n">split</span><span class="p">(</span><span class="n">ligne</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-<a id="__codelineno-4-149" name="__codelineno-4-149"></a>  <span class="n">getDataFromLine</span> <span class="n">ligne</span><span class="p">,</span><span class="n">coeffN</span>
+<a id="__codelineno-4-146" name="__codelineno-4-146"></a><span class="w">  </span><span class="c1">&#39; coeffN</span>
+<a id="__codelineno-4-147" name="__codelineno-4-147"></a><span class="w">  </span><span class="n">ligne</span><span class="o">=</span><span class="n">MyFile</span><span class="p">.</span><span class="n">ReadLine</span>
+<a id="__codelineno-4-148" name="__codelineno-4-148"></a><span class="w">  </span><span class="n">coeffN</span><span class="o">=</span><span class="nb">split</span><span class="p">(</span><span class="n">ligne</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<a id="__codelineno-4-149" name="__codelineno-4-149"></a><span class="w">  </span><span class="n">getDataFromLine</span><span class="w"> </span><span class="n">ligne</span><span class="p">,</span><span class="n">coeffN</span>
 <a id="__codelineno-4-150" name="__codelineno-4-150"></a>
-<a id="__codelineno-4-151" name="__codelineno-4-151"></a>  <span class="s1">&#39; on ferme le fichier</span>
-<a id="__codelineno-4-152" name="__codelineno-4-152"></a>  <span class="n">MyFile</span><span class="o">.</span><span class="n">close</span>
+<a id="__codelineno-4-151" name="__codelineno-4-151"></a><span class="w">  </span><span class="c1">&#39; on ferme le fichier</span>
+<a id="__codelineno-4-152" name="__codelineno-4-152"></a><span class="w">  </span><span class="n">MyFile</span><span class="p">.</span><span class="n">close</span>
 <a id="__codelineno-4-153" name="__codelineno-4-153"></a>
-<a id="__codelineno-4-154" name="__codelineno-4-154"></a>  <span class="s1">&#39; c&#39;</span><span class="n">est</span> <span class="n">fini</span> <span class="n">sans</span> <span class="n">erreur</span>
-<a id="__codelineno-4-155" name="__codelineno-4-155"></a>  <span class="n">getData</span><span class="o">=</span><span class="n">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-156" name="__codelineno-4-156"></a><span class="n">End</span> <span class="n">Function</span>
+<a id="__codelineno-4-154" name="__codelineno-4-154"></a><span class="w">  </span><span class="c1">&#39; c&#39;est fini sans erreur</span>
+<a id="__codelineno-4-155" name="__codelineno-4-155"></a><span class="w">  </span><span class="n">getData</span><span class="o">=</span><span class="nb">array</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-156" name="__codelineno-4-156"></a><span class="k">End</span><span class="w"> </span><span class="k">Function</span>
 <a id="__codelineno-4-157" name="__codelineno-4-157"></a>
-<a id="__codelineno-4-158" name="__codelineno-4-158"></a><span class="s1">&#39; ----------- getDataFromLine</span>
-<a id="__codelineno-4-159" name="__codelineno-4-159"></a><span class="n">Sub</span> <span class="n">getDataFromLine</span><span class="p">(</span><span class="n">byref</span> <span class="n">ligne</span><span class="p">,</span> <span class="n">ByRef</span> <span class="n">tableau</span><span class="p">)</span>
-<a id="__codelineno-4-160" name="__codelineno-4-160"></a>  <span class="s1">&#39; met dans tableau les valeurs numériques contenues dans ligne</span>
-<a id="__codelineno-4-161" name="__codelineno-4-161"></a>  <span class="s1">&#39; celles-ci sont séparées par un ou plusieurs espaces</span>
+<a id="__codelineno-4-158" name="__codelineno-4-158"></a><span class="c1">&#39; ----------- getDataFromLine</span>
+<a id="__codelineno-4-159" name="__codelineno-4-159"></a><span class="kd">Sub</span><span class="w"> </span><span class="nf">getDataFromLine</span><span class="p">(</span><span class="k">byref</span><span class="w"> </span><span class="n">ligne</span><span class="p">,</span><span class="w"> </span><span class="k">ByRef</span><span class="w"> </span><span class="n">tableau</span><span class="p">)</span>
+<a id="__codelineno-4-160" name="__codelineno-4-160"></a><span class="w">  </span><span class="c1">&#39; met dans tableau les valeurs numériques contenues dans ligne</span>
+<a id="__codelineno-4-161" name="__codelineno-4-161"></a><span class="w">  </span><span class="c1">&#39; celles-ci sont séparées par un ou plusieurs espaces</span>
 <a id="__codelineno-4-162" name="__codelineno-4-162"></a>
-<a id="__codelineno-4-163" name="__codelineno-4-163"></a>  <span class="s1">&#39; au départ le tableau est vide</span>
-<a id="__codelineno-4-164" name="__codelineno-4-164"></a>  <span class="n">tableau</span><span class="o">=</span><span class="n">array</span><span class="p">()</span>
-<a id="__codelineno-4-165" name="__codelineno-4-165"></a>  <span class="s1">&#39; on définit un modèle pour la ligne</span>
-<a id="__codelineno-4-166" name="__codelineno-4-166"></a>  <span class="n">Dim</span> <span class="n">modele</span><span class="p">,</span> <span class="n">correspondances</span>
-<a id="__codelineno-4-167" name="__codelineno-4-167"></a>  <span class="n">Set</span> <span class="n">modele</span><span class="o">=</span> <span class="n">New</span> <span class="n">RegExP</span>
-<a id="__codelineno-4-168" name="__codelineno-4-168"></a>  <span class="n">With</span> <span class="n">modele</span>
-<a id="__codelineno-4-169" name="__codelineno-4-169"></a>    <span class="o">.</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;\d+,\d+|\d+&quot;</span>    <span class="s1">&#39; 140,5 ou 140</span>
-<a id="__codelineno-4-170" name="__codelineno-4-170"></a>    <span class="o">.</span><span class="k">global</span><span class="o">=</span><span class="n">true</span>              <span class="s1">&#39; toutes les valeurs</span>
-<a id="__codelineno-4-171" name="__codelineno-4-171"></a>  <span class="n">End</span> <span class="n">With</span>
+<a id="__codelineno-4-163" name="__codelineno-4-163"></a><span class="w">  </span><span class="c1">&#39; au départ le tableau est vide</span>
+<a id="__codelineno-4-164" name="__codelineno-4-164"></a><span class="w">  </span><span class="n">tableau</span><span class="o">=</span><span class="nb">array</span><span class="p">()</span>
+<a id="__codelineno-4-165" name="__codelineno-4-165"></a><span class="w">  </span><span class="c1">&#39; on définit un modèle pour la ligne</span>
+<a id="__codelineno-4-166" name="__codelineno-4-166"></a><span class="w">  </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">modele</span><span class="p">,</span><span class="w"> </span><span class="nv">correspondances</span>
+<a id="__codelineno-4-167" name="__codelineno-4-167"></a><span class="w">  </span><span class="k">Set</span><span class="w"> </span><span class="n">modele</span><span class="o">=</span><span class="w"> </span><span class="k">New</span><span class="w"> </span><span class="nb">RegExP</span>
+<a id="__codelineno-4-168" name="__codelineno-4-168"></a><span class="w">  </span><span class="k">With</span><span class="w"> </span><span class="n">modele</span>
+<a id="__codelineno-4-169" name="__codelineno-4-169"></a><span class="w">    </span><span class="p">.</span><span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;\d+,\d+|\d+&quot;</span><span class="w">    </span><span class="c1">&#39; 140,5 ou 140</span>
+<a id="__codelineno-4-170" name="__codelineno-4-170"></a><span class="w">    </span><span class="p">.</span><span class="k">global</span><span class="o">=</span><span class="no">true</span><span class="w">              </span><span class="c1">&#39; toutes les valeurs</span>
+<a id="__codelineno-4-171" name="__codelineno-4-171"></a><span class="w">  </span><span class="k">End</span><span class="w"> </span><span class="k">With</span>
 <a id="__codelineno-4-172" name="__codelineno-4-172"></a>
-<a id="__codelineno-4-173" name="__codelineno-4-173"></a>  <span class="s1">&#39; on analyse la ligne</span>
-<a id="__codelineno-4-174" name="__codelineno-4-174"></a>  <span class="n">Set</span> <span class="n">correspondances</span><span class="o">=</span><span class="n">modele</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span>
-<a id="__codelineno-4-175" name="__codelineno-4-175"></a>  <span class="n">Dim</span> <span class="n">i</span>
-<a id="__codelineno-4-176" name="__codelineno-4-176"></a>  <span class="n">For</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span> <span class="n">To</span> <span class="n">correspondances</span><span class="o">.</span><span class="n">count</span><span class="o">-</span><span class="mi">1</span>
-<a id="__codelineno-4-177" name="__codelineno-4-177"></a>    <span class="s1">&#39; on redimensionne le tableau</span>
-<a id="__codelineno-4-178" name="__codelineno-4-178"></a>    <span class="n">ReDim</span> <span class="n">Preserve</span> <span class="n">tableau</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<a id="__codelineno-4-179" name="__codelineno-4-179"></a>    <span class="s1">&#39; on affecte une valeur au nouvel élément</span>
-<a id="__codelineno-4-180" name="__codelineno-4-180"></a>    <span class="n">tableau</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">=</span><span class="n">cdbl</span><span class="p">(</span><span class="n">correspondances</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-<a id="__codelineno-4-181" name="__codelineno-4-181"></a>  <span class="n">Next</span>
+<a id="__codelineno-4-173" name="__codelineno-4-173"></a><span class="w">  </span><span class="c1">&#39; on analyse la ligne</span>
+<a id="__codelineno-4-174" name="__codelineno-4-174"></a><span class="w">  </span><span class="k">Set</span><span class="w"> </span><span class="n">correspondances</span><span class="o">=</span><span class="n">modele</span><span class="p">.</span><span class="k">execute</span><span class="p">(</span><span class="n">ligne</span><span class="p">)</span>
+<a id="__codelineno-4-175" name="__codelineno-4-175"></a><span class="w">  </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">i</span>
+<a id="__codelineno-4-176" name="__codelineno-4-176"></a><span class="w">  </span><span class="k">For</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">To</span><span class="w"> </span><span class="n">correspondances</span><span class="p">.</span><span class="n">count</span><span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-4-177" name="__codelineno-4-177"></a><span class="w">    </span><span class="c1">&#39; on redimensionne le tableau</span>
+<a id="__codelineno-4-178" name="__codelineno-4-178"></a><span class="w">    </span><span class="k">ReDim</span><span class="w"> </span><span class="n">Preserve</span><span class="w"> </span><span class="n">tableau</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-4-179" name="__codelineno-4-179"></a><span class="w">    </span><span class="c1">&#39; on affecte une valeur au nouvel élément</span>
+<a id="__codelineno-4-180" name="__codelineno-4-180"></a><span class="w">    </span><span class="n">tableau</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">=</span><span class="nb">cdbl</span><span class="p">(</span><span class="n">correspondances</span><span class="p">(</span><span class="n">i</span><span class="p">).</span><span class="n">value</span><span class="p">)</span>
+<a id="__codelineno-4-181" name="__codelineno-4-181"></a><span class="w">  </span><span class="k">Next</span>
 <a id="__codelineno-4-182" name="__codelineno-4-182"></a>
-<a id="__codelineno-4-183" name="__codelineno-4-183"></a>  <span class="s1">&#39;fin</span>
-<a id="__codelineno-4-184" name="__codelineno-4-184"></a><span class="n">End</span> <span class="n">Sub</span>
+<a id="__codelineno-4-183" name="__codelineno-4-183"></a><span class="w">  </span><span class="c1">&#39;fin</span>
+<a id="__codelineno-4-184" name="__codelineno-4-184"></a><span class="k">End</span><span class="w"> </span><span class="k">Sub</span>
 <a id="__codelineno-4-185" name="__codelineno-4-185"></a>
 <a id="__codelineno-4-186" name="__codelineno-4-186"></a>
 <a id="__codelineno-4-187" name="__codelineno-4-187"></a>
 <a id="__codelineno-4-188" name="__codelineno-4-188"></a>
-<a id="__codelineno-4-189" name="__codelineno-4-189"></a><span class="s1">&#39; ----------- calculerImpot</span>
-<a id="__codelineno-4-190" name="__codelineno-4-190"></a><span class="n">Function</span> <span class="n">calculerImpot</span><span class="p">(</span><span class="n">byval</span> <span class="n">marie</span><span class="p">,</span><span class="n">ByVal</span> <span class="n">enfants</span><span class="p">,</span><span class="n">ByVal</span> <span class="n">salaire</span><span class="p">,</span> <span class="n">ByRef</span> <span class="n">limites</span><span class="p">,</span> <span class="n">ByRef</span> <span class="n">coeffR</span><span class="p">,</span> <span class="n">ByRef</span> <span class="n">coeffN</span><span class="p">)</span>
+<a id="__codelineno-4-189" name="__codelineno-4-189"></a><span class="c1">&#39; ----------- calculerImpot</span>
+<a id="__codelineno-4-190" name="__codelineno-4-190"></a><span class="kd">Function</span><span class="w"> </span><span class="nf">calculerImpot</span><span class="p">(</span><span class="k">byval</span><span class="w"> </span><span class="n">marie</span><span class="p">,</span><span class="k">ByVal</span><span class="w"> </span><span class="n">enfants</span><span class="p">,</span><span class="k">ByVal</span><span class="w"> </span><span class="n">salaire</span><span class="p">,</span><span class="w"> </span><span class="k">ByRef</span><span class="w"> </span><span class="n">limites</span><span class="p">,</span><span class="w"> </span><span class="k">ByRef</span><span class="w"> </span><span class="n">coeffR</span><span class="p">,</span><span class="w"> </span><span class="k">ByRef</span><span class="w"> </span><span class="n">coeffN</span><span class="p">)</span>
 <a id="__codelineno-4-191" name="__codelineno-4-191"></a>
-<a id="__codelineno-4-192" name="__codelineno-4-192"></a>  <span class="s1">&#39; on calcule le nombre de parts</span>
-<a id="__codelineno-4-193" name="__codelineno-4-193"></a>  <span class="n">Dim</span> <span class="n">nbParts</span>
-<a id="__codelineno-4-194" name="__codelineno-4-194"></a>  <span class="n">If</span> <span class="n">marie</span><span class="o">=</span><span class="n">true</span> <span class="n">Then</span>
-<a id="__codelineno-4-195" name="__codelineno-4-195"></a>    <span class="n">nbParts</span><span class="o">=</span><span class="p">(</span><span class="n">enfants</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span>
-<a id="__codelineno-4-196" name="__codelineno-4-196"></a>  <span class="n">Else</span>
-<a id="__codelineno-4-197" name="__codelineno-4-197"></a>    <span class="n">nbParts</span><span class="o">=</span><span class="p">(</span><span class="n">enfants</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
-<a id="__codelineno-4-198" name="__codelineno-4-198"></a>  <span class="n">End</span> <span class="n">If</span>
-<a id="__codelineno-4-199" name="__codelineno-4-199"></a>  <span class="n">If</span> <span class="n">enfants</span><span class="o">&gt;=</span><span class="mi">3</span> <span class="n">Then</span> <span class="n">nbParts</span><span class="o">=</span><span class="n">nbParts</span><span class="o">+</span><span class="mf">0.5</span>
+<a id="__codelineno-4-192" name="__codelineno-4-192"></a><span class="w">  </span><span class="c1">&#39; on calcule le nombre de parts</span>
+<a id="__codelineno-4-193" name="__codelineno-4-193"></a><span class="w">  </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">nbParts</span>
+<a id="__codelineno-4-194" name="__codelineno-4-194"></a><span class="w">  </span><span class="k">If</span><span class="w"> </span><span class="n">marie</span><span class="o">=</span><span class="no">true</span><span class="w"> </span><span class="k">Then</span>
+<a id="__codelineno-4-195" name="__codelineno-4-195"></a><span class="w">    </span><span class="n">nbParts</span><span class="o">=</span><span class="p">(</span><span class="n">enfants</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span>
+<a id="__codelineno-4-196" name="__codelineno-4-196"></a><span class="w">  </span><span class="k">Else</span>
+<a id="__codelineno-4-197" name="__codelineno-4-197"></a><span class="w">    </span><span class="n">nbParts</span><span class="o">=</span><span class="p">(</span><span class="n">enfants</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+<a id="__codelineno-4-198" name="__codelineno-4-198"></a><span class="w">  </span><span class="k">End</span><span class="w"> </span><span class="k">If</span>
+<a id="__codelineno-4-199" name="__codelineno-4-199"></a><span class="w">  </span><span class="k">If</span><span class="w"> </span><span class="n">enfants</span><span class="o">&gt;=</span><span class="mi">3</span><span class="w"> </span><span class="k">Then</span><span class="w"> </span><span class="n">nbParts</span><span class="o">=</span><span class="n">nbParts</span><span class="o">+</span><span class="mf">0.5</span>
 <a id="__codelineno-4-200" name="__codelineno-4-200"></a>
-<a id="__codelineno-4-201" name="__codelineno-4-201"></a>  <span class="s1">&#39; on calcule le quotient familial et le revenu imposable</span>
-<a id="__codelineno-4-202" name="__codelineno-4-202"></a>  <span class="n">Dim</span> <span class="n">revenu</span><span class="p">,</span> <span class="n">qf</span>
-<a id="__codelineno-4-203" name="__codelineno-4-203"></a>  <span class="n">revenu</span><span class="o">=</span><span class="mf">0.72</span><span class="o">*</span><span class="n">salaire</span>
-<a id="__codelineno-4-204" name="__codelineno-4-204"></a>  <span class="n">qf</span><span class="o">=</span><span class="n">revenu</span><span class="o">/</span><span class="n">nbParts</span>
+<a id="__codelineno-4-201" name="__codelineno-4-201"></a><span class="w">  </span><span class="c1">&#39; on calcule le quotient familial et le revenu imposable</span>
+<a id="__codelineno-4-202" name="__codelineno-4-202"></a><span class="w">  </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">revenu</span><span class="p">,</span><span class="w"> </span><span class="nv">qf</span>
+<a id="__codelineno-4-203" name="__codelineno-4-203"></a><span class="w">  </span><span class="n">revenu</span><span class="o">=</span><span class="mf">0.72</span><span class="o">*</span><span class="n">salaire</span>
+<a id="__codelineno-4-204" name="__codelineno-4-204"></a><span class="w">  </span><span class="n">qf</span><span class="o">=</span><span class="n">revenu</span><span class="o">/</span><span class="n">nbParts</span>
 <a id="__codelineno-4-205" name="__codelineno-4-205"></a>
-<a id="__codelineno-4-206" name="__codelineno-4-206"></a>  <span class="s1">&#39; on calcule l&#39;</span><span class="n">impôt</span>
-<a id="__codelineno-4-207" name="__codelineno-4-207"></a>  <span class="n">Dim</span> <span class="n">i</span><span class="p">,</span> <span class="n">impot</span>
-<a id="__codelineno-4-208" name="__codelineno-4-208"></a>  <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
-<a id="__codelineno-4-209" name="__codelineno-4-209"></a>  <span class="n">Do</span> <span class="n">While</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">ubound</span><span class="p">(</span><span class="n">limites</span><span class="p">)</span> <span class="n">And</span> <span class="n">qf</span><span class="o">&gt;</span><span class="n">limites</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<a id="__codelineno-4-210" name="__codelineno-4-210"></a>    <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
-<a id="__codelineno-4-211" name="__codelineno-4-211"></a>  <span class="n">Loop</span>
-<a id="__codelineno-4-212" name="__codelineno-4-212"></a>  <span class="n">calculerImpot</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">revenu</span><span class="o">*</span><span class="n">coeffr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">-</span><span class="n">nbParts</span><span class="o">*</span><span class="n">coeffn</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-<a id="__codelineno-4-213" name="__codelineno-4-213"></a><span class="n">End</span> <span class="n">Function</span>
+<a id="__codelineno-4-206" name="__codelineno-4-206"></a><span class="w">  </span><span class="c1">&#39; on calcule l&#39;impôt</span>
+<a id="__codelineno-4-207" name="__codelineno-4-207"></a><span class="w">  </span><span class="kd">Dim</span><span class="w"> </span><span class="nv">i</span><span class="p">,</span><span class="w"> </span><span class="nv">impot</span>
+<a id="__codelineno-4-208" name="__codelineno-4-208"></a><span class="w">  </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<a id="__codelineno-4-209" name="__codelineno-4-209"></a><span class="w">  </span><span class="k">Do</span><span class="w"> </span><span class="k">While</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="nb">ubound</span><span class="p">(</span><span class="n">limites</span><span class="p">)</span><span class="w"> </span><span class="ow">And</span><span class="w"> </span><span class="n">qf</span><span class="o">&gt;</span><span class="n">limites</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-4-210" name="__codelineno-4-210"></a><span class="w">    </span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+<a id="__codelineno-4-211" name="__codelineno-4-211"></a><span class="w">  </span><span class="k">Loop</span>
+<a id="__codelineno-4-212" name="__codelineno-4-212"></a><span class="w">  </span><span class="n">calculerImpot</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">revenu</span><span class="o">*</span><span class="n">coeffr</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">-</span><span class="n">nbParts</span><span class="o">*</span><span class="n">coeffn</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<a id="__codelineno-4-213" name="__codelineno-4-213"></a><span class="k">End</span><span class="w"> </span><span class="k">Function</span>
 </code></pre></div></td></tr></table></div>
 </div></td></tr></table>
 
@@ -1185,7 +1187,7 @@ Le programme suivant montre comment détecter ces erreurs :</li>
 <ul>
 <li>dans le fichier texte <strong>data.txt</strong>, les valeurs peuvent être séparées par un ou plusieurs espaces, d&#x27;où l&#x27;impossibilité d&#x27;utiliser la fonction split pour récupérer les valeurs de la ligne. Il a fallu passer par une expression régulière</li>
 <li>la fonction <strong>getData</strong> rend, outre les trois tableaux limites, coeffR, coeffN, un résultat indiquant s&#x27;il y a eu erreur ou non. Ce résultat est un variant tableau de eux éléments. Le premier élément est un code d&#x27;erreur (0 si pas d&#x27;erreur), le second le message d&#x27;erreur s&#x27;il y a eu erreur.</li>
-<li>la fonction getData ne teste pas la validité des valeurs trouvées dans le fichier data.txt. En situation réelle, elle devrait le faire.</li>
+<li>la fonction <em>getData</em> ne teste pas la validité des valeurs trouvées dans le fichier data.txt. En situation réelle, elle devrait le faire.</li>
 </ul>
 
 
