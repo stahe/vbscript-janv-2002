@@ -1,0 +1,876 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introduction au langage VBScript">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/vbscript-janv-2002/les-contextes-dx27execution-de-vbscript.html">
+      
+      
+        <link rel="prev" href="introduction.html">
+      
+      
+        <link rel="next" href="les-bases-de-la-programmation-vbscript.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>2. Les contextes d'exécution de VBSCRIPT - Introduction au langage VBScript</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
+    var siteName = "Introduction au langage VBScript";
+
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+    console.log("[GA Debug] page_title forced to: " + siteName);
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2-les-contextes-dexecution-de-vbscript" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introduction au langage VBScript" class="md-header__button md-logo" aria-label="Introduction au langage VBScript" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introduction au langage VBScript
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. Les contextes d&#x27;exécution de VBSCRIPT
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/stahe/vbscript-janv-2002" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introduction au langage VBScript" class="md-nav__button md-logo" aria-label="Introduction au langage VBScript" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introduction au langage VBScript
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/stahe/vbscript-janv-2002" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="introduction.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Les contextes d&#x27;exécution de VBSCRIPT
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="les-contextes-dx27execution-de-vbscript.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Les contextes d&#x27;exécution de VBSCRIPT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-le-conteneur-wsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Le conteneur WSH
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-la-forme-dun-script-wsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3. La forme d&#x27;un script WSH
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-lobjet-wscript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4. L&#x27;objet WSCRIPT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-le-conteneur-internet-explorer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5. Le conteneur Internet Explorer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-laide-de-wsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6. L&#x27;aide de WSH
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-bases-de-la-programmation-vbscript.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Les bases de la programmation VBSCRIPT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="la-gestion-des-erreurs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. La gestion des erreurs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-fonctions-et-procedures.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Les fonctions et procédures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-fichiers-texte.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Les fichiers texte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="2-les-contextes-dexecution-de-vbscript">2. Les contextes d&#x27;exécution de VBSCRIPT</h1>
+<h2 id="21-introduction">2.1. Introduction</h2>
+<p>Un programme vbscript ne s&#x27;exécute pas directement sous Windows mais dans un conteneur qui lui fournit un contexte d&#x27;exécution et un certain nombre d&#x27;objets qui lui sont propres. Par ailleurs, le programme vbscript peut utiliser des objets mis à sa disposition par le système Windows, objets appelés objets ActiveX.</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000073E00000323F1B79BD8.png" style="display:inline-block; margin:4px;width:16.002cm;height:6.93cm;" /></td></tr></table>
+
+<p>Dans ce document, nous utiliserons deux conteneurs : Windows Scripting Host appelé couramment WSH et le navigateur Internet Explorer appelé parfois par la suite IE. Il en existe bien d&#x27;autres. Ainsi, les applications MS-Office sont des conteneurs pour un dérivé de VB appelé VBA (Visual Basic pour Applications). Il existe par ailleurs de nombreuses applications windows qui permettent à leurs utilisateurs de dépasser les limites de celle-ci en leur permettant de développer des programmes s&#x27;exécutant au sein de l&#x27;application et utilisant les objets propres à celle-ci.</p>
+<p>Le conteneur dans lequel s&#x27;exécute le programme vbscript joue un rôle primordial :</p>
+<ul>
+<li>les objets mis à disposition du programme vbscript par le conteneur changent d&#x27;un conteneur à l&#x27;autre. Ainsi WSH met à disposition d&#x27;un programme vbs un objet appelé WScript qui donne accès, par exemple, aux partages et imprimantes réseau de la machine hôte. IE lui, met à disposition du programme vbs, un objet appelé document qui représente la totalité du document HTML visualisé. Le programme vbs va alors pouvoir agir sur ce document. Excel lui met à disposition d&#x27;un programme VBA des objets représentant des classeurs, des feuilles de classeurs, des graphiques, etc.... en fait tous les objets manipulés par Excel.</li>
+<li>si les objets d&#x27;un conteneur donnent toute sa puissance à un programme vbscript, il peut parfois en limiter certains domaines. Ainsi un programme vbscript exécuté dans le navigateur IE ne peut pas accéder au disque de la machine hôte, ceci pour des raisons de sécurité.
+Donc, lorsqu&#x27;on parle de programmation vbscript, il faut indiquer dans quel conteneur le programme est exécuté.</li>
+</ul>
+<p>Sous windows, vbscript n&#x27;est pas le seul langage utilisable dans les conteneurs WSH ou IE. On peut par exemple utiliser JScript (=JavaScript), PerlScript (=Perl), Python, ... Nombre de ces langages semblent de prime abord supérieurs à vbscript. Mais ce dernier a cependant de sérieux atouts :</p>
+<ul>
+<li>VB et ses déclinaisons VBSCRIPT et VBA sont très répandues sur les machines windows. Connaître ce langage paraît indispensable.</li>
+<li>C&#x27;est davantage les objets utilisables par un programme que le langage utilisé par celui-ci qui font sa puissance. Or nombre de ces objets sont fournis par les conteneurs et non par les langages eux-mêmes.
+Un inconvénient de VBSCRIPT est qu&#x27;il n&#x27;est pas portable sur un système autre que Windows, par exemple Unix. Ses concurrents Javascript, Perl, Python eux le sont. Si on doit travailler sur des systèmes hétérogènes, il peut être intéressant voire indispensable d&#x27;utiliser le même langage sur les différents systèmes.</li>
+</ul>
+<h2 id="22-le-conteneur-wsh">2.2. Le conteneur WSH</h2>
+<p>Le conteneur WSH (Windows Scripting Host) permet l&#x27;exécution, au sein de Windows, de programmes écrits en divers langages : vbscript, javascript, perlscript, python, ... Il existe une norme à respecter pour qu&#x27;un langage puisse être utilisé au sein de WSH. Tout langage respectant cette norme est candidat à l&#x27;exécution au sein de WSH. On peut imaginer que la liste précédente des langages s&#x27;exécutant dans WSH puisse s&#x27;allonger. Un conteneur met à la disposition des programmes qu&#x27;il exécute des objets qui leur donnent leur véritable puissance. Ceci tend à gommer les différences entre langages puiqu&#x27;ils utilisent alors tous le même ensemble d&#x27;objets. Utiliser un langage plutôt qu&#x27;un autre peut devenir alors une simple affaire de goût plutôt que de performances.</p>
+<p>L&#x27;exécution d&#x27;un programme dans WSH se fait à l&#x27;aide de deux exécutables : wscript.exe et cscript.exe. wscript.exe se trouve normalement dans le répertoire d&#x27;installation de windows appelé généralement %windir% :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">C</span><span class="p">:</span>\ <span class="o">&gt;</span><span class="n">echo</span> <span class="o">%</span><span class="n">windir</span><span class="o">%</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">C</span><span class="p">:</span>\<span class="n">WINDOWS</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span><span class="nb">dir</span> <span class="n">c</span><span class="p">:</span>\<span class="n">windows</span>\<span class="n">wscript</span><span class="o">.</span><span class="n">exe</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">WSCRIPT</span>  <span class="n">EXE</span>       <span class="mi">123</span> <span class="mi">280</span>  <span class="mi">19</span><span class="o">/</span><span class="mi">09</span><span class="o">/</span><span class="mi">01</span>  <span class="mi">11</span><span class="p">:</span><span class="mi">54</span> <span class="n">wscript</span><span class="o">.</span><span class="n">exe</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">L</span><span class="s1">&#39;exécutable cscript.exe se trouve lui sous %windir%\command :</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span><span class="nb">dir</span> <span class="n">c</span><span class="p">:</span>\<span class="n">windows</span>\<span class="n">cscript</span><span class="o">.*</span> <span class="o">/</span><span class="n">s</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="n">Répertoire</span> <span class="n">de</span> <span class="n">C</span><span class="p">:</span>\<span class="n">WINDOWS</span>\<span class="n">COMMAND</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="n">CSCRIPT</span>  <span class="n">EXE</span>       <span class="mi">102</span> <span class="mi">450</span>  <span class="mi">26</span><span class="o">/</span><span class="mi">06</span><span class="o">/</span><span class="mi">01</span>  <span class="mi">17</span><span class="p">:</span><span class="mi">49</span> <span class="n">cscript</span><span class="o">.</span><span class="n">exe</span>
+</code></pre></div></td></tr></table></div>
+<p>Le w de wscript veut dire windows et le c de cscript veut dire console. Un script peut être exécuté indifféremment par wscript ou cscript. La différence réside dans le mode d&#x27;affichage de messages à l&#x27;écran :</p>
+<ul>
+<li>wscript les affiche dans une fenêtre</li>
+<li>cscript les affiche à l&#x27;écran
+Voici un script coucou.vbs qui affiche coucou à l&#x27;écran :</li>
+</ul>
+<p><img src="images/10000000000000AD00000019ADCAAFD4.png" style="width:4.577cm;height:0.661cm;" alt="Image" /></p>
+<p>Ouvrons une fenêtre DOS et exécutons-le successivement avec wscript et cscript :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">DOS</span><span class="o">&gt;</span><span class="n">wscript</span> <span class="n">coucou</span><span class="o">.</span><span class="n">vbs</span>
+</code></pre></div></td></tr></table></div>
+<p><img src="images/100000000000009C000000638302BD50.png" style="width:4.128cm;height:2.619cm;" alt="Image" /></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">DOS</span><span class="o">&gt;</span><span class="n">cscript</span> <span class="n">coucou</span><span class="o">.</span><span class="n">vbs</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">Microsoft</span> <span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="n">Windows</span> <span class="n">Script</span> <span class="n">Host</span> <span class="n">Version</span> <span class="mf">5.6</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="n">Microsoft</span> <span class="n">Corporation</span> <span class="mi">1996</span><span class="o">-</span><span class="mf">2001.</span> <span class="n">Tous</span> <span class="n">droits</span> <span class="n">réservés</span><span class="o">.</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">coucou</span>
+</code></pre></div></td></tr></table></div>
+<p>On voit ci-dessus clairement la différence entre les deux modes. Dans ce document, nous utiliserons quasi exclusivement le mode console cscript. C&#x27;est le mode qui convient aux applications dites &quot;batch&quot; c&#x27;est à dire des applications sans interaction avec un utilisateur au clavier. On notera deux points dans les résultats précédents :</p>
+<ul>
+<li>
+<p>On a supposé que les exécutables wscript.exe et cscript.exe étaient tous les deux dans le &quot;PATH&quot; de la machine, ce qui permet de les lancer en tapant simplement leurs noms. Si ce n&#x27;était pas le cas, il aurait fallu écrire ici :
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">DOS</span><span class="o">&gt;</span><span class="n">c</span><span class="p">:</span>\<span class="n">windows</span>\<span class="n">wscript</span> <span class="n">coucou</span><span class="o">.</span><span class="n">vbs</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">DOS</span><span class="o">&gt;</span><span class="n">c</span><span class="p">:</span>\<span class="n">windows</span>\<span class="n">command</span>\<span class="n">cscript</span> <span class="n">coucou</span><span class="o">.</span><span class="n">vbs</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>On notera que la version de wsh utilisée dans cet exemple et dans la suite du document est la version 5.6.</p>
+</li>
+<li>Le fichier source du script a le suffixe .vbs. C&#x27;est le suffixe désignant un script vbscript, un script javascript étant lui désigné par le suffixe .js.
+Le programme cscript a diverses options de lancement qu&#x27;on obtient en lançant cscript sans arguments :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span>
+<span class="normal"><a href="#__codelineno-4-19">19</a></span>
+<span class="normal"><a href="#__codelineno-4-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">DOS</span><span class="o">&gt;</span><span class="n">cscript</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">Microsoft</span> <span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="n">Windows</span> <span class="n">Script</span> <span class="n">Host</span> <span class="n">Version</span> <span class="mf">5.6</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="n">Microsoft</span> <span class="n">Corporation</span> <span class="mi">1996</span><span class="o">-</span><span class="mf">2001.</span> <span class="n">Tous</span> <span class="n">droits</span> <span class="n">réservés</span><span class="o">.</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="n">Utilisation</span> <span class="p">:</span> <span class="n">CScript</span> <span class="n">scriptname</span><span class="o">.</span><span class="n">extension</span> <span class="p">[</span><span class="n">option</span><span class="o">...</span><span class="p">]</span> <span class="p">[</span><span class="n">arguments</span><span class="o">...</span><span class="p">]</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="n">Options</span><span class="p">:</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="o">//</span><span class="n">B</span>         <span class="n">batch</span> <span class="p">:</span> <span class="n">Supprime</span> <span class="n">l</span><span class="s1">&#39;affichage des invites et des erreurs de scripts</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="o">//</span><span class="n">D</span>         <span class="n">Activer</span> <span class="n">le</span> <span class="n">débogage</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="o">//</span><span class="n">E</span><span class="p">:</span><span class="n">engine</span>  <span class="n">Utiliser</span> <span class="n">le</span> <span class="n">moteur</span> <span class="n">pour</span> <span class="n">l</span><span class="s1">&#39;exécution de script</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="o">//</span><span class="n">H</span><span class="p">:</span><span class="n">CScript</span> <span class="n">Remplace</span> <span class="n">l</span><span class="s1">&#39;environnement d&#39;</span><span class="n">exécution</span> <span class="n">de</span> <span class="n">scripts</span> <span class="n">par</span> <span class="n">défaut</span> <span class="n">par</span> <span class="n">CScript</span><span class="o">.</span><span class="n">exe</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="o">//</span><span class="n">H</span><span class="p">:</span><span class="n">WScript</span> <span class="n">tRemplace</span> <span class="n">l</span><span class="s1">&#39;environnement d&#39;</span><span class="n">exécution</span> <span class="n">de</span> <span class="n">scripts</span> <span class="n">par</span> <span class="n">défaut</span> <span class="n">par</span> <span class="n">WScript</span><span class="o">.</span><span class="n">exe</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="o">//</span><span class="n">I</span>         <span class="n">Mode</span> <span class="n">interactif</span> <span class="p">(</span><span class="n">par</span> <span class="n">défaut</span><span class="p">,</span> <span class="n">contraire</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;option  //B)</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="o">//</span><span class="n">Job</span> <span class="p">:</span><span class="n">xxxx</span>    <span class="n">Exécuter</span> <span class="n">une</span> <span class="n">tâche</span> <span class="n">WSF</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="o">//</span><span class="n">Logo</span>      <span class="n">Afficher</span> <span class="n">un</span> <span class="n">logo</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="o">//</span><span class="n">Nologo</span>    <span class="n">Empêcher</span> <span class="n">l</span><span class="s1">&#39;affichage d&#39;</span><span class="n">un</span> <span class="n">logo</span> <span class="p">:</span> <span class="n">Aucune</span> <span class="n">bannière</span> <span class="n">ne</span> <span class="n">s</span><span class="s1">&#39;affiche pendant la durée d&#39;</span><span class="n">exécution</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="o">//</span><span class="n">S</span>         <span class="n">Enregistrer</span> <span class="n">les</span> <span class="n">options</span> <span class="n">de</span> <span class="n">ligne</span> <span class="n">de</span> <span class="n">commande</span> <span class="n">actuelles</span> <span class="n">pour</span> <span class="n">cet</span> <span class="n">utilisateur</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="o">//</span><span class="n">T</span><span class="p">:</span><span class="n">nn</span>      <span class="n">Durée</span> <span class="n">d</span><span class="s1">&#39;exécution en secondes :  Temps maximal autorisé pour l&#39;</span><span class="n">exécution</span> <span class="n">d</span><span class="s1">&#39;un script</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="o">//</span><span class="n">X</span>         <span class="n">Exécuter</span> <span class="n">un</span> <span class="n">script</span> <span class="n">dans</span> <span class="n">le</span> <span class="n">débogueur</span>
+</code></pre></div></td></tr></table></div>
+<p>L&#x27;argument //nologo supprime l&#x27;affichage de la bannière de wsh :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span><span class="n">cscript</span> <span class="o">//</span><span class="n">nologo</span> <span class="n">coucou</span><span class="o">.</span><span class="n">vbs</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">coucou</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="23-la-forme-dun-script-wsh">2.3. La forme d&#x27;un script WSH</h2>
+<p>Nous venons de voir un premier script : coucou.vbs</p>
+<p><img src="images/10000000000000AD00000019ADCAAFD4.png" style="width:4.577cm;height:0.661cm;" alt="Image" /></p>
+<p>Nous avons indiqué que le suffixe .vbs du fichier désignait un script vbscript. Ce n&#x27;est pas une obligation. Nous aurions pu mettre le script dans un fichier de suffixe .wsf sous la forme suivante plus complexe :</p>
+<p><img src="images/10000000000000EC000000445ACF69C7.png" style="width:6.244cm;height:1.799cm;" alt="Image" /></p>
+<p>L&#x27;exécution de ce script donne la chose suivante :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span><span class="n">cscript</span> <span class="o">//</span><span class="n">nologo</span> <span class="n">coucou2</span><span class="o">.</span><span class="n">wsf</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">coucou</span>
+</code></pre></div></td></tr></table></div>
+<p>Un script WSH peut mélanger les langages :</p>
+<p><img src="images/1000000000000149000000C80D41B3C1.png" style="width:8.705cm;height:5.292cm;" alt="Image" /></p>
+<p>L&#x27;exécution de ce script donne la chose suivante :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">C</span><span class="p">:</span>\<span class="o">&gt;</span><span class="n">cscript</span> <span class="o">//</span><span class="n">nologo</span> <span class="n">coucou3</span><span class="o">.</span><span class="n">wsf</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">coucou</span> <span class="p">(</span><span class="n">vbscript</span><span class="p">)</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">coucou</span> <span class="p">(</span><span class="n">javascript</span><span class="p">)</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="n">coucou</span> <span class="p">(</span><span class="n">perlscript</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Nous retiendrons les points suivants :</p>
+<ul>
+<li>Le conteneur WSH n&#x27;est pas lié à un langage. Un script wsh peut mélanger les langages dans un fichier de suffixe .wsf</li>
+<li>Le script est alors encadré par des balises &lt;job id=&quot;...&quot;&gt; ... &lt;/job&gt;</li>
+<li>A l&#x27;intérieur de l&#x27;application (=job), les langages utilisés par les différentes portions de code sont balisées par &lt;script language=&quot;....&quot;&gt; .... &lt;/script&gt;</li>
+<li>Ce langage de balisages porte un nom : XML pour e<strong>X</strong>tended <strong>M</strong>arkup <strong>L</strong>anguage. XML ne définit aucune balise mais des règles d&#x27;agencement de balises. Ici on devrait donc dire que le langage de balisages utilisé dans un script wsh suit la norme XML.
+Par la suite, nous utiliserons exclusivement vbscript dans des fichiers .vbs.</li>
+</ul>
+<h2 id="24-lobjet-wscript">2.4. L&#x27;objet WSCRIPT</h2>
+<p>Le conteneur WSH met à la disposition des scripts qu&#x27;il exécute un objet appelé wscript. Un objet a des <strong>propriétés</strong> et des <strong>méthodes</strong> :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000252000000DFD101E0DF.png" style="display:inline-block; margin:4px;width:7.858cm;height:2.951cm;" /></td></tr></table>
+
+<p>Un objet Obj a des propriétés Pi qui fixent son état. Ainsi un objet thermomètre peut avoir une propriété température. Cette propriété est un des aspects de l&#x27;état du thermomètre. Une autre pourrait être la température maximale Tmax qu&#x27;il peut supporter.</p>
+<p>L&#x27;objet Obj peut avoir des méthodes Mj qui permettent à des agents extérieurs soit de :</p>
+<ul>
+<li>connaître son état</li>
+<li>changer son état
+Ainsi notre thermomètre, s&#x27;il est électronique, pourrait avoir une méthode allumer qui le mettrait en marche, une autre éteindre qui l&#x27;éteindrait, une autre afficher qui afficherait la température d&#x27;équilibre une fois celle-ci atteinte. En termes de programmation, une méthode est une fonction qui peut admettre des arguments et rendre des résultats.</li>
+</ul>
+<p>En Vbscript, les propriétés Pi d&#x27;un objet Obj sont notées Obj.Pi et les méthodes Mj sont notées Obj.Mj. L&#x27;objet wscript de WSH est un objet important pour les méthodes qu&#x27;il met à disposition des scripts. Ainsi sa méthode echo permet d&#x27;afficher un message. La syntaxe de cette méthode est la suivante :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">wscript</span><span class="o">.</span><span class="n">echo</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">argn</span>
+</code></pre></div></td></tr></table></div>
+<p>Les valeurs des arguments argi sont alors affichées dans une fenêtre (exécution par wscript) ou à l&#x27;écran (exécution par cscript sous DOS).</p>
+<h2 id="25-le-conteneur-internet-explorer">2.5. Le conteneur Internet Explorer</h2>
+<p>Nous avons écrit plus haut que Internet Explorer pouvait être un conteneur pour un script vbscript. Montrons-le sur un exemple simple. Suit une page HTML (<strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage) appelée coucou2.htm ne contenant pas de script vbscript.</p>
+<p>21</p>
+<p><img src="images/100000000000014400000074F8C78C12.png" style="width:8.573cm;height:3.069cm;" alt="Image" /></p>
+<p>Son chargement direct par Internet Explorer (Fichier/Ouvrir) donne les résultats suivants :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000038F00000188C838B150.png" style="display:inline-block; margin:4px;width:12.053cm;height:5.186cm;" /></td></tr></table>
+
+<p>Le contenu du fichier coucou2.htm nous montre que HTML est un langage de balisage. Connaître le langage HTML c&#x27;est connaître ces balises. Celles-ci ont pour but principal d&#x27;indiquer au navigateur comment afficher un document. HTML ne suit pas exactement la norme XML mais en est proche.</p>
+<p>Dans coucou2.htm, il y a deux informations à représenter notées 1 et 2. Nous les avons représentées également dans l&#x27;affichage qui en a été fait. C&#x27;est la balise &lt;title&gt;...&lt;/title&gt; qui a fait que l&#x27;information 1 a été placée dans la barre de titre du navigateur et la balise &lt;body&gt;..&lt;/body&gt; qui a fait que l&#x27;information 2 a été placée dans la partie document du navigateur.</p>
+<p>Nous n&#x27;entrerons pas davantage dans l&#x27;étude du langage HTML. Modifions le fichier coucou2.htm en y introduisant un script vbscript et appelons-le maintenant coucou1.htm :</p>
+<p><img src="images/1000000000000289000000920A3BF436.png" style="width:15.981cm;height:3.598cm;" alt="Image" /></p>
+<p>Le script vbscript a été placé dans la balise &lt;head&gt;...&lt;/head&gt;. Il aurait pu être placé ailleurs. Il affiche &quot;coucou&quot; au chargement initial de la page. Ici, le navigateur doit être Internet Explorer car seul ce navigateur est par défaut un conteneur pour des scripts vbscript. L&#x27;affichage obtenu est alors le suivant :</p>
+<p><img src="images/10000000000000C2000000765F603384.png" style="width:5.133cm;height:3.122cm;" alt="Image" /></p>
+<p>suivi de l&#x27;affichage normal de la page :</p>
+<p><img src="images/10000000000001B80000009CC27983F3.png" style="width:11.642cm;height:4.128cm;" alt="Image" /></p>
+<p>Le script exécuté était le suivant :</p>
+<p><img src="images/10000000000000D70000002DC732857C.png" style="width:5.689cm;height:1.191cm;" alt="Image" /></p>
+<p>Alors que le conteneur WSH mettait à disposition du script un objet appelé wscript permettant de faire des affichages avec sa méthode echo, ici IE met à disposition du script un objet window permettant de faire des affichages avec la méthode alert. Ainsi pour afficher &quot;coucou&quot;, on écrit wscript.echo &quot;coucou&quot; dans WSH et window.alert &quot;coucou&quot; dans IE. On peut montrer ici aussi qu&#x27;en fait on peut utiliser plusieurs langages dans le conteneur IE. Nous reprenons l&#x27;exemple déjà présenté dans WSH au sein d&#x27;une page coucou3.htm :</p>
+<p><img src="images/10000000000002A40000011AA4BEDFB1.png" style="width:15.981cm;height:6.668cm;" alt="Image" /></p>
+<p>Le chargement de cette page par IE affiche tout d&#x27;abord trois fenêtres d&#x27;information :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000C200000077F09A77D4.png" style="display:inline-block; margin:4px;width:5.133cm;height:3.149cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000C100000076C652CBA1.png" style="display:inline-block; margin:4px;width:5.106cm;height:3.122cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000C100000075460B483D.png" style="display:inline-block; margin:4px;width:5.106cm;height:3.096cm;" /></td></tr></table>
+
+<p>avant d&#x27;afficher la page finale :</p>
+<p><img src="images/10000000000001F90000005B68D2F44C.png" style="width:13.361cm;height:2.408cm;" alt="Image" /></p>
+<h2 id="26-laide-de-wsh">2.6. L&#x27;aide de WSH</h2>
+<p>WSH vient avec un système d&#x27;aide situé habituellement dans le dossier &quot;C:\Program Files\Microsoft Windows Script\ScriptDocs&quot;. pour la version 5.6 de WSH, le fichier d&#x27;aide s&#x27;appelle &quot;SCRIPT56.CHM&quot;. Il suffit de double-cliquer sur ce fichier pour avoir accès à l&#x27;aide. Il peut être pratique d&#x27;en avoir un raccourci sur son bureau.</p>
+<p>Une fois lancé, on a quelque chose comme suit :</p>
+<p><img src="images/10000000000000F1000000B609492925.png" style="width:6.376cm;height:4.815cm;" alt="Image" /></p>
+<p>On y trouve l&#x27;aide du conteneur WSH mais également celle pour les langages vbscript et javascript. C&#x27;est un outil indispensable à la fois pour le débutant et le programmeur confirmé. Il y a plusieurs façons de travailler avec cette aide :</p>
+<ul>
+<li>on ne sait pas trop ce qu&#x27;on cherche. On veut simplement découvrir ce qui est proposé. L&#x27;onglet Sommaire ci-dessus peut être alors utilisé. On peut par exemple regarder ce qui est proposé pour vbscript :</li>
+</ul>
+<p><img src="images/10000000000001DA0000020FBC4A7ED8.png" style="width:12.541cm;height:13.944cm;" alt="Image" /></p>
+<p>Vous découvrirez dans l&#x27;aide de VBscript de nombreuses informations qui ne sont pas dans ce document.</p>
+<ul>
+<li>vous pouvez chercher quelque chose de précis, par exemple la façon d&#x27;utiliser la fonction msgbox de VBscript. Utilisez alors l&#x27;onglet Rechercher :</li>
+</ul>
+<p><img src="images/10000000000000EA00000156DCCA294C.png" style="width:6.191cm;height:9.049cm;" alt="Image" /></p>
+<p>L&#x27;aide ramène toutes les rubriques qui ont un rapport avec le mot recherché. En général, les premières rubriques proposées sont les plus pertinentes. C&#x27;est le cas ici où la première rubrique proposée est la bonne. Il suffit de double-cliquer dessus pour avoir l&#x27;information de cette rubrique :</p>
+<p><img src="images/10000000000002FC000000C168A18C2C.png" style="width:15.981cm;height:4.048cm;" alt="Image" /></p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://tahe.developpez.com" target="_blank">
+          https://tahe.developpez.com
+        </a>
+        <br>
+        Ce cours tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
+        Partage dans les Mêmes Conditions 3.0 non transposé</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
