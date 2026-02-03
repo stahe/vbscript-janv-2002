@@ -12,7 +12,7 @@
         <meta name="author" content="Serge Tahé">
       
       
-        <link rel="canonical" href="https://stahe.github.io/vbscript-janv-2002/les-contextes-dx27execution-de-vbscript.html">
+        <link rel="canonical" href="https://stahe.github.io/vbscript-janv-2002/les-contextes-dexecution-de-vbscript.html">
       
       
         <link rel="prev" href="introduction.html">
@@ -128,7 +128,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              2. Les contextes d&#x27;exécution de VBSCRIPT
+              2. Les contextes d'exécution de VBSCRIPT
             
           </span>
         </div>
@@ -346,7 +346,7 @@
   <span class="md-ellipsis">
     
   
-    2. Les contextes d&#x27;exécution de VBSCRIPT
+    2. Les contextes d'exécution de VBSCRIPT
   
 
     
@@ -357,14 +357,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="les-contextes-dx27execution-de-vbscript.html" class="md-nav__link md-nav__link--active">
+      <a href="les-contextes-dexecution-de-vbscript.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    2. Les contextes d&#x27;exécution de VBSCRIPT
+    2. Les contextes d'exécution de VBSCRIPT
   
 
     
@@ -591,7 +591,12 @@
   
 
 
+<p><a id="refheading1870932734444"></a>
+<a id="toc523634254"></a>
+<a id="toc535044778"></a></p>
 <h1 id="2-les-contextes-dexecution-de-vbscript">2. Les contextes d&#x27;exécution de VBSCRIPT</h1>
+<p><a id="toc535044779"></a>
+<a id="refheading1871132734444"></a></p>
 <h2 id="21-introduction">2.1. Introduction</h2>
 <p>Un programme <em>vbscript</em> ne s&#x27;exécute pas directement sous Windows mais dans un conteneur qui lui fournit un contexte d&#x27;exécution et un certain nombre d&#x27;objets qui lui sont propres. Par ailleurs, le programme vbscript peut utiliser des objets mis à sa disposition par le système Windows, objets appelés objets ActiveX.</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000073E00000323F1B79BD8.png" style="display:inline-block; margin:4px;width:16.002cm;height:6.93cm;" /></td></tr></table>
@@ -609,33 +614,26 @@
 <li>C&#x27;est davantage les objets utilisables par un programme que le langage utilisé par celui-ci qui font sa puissance. Or nombre de ces objets sont fournis par les conteneurs et non par les langages eux-mêmes.</li>
 </ul>
 <p>Un inconvénient de VBSCRIPT est qu&#x27;il n&#x27;est pas portable sur un système autre que Windows, par exemple Unix. Ses concurrents Javascript, Perl, Python eux le sont. Si on doit travailler sur des systèmes hétérogènes, il peut être intéressant voire indispensable d&#x27;utiliser le même langage sur les différents systèmes.</p>
+<p><a id="toc535044780"></a>
+<a id="refheading1871332734444"></a></p>
 <h2 id="22-le-conteneur-wsh">2.2. Le conteneur WSH</h2>
 <p>Le conteneur WSH (Windows Scripting Host) permet l&#x27;exécution, au sein de Windows, de programmes écrits en divers langages : vbscript, javascript, perlscript, python, ... Il existe une norme à respecter pour qu&#x27;un langage puisse être utilisé au sein de WSH. Tout langage respectant cette norme est candidat à l&#x27;exécution au sein de WSH. On peut imaginer que la liste précédente des langages s&#x27;exécutant dans WSH puisse s&#x27;allonger. Un conteneur met à la disposition des programmes qu&#x27;il exécute des objets qui leur donnent leur véritable puissance. Ceci tend à gommer les différences entre langages puiqu&#x27;ils utilisent alors tous le même ensemble d&#x27;objets. Utiliser un langage plutôt qu&#x27;un autre peut devenir alors une simple affaire de goût plutôt que de performances.</p>
 <p>L&#x27;exécution d&#x27;un programme dans WSH se fait à l&#x27;aide de deux exécutables : <em>wscript.exe</em> et <em>cscript.exe</em>. <em>wscript.exe</em> se trouve normalement dans le répertoire d&#x27;installation de windows appelé généralement <em>%windir%</em> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span>
-<span class="normal"><a href="#__codelineno-0-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>C:\ &gt;echo %windir%
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>C:\WINDOWS
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>C:\&gt;dir c:\windows\wscript.exe
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>WSCRIPT  EXE       123 280  19/09/01  11:54 wscript.exe
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>L&#39;exécutable cscript.exe se trouve lui sous %windir%\command :
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>C:\&gt;dir c:\windows\cscript.* /s
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>Répertoire de C:\WINDOWS\COMMAND
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>CSCRIPT  EXE       102 450  26/06/01  17:49 cscript.exe
-</code></pre></div></td></tr></table></div>
+<div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<span class="odt-code-line">C:\ &gt;echo %windir%</span>
+<span class="odt-code-line">C:\WINDOWS</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line">C:\&gt;dir c:\windows\wscript.exe</span>
+<span class="odt-code-line">WSCRIPT  EXE       123 280  19/09/01  11:54 wscript.exe</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line">L&#x27;exécutable <span style="font-style:italic">cscript.exe</span> se trouve lui sous <span style="font-style:italic">%windir%\command</span> :</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line">C:\&gt;dir c:\windows\cscript.* /s</span>
+<span class="odt-code-line"></span>
+<span class="odt-code-line">Répertoire de C:\WINDOWS\COMMAND</span>
+<span class="odt-code-line">CSCRIPT  EXE       102 450  26/06/01  17:49 cscript.exe</span>
+</code></pre></div>
+
 <p>Le w de <em>wscript</em> veut dire <em>windows</em> et le c de <em>cscript</em> veut dire <em>console</em>. Un script peut être exécuté indifféremment par wscript ou cscript. La différence réside dans le mode d&#x27;affichage de messages à l&#x27;écran :</p>
 <ul>
 <li>wscript les affiche dans une fenêtre</li>
@@ -644,99 +642,95 @@
 <p>Voici un script <em>coucou.vbs</em> qui affiche <em>coucou</em> à l&#x27;écran :</p>
 <p><img src="images/10000000000000AD00000019ADCAAFD4.png" style="width:4.577cm;height:0.661cm;" alt="Image" /></p>
 <p>Ouvrons une fenêtre DOS et exécutons-le successivement avec <em>wscript</em> et <em>cscript</em> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>DOS&gt;wscript coucou.vbs
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>DOS&gt;wscript coucou.vbs
+</code></pre></div>
 <p><img src="images/100000000000009C000000638302BD50.png" style="width:4.128cm;height:2.619cm;" alt="Image" /></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
-<span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span>
-<span class="normal"><a href="#__codelineno-2-4">4</a></span>
-<span class="normal"><a href="#__codelineno-2-5">5</a></span>
-<span class="normal"><a href="#__codelineno-2-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>DOS&gt;cscript coucou.vbs
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a>Microsoft (R) Windows Script Host Version 5.6
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a>Copyright (C) Microsoft Corporation 1996-2001. Tous droits réservés.
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a>coucou
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>DOS&gt;cscript coucou.vbs
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Microsoft (R) Windows Script Host Version 5.6
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Copyright (C) Microsoft Corporation 1996-2001. Tous droits réservés.
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>coucou
+</code></pre></div>
 <p>On voit ci-dessus clairement la différence entre les deux modes. Dans ce document, nous utiliserons quasi exclusivement le mode console <em>cscript</em>. C&#x27;est le mode qui convient aux applications dites &quot;batch&quot; c&#x27;est à dire des applications sans interaction avec un utilisateur au clavier. On notera deux points dans les résultats précédents :</p>
 <ol>
 <li>On a supposé que les exécutables wscript.exe et cscript.exe étaient tous les deux dans le &quot;PATH&quot; de la machine, ce qui permet de les lancer en tapant simplement leurs noms. Si ce n&#x27;était pas le cas, il aurait fallu écrire ici :</li>
 </ol>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>DOS&gt;c:\windows\wscript coucou.vbs
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>DOS&gt;c:\windows\command\cscript coucou.vbs
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>DOS&gt;c:\windows\wscript coucou.vbs
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>DOS&gt;c:\windows\command\cscript coucou.vbs
+</code></pre></div>
 <ol>
 <li>On notera que la version de wsh utilisée dans cet exemple et dans la suite du document est la version 5.6.</li>
 <li>Le fichier source du script a le suffixe <em>.vbs</em>. C&#x27;est le suffixe désignant un script <em>vbscript</em>, un script <em>javascript</em> étant lui désigné par le suffixe <em>.js</em>.</li>
 </ol>
 <p>Le programme <em>cscript</em> a diverses options de lancement qu&#x27;on obtient en lançant <em>cscript</em> sans arguments :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-4-10">10</a></span>
-<span class="normal"><a href="#__codelineno-4-11">11</a></span>
-<span class="normal"><a href="#__codelineno-4-12">12</a></span>
-<span class="normal"><a href="#__codelineno-4-13">13</a></span>
-<span class="normal"><a href="#__codelineno-4-14">14</a></span>
-<span class="normal"><a href="#__codelineno-4-15">15</a></span>
-<span class="normal"><a href="#__codelineno-4-16">16</a></span>
-<span class="normal"><a href="#__codelineno-4-17">17</a></span>
-<span class="normal"><a href="#__codelineno-4-18">18</a></span>
-<span class="normal"><a href="#__codelineno-4-19">19</a></span>
-<span class="normal"><a href="#__codelineno-4-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">DOS</span><span class="o">&gt;</span><span class="n">cscript</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">Microsoft</span> <span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="n">Windows</span> <span class="n">Script</span> <span class="n">Host</span> <span class="n">Version</span> <span class="mf">5.6</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="n">Microsoft</span> <span class="n">Corporation</span> <span class="mi">1996</span><span class="o">-</span><span class="mf">2001.</span> <span class="n">Tous</span> <span class="n">droits</span> <span class="n">réservés</span><span class="o">.</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a>
-<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="n">Utilisation</span> <span class="p">:</span> <span class="n">CScript</span> <span class="n">scriptname</span><span class="o">.</span><span class="n">extension</span> <span class="p">[</span><span class="n">option</span><span class="o">...</span><span class="p">]</span> <span class="p">[</span><span class="n">arguments</span><span class="o">...</span><span class="p">]</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7"></a>
-<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="n">Options</span><span class="p">:</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="o">//</span><span class="n">B</span>         <span class="n">batch</span> <span class="p">:</span> <span class="n">Supprime</span> <span class="n">l</span><span class="s1">&#39;affichage des invites et des erreurs de scripts</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="o">//</span><span class="n">D</span>         <span class="n">Activer</span> <span class="n">le</span> <span class="n">débogage</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="o">//</span><span class="n">E</span><span class="p">:</span><span class="n">engine</span>  <span class="n">Utiliser</span> <span class="n">le</span> <span class="n">moteur</span> <span class="n">pour</span> <span class="n">l</span><span class="s1">&#39;exécution de script</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="o">//</span><span class="n">H</span><span class="p">:</span><span class="n">CScript</span> <span class="n">Remplace</span> <span class="n">l</span><span class="s1">&#39;environnement d&#39;</span><span class="n">exécution</span> <span class="n">de</span> <span class="n">scripts</span> <span class="n">par</span> <span class="n">défaut</span> <span class="n">par</span> <span class="n">CScript</span><span class="o">.</span><span class="n">exe</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="o">//</span><span class="n">H</span><span class="p">:</span><span class="n">WScript</span> <span class="n">tRemplace</span> <span class="n">l</span><span class="s1">&#39;environnement d&#39;</span><span class="n">exécution</span> <span class="n">de</span> <span class="n">scripts</span> <span class="n">par</span> <span class="n">défaut</span> <span class="n">par</span> <span class="n">WScript</span><span class="o">.</span><span class="n">exe</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="o">//</span><span class="n">I</span>         <span class="n">Mode</span> <span class="n">interactif</span> <span class="p">(</span><span class="n">par</span> <span class="n">défaut</span><span class="p">,</span> <span class="n">contraire</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;option  //B)</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="o">//</span><span class="n">Job</span> <span class="p">:</span><span class="n">xxxx</span>    <span class="n">Exécuter</span> <span class="n">une</span> <span class="n">tâche</span> <span class="n">WSF</span>
-<a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="o">//</span><span class="n">Logo</span>      <span class="n">Afficher</span> <span class="n">un</span> <span class="n">logo</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
-<a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="o">//</span><span class="n">Nologo</span>    <span class="n">Empêcher</span> <span class="n">l</span><span class="s1">&#39;affichage d&#39;</span><span class="n">un</span> <span class="n">logo</span> <span class="p">:</span> <span class="n">Aucune</span> <span class="n">bannière</span> <span class="n">ne</span> <span class="n">s</span><span class="s1">&#39;affiche pendant la durée d&#39;</span><span class="n">exécution</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="o">//</span><span class="n">S</span>         <span class="n">Enregistrer</span> <span class="n">les</span> <span class="n">options</span> <span class="n">de</span> <span class="n">ligne</span> <span class="n">de</span> <span class="n">commande</span> <span class="n">actuelles</span> <span class="n">pour</span> <span class="n">cet</span> <span class="n">utilisateur</span>
-<a id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="o">//</span><span class="n">T</span><span class="p">:</span><span class="n">nn</span>      <span class="n">Durée</span> <span class="n">d</span><span class="s1">&#39;exécution en secondes :  Temps maximal autorisé pour l&#39;</span><span class="n">exécution</span> <span class="n">d</span><span class="s1">&#39;un script</span>
-<a id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="o">//</span><span class="n">X</span>         <span class="n">Exécuter</span> <span class="n">un</span> <span class="n">script</span> <span class="n">dans</span> <span class="n">le</span> <span class="n">débogueur</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">DOS</span><span class="o">&gt;</span><span class="n">cscript</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">Microsoft</span> <span class="p">(</span><span class="n">R</span><span class="p">)</span> <span class="n">Windows</span> <span class="n">Script</span> <span class="n">Host</span> <span class="n">Version</span> <span class="mf">5.6</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">Copyright</span> <span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="n">Microsoft</span> <span class="n">Corporation</span> <span class="mi">1996</span><span class="o">-</span><span class="mf">2001.</span> <span class="n">Tous</span> <span class="n">droits</span> <span class="n">réservés</span><span class="o">.</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="n">Utilisation</span> <span class="p">:</span> <span class="n">CScript</span> <span class="n">scriptname</span><span class="o">.</span><span class="n">extension</span> <span class="p">[</span><span class="n">option</span><span class="o">...</span><span class="p">]</span> <span class="p">[</span><span class="n">arguments</span><span class="o">...</span><span class="p">]</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="n">Options</span><span class="p">:</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="o">//</span><span class="n">B</span>         <span class="n">batch</span> <span class="p">:</span> <span class="n">Supprime</span> <span class="n">l</span><span class="s1">&#39;affichage des invites et des erreurs de scripts</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="o">//</span><span class="n">D</span>         <span class="n">Activer</span> <span class="n">le</span> <span class="n">débogage</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="o">//</span><span class="n">E</span><span class="p">:</span><span class="n">engine</span>  <span class="n">Utiliser</span> <span class="n">le</span> <span class="n">moteur</span> <span class="n">pour</span> <span class="n">l</span><span class="s1">&#39;exécution de script</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="o">//</span><span class="n">H</span><span class="p">:</span><span class="n">CScript</span> <span class="n">Remplace</span> <span class="n">l</span><span class="s1">&#39;environnement d&#39;</span><span class="n">exécution</span> <span class="n">de</span> <span class="n">scripts</span> <span class="n">par</span> <span class="n">défaut</span> <span class="n">par</span> <span class="n">CScript</span><span class="o">.</span><span class="n">exe</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="o">//</span><span class="n">H</span><span class="p">:</span><span class="n">WScript</span> <span class="n">tRemplace</span> <span class="n">l</span><span class="s1">&#39;environnement d&#39;</span><span class="n">exécution</span> <span class="n">de</span> <span class="n">scripts</span> <span class="n">par</span> <span class="n">défaut</span> <span class="n">par</span> <span class="n">WScript</span><span class="o">.</span><span class="n">exe</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="o">//</span><span class="n">I</span>         <span class="n">Mode</span> <span class="n">interactif</span> <span class="p">(</span><span class="n">par</span> <span class="n">défaut</span><span class="p">,</span> <span class="n">contraire</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;option  //B)</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="o">//</span><span class="n">Job</span> <span class="p">:</span><span class="n">xxxx</span>    <span class="n">Exécuter</span> <span class="n">une</span> <span class="n">tâche</span> <span class="n">WSF</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="o">//</span><span class="n">Logo</span>      <span class="n">Afficher</span> <span class="n">un</span> <span class="n">logo</span> <span class="p">(</span><span class="n">default</span><span class="p">)</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="o">//</span><span class="n">Nologo</span>    <span class="n">Empêcher</span> <span class="n">l</span><span class="s1">&#39;affichage d&#39;</span><span class="n">un</span> <span class="n">logo</span> <span class="p">:</span> <span class="n">Aucune</span> <span class="n">bannière</span> <span class="n">ne</span> <span class="n">s</span><span class="s1">&#39;affiche pendant la durée d&#39;</span><span class="n">exécution</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="o">//</span><span class="n">S</span>         <span class="n">Enregistrer</span> <span class="n">les</span> <span class="n">options</span> <span class="n">de</span> <span class="n">ligne</span> <span class="n">de</span> <span class="n">commande</span> <span class="n">actuelles</span> <span class="n">pour</span> <span class="n">cet</span> <span class="n">utilisateur</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="o">//</span><span class="n">T</span><span class="p">:</span><span class="n">nn</span>      <span class="n">Durée</span> <span class="n">d</span><span class="s1">&#39;exécution en secondes :  Temps maximal autorisé pour l&#39;</span><span class="n">exécution</span> <span class="n">d</span><span class="s1">&#39;un script</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="o">//</span><span class="n">X</span>         <span class="n">Exécuter</span> <span class="n">un</span> <span class="n">script</span> <span class="n">dans</span> <span class="n">le</span> <span class="n">débogueur</span>
 </code></pre></div></td></tr></table></div>
 <p>L&#x27;argument <em>//nologo</em> supprime l&#x27;affichage de la bannière de wsh :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>C:\&gt;cscript //nologo coucou.vbs
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a>coucou
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>C:\&gt;cscript //nologo coucou.vbs
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>coucou
 </code></pre></div></td></tr></table></div>
+<p><a id="toc535044781"></a>
+<a id="refheading1871532734444"></a></p>
 <h2 id="23-la-forme-dun-script-wsh">2.3. La forme d&#x27;un script WSH</h2>
 <p>Nous venons de voir un premier script : <em>coucou.vbs</em></p>
 <p><img src="images/10000000000000AD00000019ADCAAFD4.png" style="width:4.577cm;height:0.661cm;" alt="Image" /></p>
 <p>Nous avons indiqué que le suffixe <em>.vbs</em> du fichier désignait un script <em>vbscript</em>. Ce n&#x27;est pas une obligation. Nous aurions pu mettre le script dans un fichier de suffixe <em>.wsf</em> sous la forme suivante plus complexe :</p>
 <p><img src="images/10000000000000EC000000445ACF69C7.png" style="width:6.244cm;height:1.799cm;" alt="Image" /></p>
 <p>L&#x27;exécution de ce script donne la chose suivante :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>C:\&gt;cscript //nologo coucou2.wsf
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a>coucou
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>C:\&gt;cscript //nologo coucou2.wsf
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>coucou
 </code></pre></div></td></tr></table></div>
 <p>Un script WSH peut mélanger les langages :</p>
 <p><img src="images/1000000000000149000000C80D41B3C1.png" style="width:8.705cm;height:5.292cm;" alt="Image" /></p>
 <p>L&#x27;exécution de ce script donne la chose suivante :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
-<span class="normal"><a href="#__codelineno-7-2">2</a></span>
-<span class="normal"><a href="#__codelineno-7-3">3</a></span>
-<span class="normal"><a href="#__codelineno-7-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>C:\&gt;cscript //nologo coucou3.wsf
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a>coucou (vbscript)
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a>coucou (javascript)
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a>coucou (perlscript)
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>C:\&gt;cscript //nologo coucou3.wsf
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>coucou (vbscript)
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>coucou (javascript)
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>coucou (perlscript)
 </code></pre></div></td></tr></table></div>
 <p>Nous retiendrons les points suivants :</p>
 <ol>
@@ -746,6 +740,8 @@
 <li>Ce langage de balisages porte un nom : XML pour e<strong>X</strong>tended <strong>M</strong>arkup <strong>L</strong>anguage. XML ne définit aucune balise mais des règles d&#x27;agencement de balises. Ici on devrait donc dire que le langage de balisages utilisé dans un script wsh suit la norme XML.</li>
 </ol>
 <p>Par la suite, nous utiliserons exclusivement vbscript dans des fichiers .vbs.</p>
+<p><a id="toc535044782"></a>
+<a id="refheading1871732734444"></a></p>
 <h2 id="24-lobjet-wscript">2.4. L&#x27;objet WSCRIPT</h2>
 <p>Le conteneur WSH met à la disposition des scripts qu&#x27;il exécute un objet appelé <em>wscript</em>. Un objet a des <strong>propriétés</strong> et des <strong>méthodes</strong> :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000252000000DFD101E0DF.png" style="display:inline-block; margin:4px;width:7.858cm;height:2.951cm;" /></td></tr></table>
@@ -758,9 +754,11 @@
 </ul>
 <p>Ainsi notre thermomètre, s&#x27;il est électronique, pourrait avoir une méthode <em>allumer</em> qui le mettrait en marche, une autre <em>éteindre</em> qui l&#x27;éteindrait, une autre <em>afficher</em> qui afficherait la température d&#x27;équilibre une fois celle-ci atteinte. En termes de programmation, une méthode est une fonction qui peut admettre des arguments et rendre des résultats.</p>
 <p>En Vbscript, les propriétés Pi d&#x27;un objet Obj sont notées <em>Obj.Pi</em> et les méthodes Mj sont notées <em>Obj.Mj</em>. L&#x27;objet wscript de WSH est un objet important pour les méthodes qu&#x27;il met à disposition des scripts. Ainsi sa méthode <em>echo</em> permet d&#x27;afficher un message. La syntaxe de cette méthode est la suivante :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>wscript.echo arg1, arg2, ..., argn
-</code></pre></div></td></tr></table></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>wscript.echo arg1, arg2, ..., argn
+</code></pre></div>
 <p>Les valeurs des arguments <em>argi</em> sont alors affichées dans une fenêtre (exécution par wscript) ou à l&#x27;écran (exécution par cscript sous DOS).</p>
+<p><a id="toc535044783"></a>
+<a id="refheading1871932734444"></a></p>
 <h2 id="25-le-conteneur-internet-explorer">2.5. Le conteneur Internet Explorer</h2>
 <p>Nous avons écrit plus haut que Internet Explorer pouvait être un conteneur pour un script vbscript. Montrons-le sur un exemple simple. Suit une page HTML (<strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage) appelée <em>coucou2.htm</em> ne contenant pas de script vbscript.</p>
 <p>21</p>
@@ -785,6 +783,8 @@
 
 <p>avant d&#x27;afficher la page finale :</p>
 <p><img src="images/10000000000001F90000005B68D2F44C.png" style="width:13.361cm;height:2.408cm;" alt="Image" /></p>
+<p><a id="toc535044784"></a>
+<a id="refheading1872132734444"></a></p>
 <h2 id="26-laide-de-wsh">2.6. L&#x27;aide de WSH</h2>
 <p>WSH vient avec un système d&#x27;aide situé habituellement dans le dossier &quot;C:\Program Files\Microsoft Windows Script\ScriptDocs&quot;. pour la version 5.6 de WSH, le fichier d&#x27;aide s&#x27;appelle &quot;SCRIPT56.CHM&quot;. Il suffit de double-cliquer sur ce fichier pour avoir accès à l&#x27;aide. Il peut être pratique d&#x27;en avoir un raccourci sur son bureau.</p>
 <p>Une fois lancé, on a quelque chose comme suit :</p>
@@ -858,7 +858,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
