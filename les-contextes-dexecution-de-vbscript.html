@@ -599,7 +599,7 @@
 <a id="refheading1871132734444"></a></p>
 <h2 id="21-introduction">2.1. Introduction</h2>
 <p>Un programme <em>vbscript</em> ne s&#x27;exécute pas directement sous Windows mais dans un conteneur qui lui fournit un contexte d&#x27;exécution et un certain nombre d&#x27;objets qui lui sont propres. Par ailleurs, le programme vbscript peut utiliser des objets mis à sa disposition par le système Windows, objets appelés objets ActiveX.</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000073E00000323F1B79BD8.png" style="display:inline-block; margin:4px;width:16.002cm;height:6.93cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000073E00000323F1B79BD8.png" style="display:inline-block; margin:4px;width:16.002cm;height:6.93cm;" class="odt-zoomable" data-zoom-src="images/100000000000073E00000323F1B79BD8.png" /></td></tr></table>
 
 <p>Dans ce document, nous utiliserons deux conteneurs : <em>Windows Scripting Host</em> appelé couramment WSH et le navigateur <em>Internet Explorer</em> appelé parfois par la suite IE. Il en existe bien d&#x27;autres. Ainsi, les applications MS-Office sont des conteneurs pour un dérivé de VB appelé VBA (Visual Basic pour Applications). Il existe par ailleurs de nombreuses applications windows qui permettent à leurs utilisateurs de dépasser les limites de celle-ci en leur permettant de développer des programmes s&#x27;exécutant au sein de l&#x27;application et utilisant les objets propres à celle-ci.</p>
 <p>Le conteneur dans lequel s&#x27;exécute le programme vbscript joue un rôle primordial :</p>
@@ -640,11 +640,11 @@
 <li>cscript les affiche à l&#x27;écran</li>
 </ul>
 <p>Voici un script <em>coucou.vbs</em> qui affiche <em>coucou</em> à l&#x27;écran :</p>
-<p><img src="images/10000000000000AD00000019ADCAAFD4.png" style="width:4.577cm;height:0.661cm;" alt="Image" /></p>
+<p><img src="images/10000000000000AD00000019ADCAAFD4.png" style="width:4.577cm;height:0.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000AD00000019ADCAAFD4.png" /></p>
 <p>Ouvrons une fenêtre DOS et exécutons-le successivement avec <em>wscript</em> et <em>cscript</em> :</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>DOS&gt;wscript coucou.vbs
 </code></pre></div>
-<p><img src="images/100000000000009C000000638302BD50.png" style="width:4.128cm;height:2.619cm;" alt="Image" /></p>
+<p><img src="images/100000000000009C000000638302BD50.png" style="width:4.128cm;height:2.619cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000009C000000638302BD50.png" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>DOS&gt;cscript coucou.vbs
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Microsoft (R) Windows Script Host Version 5.6
@@ -713,16 +713,16 @@
 <a id="refheading1871532734444"></a></p>
 <h2 id="23-la-forme-dun-script-wsh">2.3. La forme d&#x27;un script WSH</h2>
 <p>Nous venons de voir un premier script : <em>coucou.vbs</em></p>
-<p><img src="images/10000000000000AD00000019ADCAAFD4.png" style="width:4.577cm;height:0.661cm;" alt="Image" /></p>
+<p><img src="images/10000000000000AD00000019ADCAAFD4.png" style="width:4.577cm;height:0.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000AD00000019ADCAAFD4.png" /></p>
 <p>Nous avons indiqué que le suffixe <em>.vbs</em> du fichier désignait un script <em>vbscript</em>. Ce n&#x27;est pas une obligation. Nous aurions pu mettre le script dans un fichier de suffixe <em>.wsf</em> sous la forme suivante plus complexe :</p>
-<p><img src="images/10000000000000EC000000445ACF69C7.png" style="width:6.244cm;height:1.799cm;" alt="Image" /></p>
+<p><img src="images/10000000000000EC000000445ACF69C7.png" style="width:6.244cm;height:1.799cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000EC000000445ACF69C7.png" /></p>
 <p>L&#x27;exécution de ce script donne la chose suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>C:\&gt;cscript //nologo coucou2.wsf
 <a id="__codelineno-5-2" name="__codelineno-5-2"></a>coucou
 </code></pre></div></td></tr></table></div>
 <p>Un script WSH peut mélanger les langages :</p>
-<p><img src="images/1000000000000149000000C80D41B3C1.png" style="width:8.705cm;height:5.292cm;" alt="Image" /></p>
+<p><img src="images/1000000000000149000000C80D41B3C1.png" style="width:8.705cm;height:5.292cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000149000000C80D41B3C1.png" /></p>
 <p>L&#x27;exécution de ce script donne la chose suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
 <span class="normal"><a href="#__codelineno-6-2">2</a></span>
@@ -744,7 +744,7 @@
 <a id="refheading1871732734444"></a></p>
 <h2 id="24-lobjet-wscript">2.4. L&#x27;objet WSCRIPT</h2>
 <p>Le conteneur WSH met à la disposition des scripts qu&#x27;il exécute un objet appelé <em>wscript</em>. Un objet a des <strong>propriétés</strong> et des <strong>méthodes</strong> :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000252000000DFD101E0DF.png" style="display:inline-block; margin:4px;width:7.858cm;height:2.951cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000252000000DFD101E0DF.png" style="display:inline-block; margin:4px;width:7.858cm;height:2.951cm;" class="odt-zoomable" data-zoom-src="images/1000000000000252000000DFD101E0DF.png" /></td></tr></table>
 
 <p>Un objet <em>Obj</em> a des propriétés <em>Pi</em> qui fixent son état. Ainsi un objet <em>thermomètre</em> peut avoir une propriété <em>température</em>. Cette propriété est un des aspects de l&#x27;état du thermomètre. Une autre pourrait être la température maximale <em>Tmax</em> qu&#x27;il peut supporter.</p>
 <p>L&#x27;objet <em>Obj</em> peut avoir des méthodes <em>Mj</em> qui permettent à des agents extérieurs soit de :</p>
@@ -762,45 +762,45 @@
 <h2 id="25-le-conteneur-internet-explorer">2.5. Le conteneur Internet Explorer</h2>
 <p>Nous avons écrit plus haut que Internet Explorer pouvait être un conteneur pour un script vbscript. Montrons-le sur un exemple simple. Suit une page HTML (<strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage) appelée <em>coucou2.htm</em> ne contenant pas de script vbscript.</p>
 <p>21</p>
-<p><img src="images/100000000000014400000074F8C78C12.png" style="width:8.573cm;height:3.069cm;" alt="Image" /></p>
+<p><img src="images/100000000000014400000074F8C78C12.png" style="width:8.573cm;height:3.069cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000014400000074F8C78C12.png" /></p>
 <p>Son chargement direct par Internet Explorer (<em>Fichier/Ouvrir</em>) donne les résultats suivants :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000038F00000188C838B150.png" style="display:inline-block; margin:4px;width:12.053cm;height:5.186cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000038F00000188C838B150.png" style="display:inline-block; margin:4px;width:12.053cm;height:5.186cm;" class="odt-zoomable" data-zoom-src="images/100000000000038F00000188C838B150.png" /></td></tr></table>
 
 <p>Le contenu du fichier <em>coucou2.htm</em> nous montre que HTML est un langage de balisage. Connaître le langage HTML c&#x27;est connaître ces balises. Celles-ci ont pour but principal d&#x27;indiquer au navigateur comment afficher un document. HTML ne suit pas exactement la norme XML mais en est proche.</p>
 <p>Dans <em>coucou2.htm</em>, il y a deux informations à représenter notées 1 et 2. Nous les avons représentées également dans l&#x27;affichage qui en a été fait. C&#x27;est la balise <em>&lt;title&gt;...&lt;/title&gt;</em> qui a fait que l&#x27;information 1 a été placée dans la barre de titre du navigateur et la balise <em>&lt;body&gt;..&lt;/body&gt;</em> qui a fait que l&#x27;information 2 a été placée dans la partie document du navigateur.</p>
 <p>Nous n&#x27;entrerons pas davantage dans l&#x27;étude du langage HTML. Modifions le fichier <em>coucou2.htm</em> en y introduisant un script vbscript et appelons-le maintenant <em>coucou1.htm</em> :</p>
-<p><img src="images/1000000000000289000000920A3BF436.png" style="width:15.981cm;height:3.598cm;" alt="Image" /></p>
+<p><img src="images/1000000000000289000000920A3BF436.png" style="width:15.981cm;height:3.598cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000289000000920A3BF436.png" /></p>
 <p>Le script vbscript a été placé dans la balise <em>&lt;head&gt;...&lt;/head&gt;</em>. Il aurait pu être placé ailleurs. Il affiche &quot;coucou&quot; au chargement initial de la page. Ici, le navigateur doit être Internet Explorer car seul ce navigateur est par défaut un conteneur pour des scripts vbscript. L&#x27;affichage obtenu est alors le suivant :</p>
-<p><img src="images/10000000000000C2000000765F603384.png" style="width:5.133cm;height:3.122cm;" alt="Image" /></p>
+<p><img src="images/10000000000000C2000000765F603384.png" style="width:5.133cm;height:3.122cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000C2000000765F603384.png" /></p>
 <p>suivi de l&#x27;affichage normal de la page :</p>
-<p><img src="images/10000000000001B80000009CC27983F3.png" style="width:11.642cm;height:4.128cm;" alt="Image" /></p>
+<p><img src="images/10000000000001B80000009CC27983F3.png" style="width:11.642cm;height:4.128cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001B80000009CC27983F3.png" /></p>
 <p>Le script exécuté était le suivant :</p>
-<p><img src="images/10000000000000D70000002DC732857C.png" style="width:5.689cm;height:1.191cm;" alt="Image" /></p>
+<p><img src="images/10000000000000D70000002DC732857C.png" style="width:5.689cm;height:1.191cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000D70000002DC732857C.png" /></p>
 <p>Alors que le conteneur WSH mettait à disposition du script un objet appelé <em>wscript</em> permettant de faire des affichages avec sa méthode <em>echo</em>, ici IE met à disposition du script un objet <em>window</em> permettant de faire des affichages avec la méthode <em>alert</em>. Ainsi pour afficher &quot;coucou&quot;, on écrit <em>wscript.echo &quot;coucou&quot;</em> dans WSH et <em>window.alert &quot;coucou&quot;</em> dans IE. On peut montrer ici aussi qu&#x27;en fait on peut utiliser plusieurs langages dans le conteneur IE. Nous reprenons l&#x27;exemple déjà présenté dans WSH au sein d&#x27;une page <em>coucou3.htm</em> :</p>
-<p><img src="images/10000000000002A40000011AA4BEDFB1.png" style="width:15.981cm;height:6.668cm;" alt="Image" /></p>
+<p><img src="images/10000000000002A40000011AA4BEDFB1.png" style="width:15.981cm;height:6.668cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002A40000011AA4BEDFB1.png" /></p>
 <p>Le chargement de cette page par IE affiche tout d&#x27;abord trois fenêtres d&#x27;information :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000C200000077F09A77D4.png" style="display:inline-block; margin:4px;width:5.133cm;height:3.149cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000C100000076C652CBA1.png" style="display:inline-block; margin:4px;width:5.106cm;height:3.122cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000C100000075460B483D.png" style="display:inline-block; margin:4px;width:5.106cm;height:3.096cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000C200000077F09A77D4.png" style="display:inline-block; margin:4px;width:5.133cm;height:3.149cm;" class="odt-zoomable" data-zoom-src="images/10000000000000C200000077F09A77D4.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000C100000076C652CBA1.png" style="display:inline-block; margin:4px;width:5.106cm;height:3.122cm;" class="odt-zoomable" data-zoom-src="images/10000000000000C100000076C652CBA1.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000000C100000075460B483D.png" style="display:inline-block; margin:4px;width:5.106cm;height:3.096cm;" class="odt-zoomable" data-zoom-src="images/10000000000000C100000075460B483D.png" /></td></tr></table>
 
 <p>avant d&#x27;afficher la page finale :</p>
-<p><img src="images/10000000000001F90000005B68D2F44C.png" style="width:13.361cm;height:2.408cm;" alt="Image" /></p>
+<p><img src="images/10000000000001F90000005B68D2F44C.png" style="width:13.361cm;height:2.408cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001F90000005B68D2F44C.png" /></p>
 <p><a id="toc535044784"></a>
 <a id="refheading1872132734444"></a></p>
 <h2 id="26-laide-de-wsh">2.6. L&#x27;aide de WSH</h2>
 <p>WSH vient avec un système d&#x27;aide situé habituellement dans le dossier &quot;C:\Program Files\Microsoft Windows Script\ScriptDocs&quot;. pour la version 5.6 de WSH, le fichier d&#x27;aide s&#x27;appelle &quot;SCRIPT56.CHM&quot;. Il suffit de double-cliquer sur ce fichier pour avoir accès à l&#x27;aide. Il peut être pratique d&#x27;en avoir un raccourci sur son bureau.</p>
 <p>Une fois lancé, on a quelque chose comme suit :</p>
-<p><img src="images/10000000000000F1000000B609492925.png" style="width:6.376cm;height:4.815cm;" alt="Image" /></p>
+<p><img src="images/10000000000000F1000000B609492925.png" style="width:6.376cm;height:4.815cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000F1000000B609492925.png" /></p>
 <p>On y trouve l&#x27;aide du conteneur WSH mais également celle pour les langages vbscript et javascript. C&#x27;est un outil indispensable à la fois pour le débutant et le programmeur confirmé. Il y a plusieurs façons de travailler avec cette aide :</p>
 <ul>
 <li>on ne sait pas trop ce qu&#x27;on cherche. On veut simplement découvrir ce qui est proposé. L&#x27;onglet <em>Sommaire</em> ci-dessus peut être alors utilisé. On peut par exemple regarder ce qui est proposé pour vbscript :</li>
 </ul>
-<p><img src="images/10000000000001DA0000020FBC4A7ED8.png" style="width:12.541cm;height:13.944cm;" alt="Image" /></p>
+<p><img src="images/10000000000001DA0000020FBC4A7ED8.png" style="width:12.541cm;height:13.944cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001DA0000020FBC4A7ED8.png" /></p>
 <p>Vous découvrirez dans l&#x27;aide de VBscript de nombreuses informations qui ne sont pas dans ce document.</p>
 <ul>
 <li>vous pouvez chercher quelque chose de précis, par exemple la façon d&#x27;utiliser la fonction <em>msgbox</em> de VBscript. Utilisez alors l&#x27;onglet <em>Rechercher</em> :</li>
 </ul>
-<p><img src="images/10000000000000EA00000156DCCA294C.png" style="width:6.191cm;height:9.049cm;" alt="Image" /></p>
+<p><img src="images/10000000000000EA00000156DCCA294C.png" style="width:6.191cm;height:9.049cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000EA00000156DCCA294C.png" /></p>
 <p>L&#x27;aide ramène toutes les rubriques qui ont un rapport avec le mot recherché. En général, les premières rubriques proposées sont les plus pertinentes. C&#x27;est le cas ici où la première rubrique proposée est la bonne. Il suffit de double-cliquer dessus pour avoir l&#x27;information de cette rubrique :</p>
-<p><img src="images/10000000000002FC000000C168A18C2C.png" style="width:15.981cm;height:4.048cm;" alt="Image" /></p>
+<p><img src="images/10000000000002FC000000C168A18C2C.png" style="width:15.981cm;height:4.048cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002FC000000C168A18C2C.png" /></p>
 
 
 
