@@ -795,8 +795,8 @@
   
 
 
-<p><a id="toc535044785"></a>
-<a id="refheading1872332734444"></a></p>
+<p><a id="refheading1872332734444"></a>
+<a id="toc535044785"></a></p>
 <h1 id="3-les-bases-de-la-programmation-vbscript">3. Les bases de la programmation VBSCRIPT</h1>
 <p>Après avoir décrit les contextes d&#x27;exécution possibles pour un script vbscript, nous abordons maintenant le langage lui-même. Dans toute la suite, nous nous plaçons dans les conditions suivantes :</p>
 <ol>
@@ -811,8 +811,8 @@
 </ul>
 <p>Les conteneurs vbscript ne sont pas sensibles à la &quot;casse&quot; utilisée (majuscules/minuscules) dans le texte du script. Aussi pourra-t-on écrire indifféremment <em>wscript.echo &quot;coucou&quot;</em> ou <em>WSCRIPT.ECHO &quot;coucou&quot;</em>.</p>
 <p>Les programmes présentés dans la suite font beaucoup d&#x27;écritures à l&#x27;écran aussi allons-nous présenter de nouveau les méthodes d&#x27;écriture de l&#x27;objet wscript.</p>
-<p><a id="toc535044786"></a>
-<a id="refheading1872532734444"></a></p>
+<p><a id="refheading1872532734444"></a>
+<a id="toc535044786"></a></p>
 <h2 id="31-afficher-des-informations">3.1. Afficher des informations</h2>
 <p>Nous avons déjà utilisé la méthode <em>echo</em> de l&#x27;objet <em>wscript</em> mais ce dernier a d&#x27;autres méthodes permettant d&#x27;écrire à l&#x27;écran comme le montre le script suivant :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Programme</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Résultats</b></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000018500000062E235339D.png" style="display:inline-block; margin:4px;width:10.292cm;height:2.593cm;" class="odt-zoomable" data-zoom-src="images/100000000000018500000062E235339D.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
@@ -849,8 +849,8 @@
 </code></pre></div></td></tr></table></div>
 </div></td></tr></table>
 
-<p><a id="toc535044788"></a>
-<a id="refheading1872932734444"></a></p>
+<p><a id="refheading1872932734444"></a>
+<a id="toc535044788"></a></p>
 <h2 id="33-ecrire-avec-la-fonction-msgbox">3.3. Écrire avec la fonction msgBox</h2>
 <p>Si dans ce document, nous utilisons quasi exclusivement l&#x27;objet <em>wscript</em> pour écrire à l&#x27;écran, il existe une fonction plus sophistiquée pour afficher des informations dans une fenêtre cette fois-ci. C&#x27;est la fonction <em>msgbox</em> qui s&#x27;utilise en général avec trois paramètres :</p>
 <p><strong>msgbox message, icônes+boutons, titre</strong></p>
@@ -1154,8 +1154,8 @@
 </div></td></tr></table>
 
 <p>Nous avons utilisé ici la structure <em>with ... end with</em> qui permet de &quot;factoriser&quot; des noms d&#x27;objets dans des expressions. La structure <em>with p1 ... end with</em> des lignes 9-12 et 15-18 permet d&#x27;utiliser ensuite la syntaxe <em>.nom</em> en lieu et place de <em>p1.nom</em> et <em>.age</em> en lieu et place de <em>p1.age</em>. Cela permet d&#x27;alléger l&#x27;écriture des instructions où le même nom d&#x27;objet est utilisée de façon répétée.</p>
-<p><a id="toc535044797"></a>
-<a id="refheading1874732734444"></a></p>
+<p><a id="refheading1874732734444"></a>
+<a id="toc535044797"></a></p>
 <h2 id="312-affecter-une-valeur-a-une-variable">3.12. Affecter une valeur à une variable</h2>
 <p>Il y a deux instructions pour affecter une valeur à une variable :</p>
 <ol>
@@ -1285,7 +1285,7 @@
 </div></td></tr></table>
 
 <p><strong>Note</strong> : Dans la phase de développement d&#x27;un programme, il n&#x27;est pas rare qu&#x27;un programme &quot;boucle&quot;, c.a.d. qu&#x27;il ne s&#x27;arrête jamais. En général, le programme exécute une boucle dont la condition de sortie ne peut être vérifiée comme par exemple dans l&#x27;exemple qui suit :</p>
-<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
 <span class="odt-code-line">&#x27; boucle infinie</span>
 <span class="odt-code-line">i=0</span>
 <span class="odt-code-line"><span style="color:#00007f">Do</span><span style="color:#000000"> </span><span style="color:#00007f">While</span><span style="color:#000000"> 1=1</span></span>
@@ -1302,8 +1302,8 @@
 </code></pre></div>
 
 <p>Si on exécute le programme précédent, la première boucle ne s&#x27;arrêtera jamais d&#x27;elle-même. On peut forcer son arrêt en tapant <strong>CTRL-C</strong> au clavier (touche CTRL et touche C enfoncées en même temps).</p>
-<p><a id="toc535044802"></a>
-<a id="refheading1875732734444"></a></p>
+<p><a id="refheading1875732734444"></a>
+<a id="toc535044802"></a></p>
 <h3 id="3143-terminer-lexecution-du-programme">3.14.3. Terminer l&#x27;exécution du programme</h3>
 <p>L&#x27;instruction <strong><em>wscript.quit n</em></strong> termine l&#x27;exécution du programme en renvoyant un code d&#x27;erreur égal à n. Sous DOS, ce code d&#x27;erreur peut être testé avec l&#x27;instruction if ERRORLEVEL n qui est vrai si le code d&#x27;erreur renvoyé par le dernier programme exécuté est &gt;=n. Considérons le programme suivant et ses résultats :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001450000004D41CC124F.png" style="display:inline-block; margin:4px;width:8.599cm;height:2.037cm;" class="odt-zoomable" data-zoom-src="images/10000000000001450000004D41CC124F.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
@@ -1400,7 +1400,7 @@
 <li>Si <strong>C</strong> est une chaîne de caractères formée d&#x27;une suite de champs séparés par la chaîne <strong>car</strong> la fonction <strong>split(C,car)</strong> est un tableau dont les éléments sont les différents de la chaîne C. Ainsi split(&quot;1abcd2abcd3&quot;,&quot;abcd&quot;) donnera le tableau (1,2,3)</li>
 </ul>
 <p>Voici un exemple :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Programme</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Résultats</b></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Programme</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Résultats</b></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
 <span class="odt-code-line">&#x27; transformation tableau--&gt;chaîne et vice-versa</span>
 <span class="odt-code-line"></span>
 <span class="odt-code-line">&#x27; tableau --&gt; chaine</span>
@@ -1422,8 +1422,8 @@
 </code></pre></div>
 </div></td></tr></table>
 
-<p><a id="toc535044806"></a>
-<a id="refheading1876532734444"></a></p>
+<p><a id="refheading1876532734444"></a>
+<a id="toc535044806"></a></p>
 <h2 id="318-les-dictionnaires">3.18. Les dictionnaires</h2>
 <p>On a accès à l&#x27;élément d&#x27;un tableau T lorsqu&#x27;on connaît son numéro i. Il est alors accessible par la notation T(i). Il existe des tableaux dont on accèe aux éléments, non pas par un numéro mais par une chaîne de caractères. L&#x27;exemple typique de ce type de tableau est le dictionnaire. Lorsqu&#x27;on cherche la signification d&#x27;un mot dans le &quot;Larousse&quot; ou &quot;Le petit Robert&quot;, on accède à celle-ci par le mot. On pourrait représenter ce dictionnaire par un tableau à 2 colonnes :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>mot1</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">description1</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>mot2</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">description2</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>mot3</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">description3</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>....</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
@@ -1437,7 +1437,7 @@
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>1</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Un objet Scripting.Dictionary est créé par une instruction</p><p style="margin:0;">    <b>set dico=wscript.CreateObject(&quot;Scripting.Dictionary&quot;)</b></p><p style="margin:0;">ou simplement</p><p style="margin:0;">    <b>set dico=CreateObject(&quot;Scripting.Dictionary&quot;)</b></p><p style="margin:0;"><i>CreateObject</i> est une méthode de l&#x27;objet WScript permettant de créer des instances d&#x27;objets Active X. La version 2 montre que wscript peut être un objet implicite. Lorsqu&#x27;une méthode ne peut être &quot;rapprochée&quot; d&#x27;un objet, le conteneur WSH essaiera de le rapprocher de l&#x27;objet wscript.</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>2</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Une fois le dictionnaire créé, on va pouvoir lui ajouter des éléments avec la méthode add :</p><p style="margin:0;">    <b>dico.add &quot;clé&quot;,valeur</b></p><p style="margin:0;">va créer une nouvelle entrée dans le dictionnaire associée à la clé &quot;clé&quot;. La valeur associée est un variant dont une donnée quelconque.</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>3</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Pour récupérer la valeur associée à une clé donnée on utilise la méthode <b>item</b> du dictionnaire :</p><p style="margin:0;">    <b>var=dico.item(&quot;clé&quot;)</b></p><p style="margin:0;">ou    <b>set var=dico.item(&quot;clé)</b> si la valeur associée à la clé est un objet.</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>4</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">L&#x27;ensemble des clés du dictionnaire peut être récupéré dans un tableau variant grâce à la méthode <b>keys</b> :</p><p style="margin:0;">    <b>clés=dico.keys</b></p><p style="margin:0;"><b>clés</b> est un tableau dont on peut parcourir les éléments.</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>5</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">L&#x27;ensemble des valeurs du dictionnaire peut être récupéré dans un tableau variant grâce à la méthode <b>items</b> :</p><p style="margin:0;">    <b>valeurs=dico.items</b></p><p style="margin:0;"><b>items</b> est un tableau dont on peut parcourir les éléments.</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>6</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">L&#x27;existence d&#x27;une clé peut être testée avec la méthode <b>exists</b> :</p><p style="margin:0;">    <b>dico.exists(&quot;clé&quot;)</b> est vrai si la clé &quot;clé&quot; existe dans le dictionnaire</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>7</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">On peut enlever une entrée du dictionnaire (clé+valeur) avec la méthode <b>remove</b> :</p><p style="margin:0;">    <b>dico.remove(&quot;clé&quot;)</b> enlève l&#x27;entrée du dictionnaire associée à la clé &quot;clé&quot;.     <b>dico.removeall</b> enlève toutes les clés, c.a.d. vide le dictionnaire.</p></td></tr></table>
 
 <p>Le programme suivant utilise ces diverses possibilités :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Programme</b></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Programme</b></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-vbscript">
 <span class="odt-code-line">&#x27; création et utilisation d&#x27;un dictionnaire</span>
 <span class="odt-code-line"><span style="color:#00007f">Set</span><span style="color:#000000"> dico=CreateObject(&quot;Scripting.Dictionary&quot;)</span></span>
 <span class="odt-code-line"></span>
@@ -1529,12 +1529,12 @@
 </code></pre></div>
 </div></td></tr></table>
 
-<p><a id="toc535044807"></a>
-<a id="refheading1876732734444"></a></p>
+<p><a id="refheading1876732734444"></a>
+<a id="toc535044807"></a></p>
 <h2 id="319-trier-un-tableau-ou-un-dictionnaire">3.19. Trier un tableau ou un dictionnaire</h2>
 <p>Il est courant de vouloir trier un tableau ou un dictionnaire dans l&#x27;ordre croissant ou décroissant de ses valeurs ou de ses clés pour un dictionnaire. Alors que dans la pupart des langages, existent des fonctions de tri, il ne semble pas en exister en vbscript. C&#x27;est une lacune.</p>
-<p><a id="toc535044808"></a>
-<a id="refheading1876932734444"></a></p>
+<p><a id="refheading1876932734444"></a>
+<a id="toc535044808"></a></p>
 <h2 id="320-les-arguments-dun-programme">3.20. Les arguments d&#x27;un programme</h2>
 <p>Il est possible d&#x27;appeler un programme vbscript en lui passant des paramètres comme dans :</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>cscript prog1.vbs arg1 arg2 .... argn
@@ -1559,8 +1559,8 @@
 </ul>
 </li>
 </ul>
-<p><a id="toc535044809"></a>
-<a id="refheading1877132734444"></a></p>
+<p><a id="refheading1877132734444"></a>
+<a id="toc535044809"></a></p>
 <h2 id="321-une-premiere-application-impots">3.21. Une première application : IMPOTS</h2>
 <p>On se propose d&#x27;écrire un programme permettant de calculer l&#x27;impôt d&#x27;un contribuable. On se place dans le cas simplifié d&#x27;un contribuable n&#x27;ayant que son seul salaire à déclarer :</p>
 <ul>
