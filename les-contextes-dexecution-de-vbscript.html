@@ -591,12 +591,12 @@
   
 
 
-<p><a id="refheading1870932734444"></a>
+<p><a id="toc535044778"></a>
 <a id="toc523634254"></a>
-<a id="toc535044778"></a></p>
+<a id="refheading1870932734444"></a></p>
 <h1 id="2-les-contextes-dexecution-de-vbscript">2. Les contextes d&#x27;exécution de VBSCRIPT</h1>
-<p><a id="toc535044779"></a>
-<a id="refheading1871132734444"></a></p>
+<p><a id="refheading1871132734444"></a>
+<a id="toc535044779"></a></p>
 <h2 id="21-introduction">2.1. Introduction</h2>
 <p>Un programme <em>vbscript</em> ne s&#x27;exécute pas directement sous Windows mais dans un conteneur qui lui fournit un contexte d&#x27;exécution et un certain nombre d&#x27;objets qui lui sont propres. Par ailleurs, le programme vbscript peut utiliser des objets mis à sa disposition par le système Windows, objets appelés objets ActiveX.</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000073E00000323F1B79BD8.png" style="display:inline-block; margin:4px;width:16.002cm;height:6.93cm;" class="odt-zoomable" data-zoom-src="images/100000000000073E00000323F1B79BD8.png" /></td></tr></table>
@@ -614,8 +614,8 @@
 <li>C&#x27;est davantage les objets utilisables par un programme que le langage utilisé par celui-ci qui font sa puissance. Or nombre de ces objets sont fournis par les conteneurs et non par les langages eux-mêmes.</li>
 </ul>
 <p>Un inconvénient de VBSCRIPT est qu&#x27;il n&#x27;est pas portable sur un système autre que Windows, par exemple Unix. Ses concurrents Javascript, Perl, Python eux le sont. Si on doit travailler sur des systèmes hétérogènes, il peut être intéressant voire indispensable d&#x27;utiliser le même langage sur les différents systèmes.</p>
-<p><a id="toc535044780"></a>
-<a id="refheading1871332734444"></a></p>
+<p><a id="refheading1871332734444"></a>
+<a id="toc535044780"></a></p>
 <h2 id="22-le-conteneur-wsh">2.2. Le conteneur WSH</h2>
 <p>Le conteneur WSH (Windows Scripting Host) permet l&#x27;exécution, au sein de Windows, de programmes écrits en divers langages : vbscript, javascript, perlscript, python, ... Il existe une norme à respecter pour qu&#x27;un langage puisse être utilisé au sein de WSH. Tout langage respectant cette norme est candidat à l&#x27;exécution au sein de WSH. On peut imaginer que la liste précédente des langages s&#x27;exécutant dans WSH puisse s&#x27;allonger. Un conteneur met à la disposition des programmes qu&#x27;il exécute des objets qui leur donnent leur véritable puissance. Ceci tend à gommer les différences entre langages puiqu&#x27;ils utilisent alors tous le même ensemble d&#x27;objets. Utiliser un langage plutôt qu&#x27;un autre peut devenir alors une simple affaire de goût plutôt que de performances.</p>
 <p>L&#x27;exécution d&#x27;un programme dans WSH se fait à l&#x27;aide de deux exécutables : <em>wscript.exe</em> et <em>cscript.exe</em>. <em>wscript.exe</em> se trouve normalement dans le répertoire d&#x27;installation de windows appelé généralement <em>%windir%</em> :</p>
@@ -709,8 +709,8 @@
 <span class="normal"><a href="#__codelineno-4-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>C:\&gt;cscript //nologo coucou.vbs
 <a id="__codelineno-4-2" name="__codelineno-4-2"></a>coucou
 </code></pre></div></td></tr></table></div>
-<p><a id="toc535044781"></a>
-<a id="refheading1871532734444"></a></p>
+<p><a id="refheading1871532734444"></a>
+<a id="toc535044781"></a></p>
 <h2 id="23-la-forme-dun-script-wsh">2.3. La forme d&#x27;un script WSH</h2>
 <p>Nous venons de voir un premier script : <em>coucou.vbs</em></p>
 <p><img src="images/10000000000000AD00000019ADCAAFD4.png" style="width:4.577cm;height:0.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000AD00000019ADCAAFD4.png" /></p>
@@ -740,8 +740,8 @@
 <li>Ce langage de balisages porte un nom : XML pour e<strong>X</strong>tended <strong>M</strong>arkup <strong>L</strong>anguage. XML ne définit aucune balise mais des règles d&#x27;agencement de balises. Ici on devrait donc dire que le langage de balisages utilisé dans un script wsh suit la norme XML.</li>
 </ol>
 <p>Par la suite, nous utiliserons exclusivement vbscript dans des fichiers .vbs.</p>
-<p><a id="toc535044782"></a>
-<a id="refheading1871732734444"></a></p>
+<p><a id="refheading1871732734444"></a>
+<a id="toc535044782"></a></p>
 <h2 id="24-lobjet-wscript">2.4. L&#x27;objet WSCRIPT</h2>
 <p>Le conteneur WSH met à la disposition des scripts qu&#x27;il exécute un objet appelé <em>wscript</em>. Un objet a des <strong>propriétés</strong> et des <strong>méthodes</strong> :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000252000000DFD101E0DF.png" style="display:inline-block; margin:4px;width:7.858cm;height:2.951cm;" class="odt-zoomable" data-zoom-src="images/1000000000000252000000DFD101E0DF.png" /></td></tr></table>
@@ -757,8 +757,8 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="n">arg1</span><span class="p">,</span><span class="w"> </span><span class="n">arg2</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">argn</span>
 </code></pre></div>
 <p>Les valeurs des arguments <em>argi</em> sont alors affichées dans une fenêtre (exécution par wscript) ou à l&#x27;écran (exécution par cscript sous DOS).</p>
-<p><a id="toc535044783"></a>
-<a id="refheading1871932734444"></a></p>
+<p><a id="refheading1871932734444"></a>
+<a id="toc535044783"></a></p>
 <h2 id="25-le-conteneur-internet-explorer">2.5. Le conteneur Internet Explorer</h2>
 <p>Nous avons écrit plus haut que Internet Explorer pouvait être un conteneur pour un script vbscript. Montrons-le sur un exemple simple. Suit une page HTML (<strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage) appelée <em>coucou2.htm</em> ne contenant pas de script vbscript.</p>
 <p>21</p>
@@ -783,8 +783,8 @@
 
 <p>avant d&#x27;afficher la page finale :</p>
 <p><img src="images/10000000000001F90000005B68D2F44C.png" style="width:13.361cm;height:2.408cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001F90000005B68D2F44C.png" /></p>
-<p><a id="toc535044784"></a>
-<a id="refheading1872132734444"></a></p>
+<p><a id="refheading1872132734444"></a>
+<a id="toc535044784"></a></p>
 <h2 id="26-laide-de-wsh">2.6. L&#x27;aide de WSH</h2>
 <p>WSH vient avec un système d&#x27;aide situé habituellement dans le dossier &quot;C:\Program Files\Microsoft Windows Script\ScriptDocs&quot;. pour la version 5.6 de WSH, le fichier d&#x27;aide s&#x27;appelle &quot;SCRIPT56.CHM&quot;. Il suffit de double-cliquer sur ce fichier pour avoir accès à l&#x27;aide. Il peut être pratique d&#x27;en avoir un raccourci sur son bureau.</p>
 <p>Une fois lancé, on a quelque chose comme suit :</p>
